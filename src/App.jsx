@@ -13,7 +13,7 @@ const App = () => {
     <ThemeProvider theme={theme === 'dark' ? darkTheme : lightTheme}>
       <GlobalStyles />
       <h1> Hello </h1>
-      <ThemeToggleButton toggleTheme={toggleTheme} />
+      <ThemeToggleButton theme={theme} toggleTheme={toggleTheme} />
     </ThemeProvider>
   );
 };

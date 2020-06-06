@@ -1,26 +1,31 @@
 import React from 'react';
+import {func, string} from 'prop-types';
 import {
   ToggleSwitchLabel,
   ToggleSwitchWrapper,
   Switch,
 } from './themeToggler.styles';
 
-const ThemeToggleButton = ({ toggleTheme }) => (
+const ThemeToggleButton = ({ theme, toggleTheme }) => (
   <div>
     <ToggleSwitchWrapper>
       <Switch
         id="toggle-theme"
         type="checkbox"
-        onChange={(e) => console.log('Clicked checkbox', e.target.value)}
+        value={theme === 'dark'}
+        checked={theme === 'dark'}
+        onChange={() => toggleTheme()}
       />
       <ToggleSwitchLabel
         htmlFor="toggle-theme"
-        onChange={(e) =>
-          console.log('Something to do with label', e.target.value)
-        }
-      />
+              />
     </ToggleSwitchWrapper>
   </div>
 );
+
+ThemeToggleButton.propTypes = {
+  theme: string.isRequired,
+  toggleTheme: func.isRequired,
+}
 
 export default ThemeToggleButton;
