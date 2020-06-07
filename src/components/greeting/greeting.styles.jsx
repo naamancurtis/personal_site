@@ -17,7 +17,6 @@ export const StyledGreeting = styled.div`
   font-size: 3rem;
   font-weight: 300;
   letter-spacing: 2.5px;
-  transition: 1.5s;
 
   &.hidden {
     animation: ${fadeOut} 1s cubic-bezier(0.08, 0.82, 0.17, 1);
@@ -29,13 +28,16 @@ export const StyledName = styled.div`
   font-size: 1.5rem;
   margin-bottom: 1rem;
   height: 2rem;
-  transition: 1.5s;
+  font-family: Fira Sans, Fifteen;
+  font-weight: 900;
 
-  .name {
-    font-family: Fira Sans, Fifteen;
-    font-weight: 900;
-    font-size: 2rem;
-    transition: 1.5s;
+  .leader-text {
+    font-family: Fira Sans Extra Condensed;
+    font-weight: 300;
+    display: inline-block;
+    overflow: hidden;
+    height: 100%;
+    vertical-align: middle;
   }
 `;
 

@@ -1,5 +1,6 @@
 import React, { useRef, useEffect, useState } from 'react';
 import Typed from 'typed.js';
+import { TimelineLite } from 'gsap';
 import { StyledGreeting, StyledName, StyledRole } from './greeting.styles';
 
 const Greeting = () => {
@@ -23,33 +24,56 @@ const Greeting = () => {
             typings.push(
               new Typed(typedName.current, {
                 strings: [
-                  'My name is <span class="name">Nayman</span>^50',
-                  'My name is <span class="name">Naaman*</span>^300',
-                  'My name is <span class="name">Naaman Curtis</span>',
+                  '<span class="leader-text">My name is &nbsp; </span>Nayman^5',
+                  '<span class="leader-text">My name is &nbsp; </span>Naaman*^300',
+                  '<span class="leader-text">My name is &nbsp; </span>Naaman Curtis',
                 ],
                 startDelay: 200,
                 typeSpeed: 50,
                 backSpeed: 100,
                 showCursor: false,
                 onComplete: () => {
-                  typings.push(
-                    new Typed(typedRole.current, {
-                      strings: ['Software Engineer'],
-                      showCursor: false,
-                      typeSpeed: 50,
-                      onComplete: () => {
-                        typedGreeting.current.classList.add('hidden');
-                        setTimeout(() => {
-                          typedGreeting.current.remove();
-                        }, 1000);
-                        typedName.current.childNodes[1].remove();
-                        typedName.current.style.fontSize = '2.5rem';
-                        typedName.current.style.marginBottom = '0.9rem';
-                        typedName.current.childNodes[0].nodeValue =
-                          'Naaman Curtis';
-                        typedName.current.style.marginBottom = '0.6rem';
+                  const animationTimeline = new TimelineLite();
+                  animationTimeline.set(typedGreeting.current, {
+                    transformOrigin: '0% 0%',
+                  });
+                  animationTimeline
+                    .to(
+                      typedGreeting.current,
+                      {
+                        duration: 1.5,
+                        opacity: 0,
+                        scale: 0,
+                        height: 0,
+                        width: 0,
                       },
-                    })
+                      1.5
+                    )
+                    .eventCallback('onComplete', () =>
+                      typedGreeting.current.remove()
+                    );
+
+                  animationTimeline
+                    .to(
+                      '.leader-text',
+                      {
+                        width: '0',
+                        opacity: '0',
+                        duration: 1.5,
+                      },
+                      '<'
+                    )
+                    .eventCallback('onComplete', () =>
+                      typedName.current.childNodes[0].remove()
+                    );
+
+                  animationTimeline.to(
+                    typedName.current,
+                    {
+                      fontSize: '3rem',
+                      duration: 1.5,
+                    },
+                    '<'
                   );
                 },
               })
