@@ -4,6 +4,10 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
+import './fonts/Fifteen-Thin.ttf';
+import './fonts/Fifteen-Regular.ttf';
+import './fonts/Fifteen-SemiBold.ttf';
+
 ReactDOM.render(
   <React.StrictMode>
     <App />
