@@ -13,8 +13,8 @@ const StyledHeader = styled.div`
 export default StyledHeader;
 
 export const HeaderBrand = styled.span`
-  font-family: 'Fifteen', source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family: 'Fifteen', source-code-pro, Menlo, Monaco, Consolas,
+    'Courier New', monospace;
   color: ${(props) => props.theme.oppositeBackground};
   font-weight: 600;
 `;

@@ -1,4 +1,4 @@
-import {css} from 'styled-components';
+import { css } from 'styled-components';
 
 const sizes = {
   uhd: 1980,
@@ -12,7 +12,7 @@ export default Object.keys(sizes).reduce((acc, label) => {
     @media (min-width: ${sizes[label]}px {
       ${css(...args)};
     })
-  `
+  `;
 
   return acc;
-}, {})
+}, {});

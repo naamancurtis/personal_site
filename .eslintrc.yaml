@@ -1,5 +1,11 @@
 extends:
   - airbnb-prettier
 
+globals:
+  window: true
+  document: true
+
+ignorePatterns: ['**/serviceWorker.js', '**/*.ttf']
+
 rules:
   eslint import/no-extraneous-dependencies: off

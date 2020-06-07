@@ -6,7 +6,7 @@ import Moon from './moon.svg';
 
 export const ToggleSwitchWrapper = styled.div`
   position: relative;
-  height: 34px
+  height: 34px;
 `;
 
 export const ToggleSwitchLabel = styled.label`
@@ -76,4 +76,3 @@ export const Switch = styled.input`
     }
   }
 `;
-
