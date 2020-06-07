@@ -3,7 +3,8 @@ import { ThemeProvider } from 'styled-components';
 
 import GlobalStyles from './styles/global';
 import { darkTheme, lightTheme } from './styles/theme';
-import ThemeToggleButton from './components/theme-toggle-button/themeToggler';
+import Header from './components/header/header.component';
+
 
 const App = () => {
   const [theme, setTheme] = useState('dark');
@@ -12,8 +13,8 @@ const App = () => {
   return (
     <ThemeProvider theme={theme === 'dark' ? darkTheme : lightTheme}>
       <GlobalStyles />
+      <Header theme={theme} toggleTheme={toggleTheme} />
       <h1> Hello </h1>
-      <ThemeToggleButton theme={theme} toggleTheme={toggleTheme} />
     </ThemeProvider>
   );
 };

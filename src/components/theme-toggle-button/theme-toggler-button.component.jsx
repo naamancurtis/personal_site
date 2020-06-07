@@ -1,10 +1,10 @@
 import React from 'react';
-import {func, string} from 'prop-types';
+import PropTypes from 'prop-types';
 import {
   ToggleSwitchLabel,
   ToggleSwitchWrapper,
   Switch,
-} from './themeToggler.styles';
+} from './theme-toggler-button.styles';
 
 const ThemeToggleButton = ({ theme, toggleTheme }) => (
   <div>
@@ -16,16 +16,14 @@ const ThemeToggleButton = ({ theme, toggleTheme }) => (
         checked={theme === 'dark'}
         onChange={() => toggleTheme()}
       />
-      <ToggleSwitchLabel
-        htmlFor="toggle-theme"
-              />
+      <ToggleSwitchLabel htmlFor="toggle-theme" />
     </ToggleSwitchWrapper>
   </div>
 );
 
 ThemeToggleButton.propTypes = {
-  theme: string.isRequired,
-  toggleTheme: func.isRequired,
-}
+  theme: PropTypes.string.isRequired,
+  toggleTheme: PropTypes.func.isRequired,
+};
 
 export default ThemeToggleButton;
