@@ -1,24 +1,30 @@
-const LIGHT_BACKGROUND = '#DEDBE2';
-const LIGHT_ACCENT = '#EC697F';
-const DARK_BACKGROUND = '#393A47';
-const DARK_ACCENT = '#A6E7C1';
+export var lightTheme = {};
+export var darkTheme = {};
 
-export const lightTheme = {
+lightTheme = {
   theme: 'light',
-  body: LIGHT_BACKGROUND,
-  text: '#405070',
-  accent: LIGHT_ACCENT,
+  body: '#DEDBE2',
+  text: '#5D5D74',
+  heading: '#536E8A',
+  primaryAccent: '#EC697F',
+  secondaryAccent: '#405070',
+  tertiaryAccent: '#F76B8E',
+  error: '#E63A57',
 
-  oppositeBackground: DARK_BACKGROUND,
-  oppositeAccent: DARK_ACCENT,
+  oppositeBackground: darkTheme.body,
+  oppositeAccent: darkTheme.accent,
 };
 
-export const darkTheme = {
+darkTheme = {
+  ...lightTheme,
   theme: 'dark',
-  body: DARK_BACKGROUND,
-  text: '#41D2DA',
-  accent: DARK_ACCENT,
+  body: '#393A47',
+  text: lightTheme.body,
+  heading: '#2FCAA3',
+  primaryAccent: '#A6E7C1',
+  secondaryAccent: '#41D2DA',
+  tertiaryAccent: '#F76B8E',
 
-  oppositeBackground: LIGHT_BACKGROUND,
-  oppositeAccent: LIGHT_ACCENT,
+  oppositeBackground: lightTheme.body,
+  oppositeAccent: lightTheme.accent,
 };

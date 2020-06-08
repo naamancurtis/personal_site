@@ -1,106 +1,131 @@
-import React, { useRef, useEffect, useState } from 'react';
+import React, { useRef, useEffect } from 'react';
 import Typed from 'typed.js';
 import { TimelineLite } from 'gsap';
-import { StyledGreeting, StyledName, StyledRole } from './greeting.styles';
+import { GreetingWrapper, Greeting, Name, Role } from './greeting.styles';
 
-const Greeting = () => {
-  const [hasTyped, setTyped] = useState(false);
-
-  const typedGreeting = useRef(null);
-  const typedName = useRef(null);
-  const typedRole = useRef(null);
+const IntroAnimation = ({ theme, toggleTyped }) => {
+  const greeting = useRef(null);
+  const name = useRef(null);
+  const role = useRef(null);
 
   useEffect(() => {
-    if (!hasTyped) {
-      const typings = [];
+    const typings = [];
 
-      typings.push(
-        new Typed(typedGreeting.current, {
-          strings: ['Hello World!'],
-          typeSpeed: 100,
-          startDelay: 50,
-          showCursor: false,
-          onComplete: () => {
-            typings.push(
-              new Typed(typedName.current, {
-                strings: [
-                  '<span class="leader-text">My name is &nbsp; </span>Nayman^5',
-                  '<span class="leader-text">My name is &nbsp; </span>Naaman*^300',
-                  '<span class="leader-text">My name is &nbsp; </span>Naaman Curtis',
-                ],
-                startDelay: 200,
-                typeSpeed: 50,
-                backSpeed: 100,
-                showCursor: false,
-                onComplete: () => {
-                  const animationTimeline = new TimelineLite();
-                  animationTimeline.set(typedGreeting.current, {
-                    transformOrigin: '0% 0%',
-                  });
-                  animationTimeline
-                    .to(
-                      typedGreeting.current,
-                      {
-                        duration: 1.5,
-                        opacity: 0,
-                        scale: 0,
-                        height: 0,
-                        width: 0,
-                      },
-                      1.5
-                    )
-                    .eventCallback('onComplete', () =>
-                      typedGreeting.current.remove()
-                    );
+    typings.push(
+      new Typed(greeting.current, {
+        strings: ['Hello World!'],
+        typeSpeed: 100,
+        startDelay: 50,
+        showCursor: false,
+        onComplete: () => {
+          typings.push(
+            new Typed(name.current, {
+              strings: [
+                '<span class="leader-text">My name is &nbsp; </span>Nayman^5',
+                '<span class="leader-text">My name is &nbsp; </span>Naaman*^300',
+                '<span class="leader-text">My name is &nbsp; </span>Naaman Curtis',
+              ],
+              startDelay: 200,
+              typeSpeed: 50,
+              backSpeed: 100,
+              showCursor: false,
+              onComplete: () => {
+                const animationTimeline = new TimelineLite();
 
-                  animationTimeline
-                    .to(
-                      '.leader-text',
-                      {
-                        width: '0',
-                        opacity: '0',
-                        duration: 1.5,
-                      },
-                      '<'
-                    )
-                    .eventCallback('onComplete', () =>
-                      typedName.current.childNodes[0].remove()
-                    );
+                // Work on Hello World
+                animationTimeline.set(greeting.current, {
+                  transformOrigin: '0% 0%',
+                });
 
-                  animationTimeline.to(
-                    typedName.current,
+                // Show the Role
+                animationTimeline.to(role.current, {
+                  duration: 1.3,
+                  opacity: 0.75,
+                  ease: 'bounce.in',
+                });
+
+                animationTimeline
+                  .to(
+                    greeting.current,
                     {
-                      fontSize: '3rem',
                       duration: 1.5,
+                      opacity: 0,
+                      scale: 0,
+                      height: 0,
+                      width: 0,
+                      ease: 'slow(0.7, 0.7, false)',
+                    },
+                    2
+                  )
+                  .eventCallback('onComplete', () => greeting.current.remove());
+
+                // Get rid of the prefix to the name
+                animationTimeline
+                  .to(
+                    '.leader-text',
+                    {
+                      width: '0',
+                      opacity: '0',
+                      duration: 1.5,
+                      ease: 'slow( 0.7, 0.7, false)',
                     },
                     '<'
+                  )
+                  .eventCallback('onComplete', () =>
+                    name.current.childNodes[0].remove()
                   );
-                },
-              })
-            );
-          },
-        })
-      );
 
-      typings[0].start();
-      setTyped(false);
+                animationTimeline.to(
+                  name.current,
+                  {
+                    fontSize: '3rem',
+                    duration: 1.5,
+                  },
+                  '<'
+                );
 
-      return () => typings.forEach((t) => t.destroy());
-    }
-    return () => {};
-  }, [hasTyped]);
+                animationTimeline.to(
+                  name.current,
+                  {
+                    opacity: 0,
+                    ease: 'sine.out',
+                    duration: 1.75,
+                  },
+                  '+=1'
+                );
+
+                animationTimeline.to(
+                  role.current,
+                  {
+                    opacity: 0,
+                    ease: 'sine.out',
+                    duration: 1.75,
+                  },
+                  '<'
+                );
+
+                animationTimeline.eventCallback('onComplete', () => {
+                  toggleTyped();
+                });
+              },
+            })
+          );
+        },
+      })
+    );
+
+    typings[0].start();
+
+    return () => typings.forEach((t) => t.destroy());
+  }, [theme]);
 
   return (
-    <div>
-      {hasTyped ? null : <StyledGreeting ref={typedGreeting} />}
-      <StyledName ref={typedName}>
-        {hasTyped ? 'Naaman Curtis' : null}
-      </StyledName>
-      <StyledRole ref={typedRole}>
-        {hasTyped ? 'Software Engineer' : null}
-      </StyledRole>
-    </div>
+    <GreetingWrapper>
+      <Greeting ref={greeting} />
+      <Name ref={name} />
+      <Role ref={role}> Software Engineer </Role>
+    </GreetingWrapper>
   );
 };
 
-export default Greeting;
+export default IntroAnimation;

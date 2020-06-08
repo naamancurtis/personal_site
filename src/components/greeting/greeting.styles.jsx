@@ -1,35 +1,28 @@
-import styled, { keyframes } from 'styled-components';
+import styled from 'styled-components';
 
-const fadeOut = keyframes`
-  from {
-    transform: scale(1);
-    opacity: 1;
-  }
-
-  to {
-    transform: scale(0);
-    height: 0;
-    opacity: 0;
-  }
+export const GreetingWrapper = styled.div`
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: -80px;
 `;
 
-export const StyledGreeting = styled.div`
+export const Greeting = styled.div`
   font-size: 3rem;
   font-weight: 300;
   letter-spacing: 2.5px;
-
-  &.hidden {
-    animation: ${fadeOut} 1s cubic-bezier(0.08, 0.82, 0.17, 1);
-  }
 `;
 
-export const StyledName = styled.div`
+export const Name = styled.div`
   font-weight: normal;
   font-size: 1.5rem;
   margin-bottom: 1rem;
   height: 2rem;
   font-family: Fira Sans, Fifteen;
   font-weight: 900;
+  color: ${({ theme }) => theme.heading};
 
   .leader-text {
     font-family: Fira Sans Extra Condensed;
@@ -38,12 +31,15 @@ export const StyledName = styled.div`
     overflow: hidden;
     height: 100%;
     vertical-align: middle;
+    color: ${({ theme }) => theme.text};
   }
 `;
 
-export const StyledRole = styled.div`
+export const Role = styled.div`
   font-family: Fira Sans, Fifteen;
   font-weight: normal;
-  font-size: 1.3rem;
+  font-size: 1.4rem;
+  margin-top: 0.25rem;
   letter-spacing: 1.6px;
+  opacity: 0;
 `;

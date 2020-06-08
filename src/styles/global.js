@@ -14,6 +14,8 @@ export default createGlobalStyle`
     background: ${({ theme }) => theme.body};
     color: ${({ theme }) => theme.text};
     width: 100vw;
+    height: 100vh;
+
     font-family: 'Fira Sans Extra Condensed', 'Fira Sans', Fifteen, Roboto, Helvetica;
     transition: all 0.25s linear;
     padding: 0 1rem;
