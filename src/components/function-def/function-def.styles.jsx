@@ -1,9 +1,12 @@
 import styled from 'styled-components';
 
-export const StyledFnDef = styled.div`
+export const Fn = styled.div`
   font-family: ${({ theme }) => theme.fonts.code};
   color: ${({ theme }) => theme.text};
   padding-left: 20px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
 `;
 
 export const OpaqueFnText = styled.span`
@@ -42,4 +45,13 @@ export const Trait = styled.span`
 export const ReservedWord = styled(Trait)`
   font-weight: 500;
   opacity: 0.75;
+`;
+
+export const FnDef = styled.div`
+  margin: 0;
+  opacity: 0.1;
+`;
+
+export const FnResult = styled.div`
+  align-self: flex-end;
 `;

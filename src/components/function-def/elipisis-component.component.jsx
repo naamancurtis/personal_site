@@ -1,8 +1,21 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useRef } from 'react';
 import { ThemeContext } from 'styled-components';
 
-const SvgElipisis = (props) => {
+const SvgElipisis = ({ setElipisisRef }) => {
   const theme = useContext(ThemeContext);
+  const leftCircle = useRef(null);
+  const rightCircle = useRef(null);
+
+  useEffect(() => {
+    if (leftCircle.current && rightCircle.current) {
+      setElipisisRef({
+        leftCircle: leftCircle.current,
+        rightCircle: rightCircle.current,
+      });
+    }
+    // Putting setElipisisRef in the deps array causes recursion limit
+    // eslint-disable-next-line
+  }, [leftCircle, rightCircle]);
 
   return (
     <svg
@@ -14,7 +27,6 @@ const SvgElipisis = (props) => {
       height="5pt"
       overflow="visible"
       fill={theme.text}
-      {...props}
     >
       <defs>
         <clipPath id="elipisis_svg__a">
@@ -23,21 +35,20 @@ const SvgElipisis = (props) => {
       </defs>
       <g>
         <circle
-          className="elipisis-circle circle-1"
+          ref={leftCircle}
           vectorEffect="non-scaling-stroke"
           cx={662.5}
           cy={358.164}
           r={2.5}
         />
         <circle
-          className="elipisis-circle circle-2"
           vectorEffect="non-scaling-stroke"
           cx={670.892}
           cy={358.164}
           r={2.5}
         />
         <circle
-          className="elipisis-circle circle-3"
+          ref={rightCircle}
           vectorEffect="non-scaling-stroke"
           cx={679.284}
           cy={358.164}
