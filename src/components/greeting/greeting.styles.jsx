@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import media from '../../styles/media';
 
 export const GreetingWrapper = styled.div`
   height: 100%;
@@ -7,30 +8,47 @@ export const GreetingWrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   margin-top: -80px;
+
+  ${media.tablet`
+    padding-left: 4rem;
+    padding-right: 4rem;
+  `};
 `;
 
 export const Greeting = styled.div`
-  font-size: 3rem;
+  font-size: 11vw;
   font-weight: 300;
   letter-spacing: 2.5px;
+  overflow: hidden;
+
+  ${media.desktop`
+    font-size: 8vw;
+  `}
 `;
 
 export const Name = styled.div`
   font-weight: normal;
-  font-size: 1.5rem;
+  font-size: 7vw;
   margin-bottom: 1rem;
-  height: 2rem;
   font-family: Fira Sans, Fifteen;
   font-weight: 900;
-  color: ${({ theme }) => theme.heading};
+  color: ${({ theme }) => theme.primaryAccent};
+  overflow: hidden;
+  text-overflow: hidden;
+  height: 8vw;
+
+  ${media.desktop`
+    font-size: 5vw;
+    height: 6vw;
+  `}
 
   .leader-text {
     font-family: Fira Sans Extra Condensed;
     font-weight: 300;
     display: inline-block;
+    vertical-align: top;
     overflow: hidden;
-    height: 100%;
-    vertical-align: middle;
+    height: 9vw;
     color: ${({ theme }) => theme.text};
   }
 `;
@@ -38,8 +56,10 @@ export const Name = styled.div`
 export const Role = styled.div`
   font-family: Fira Sans, Fifteen;
   font-weight: normal;
-  font-size: 1.4rem;
-  margin-top: 0.25rem;
+  font-size: 5vw;
   letter-spacing: 1.6px;
   opacity: 0;
+  ${media.desktop`
+    font-size: 4vw;
+  `}
 `;

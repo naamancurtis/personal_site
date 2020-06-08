@@ -6,7 +6,7 @@ lightTheme = {
   body: '#DEDBE2',
   text: '#5D5D74',
   heading: '#536E8A',
-  primaryAccent: '#EC697F',
+  primaryAccent: '#4A4371',
   secondaryAccent: '#405070',
   tertiaryAccent: '#F76B8E',
   error: '#E63A57',
@@ -21,7 +21,7 @@ darkTheme = {
   body: '#393A47',
   text: lightTheme.body,
   heading: '#2FCAA3',
-  primaryAccent: '#A6E7C1',
+  primaryAccent: '#DE4F67',
   secondaryAccent: '#41D2DA',
   tertiaryAccent: '#F76B8E',
 

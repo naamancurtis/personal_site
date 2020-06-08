@@ -9,7 +9,7 @@ import IntroAnimation from './components/greeting/greeting.component';
 import './App.css';
 
 const App = () => {
-  const [theme, setTheme] = useState('light');
+  const [theme, setTheme] = useState('dark');
   const toggleTheme = () => setTheme(theme === 'dark' ? 'light' : 'dark');
 
   const [intro, setIntro] = useState(false);
