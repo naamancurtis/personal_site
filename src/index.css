@@ -11,24 +11,3 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-
-@font-face {
-  font-family: 'Fifteen';
-  src: local('Fifteen'), url('./fonts/Fifteen-Regular.ttf');
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Fifteen';
-  src: local('Fifteen'), url('./fonts/Fifteen-Thin.ttf');
-  font-weight: 300;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Fifteen';
-  src: local('Fifteen'), url('./fonts/Fifteen-SemiBold.ttf');
-  font-weight: 600;
-  font-style: normal;
-}

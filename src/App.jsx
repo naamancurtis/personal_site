@@ -5,6 +5,7 @@ import GlobalStyles from './styles/global';
 import { darkTheme, lightTheme } from './styles/theme';
 import Header from './components/header/header.component';
 import IntroAnimation from './components/greeting/greeting.component';
+import Main from './pages/main/main.component';
 
 import './App.css';
 
@@ -12,13 +13,17 @@ const App = () => {
   const [theme, setTheme] = useState('dark');
   const toggleTheme = () => setTheme(theme === 'dark' ? 'light' : 'dark');
 
-  const [intro, setIntro] = useState(false);
+  const [hasPlayedIntro, setIntro] = useState(true);
 
   return (
     <ThemeProvider theme={theme === 'dark' ? darkTheme : lightTheme}>
       <GlobalStyles />
-      <Header theme={theme} toggleTheme={toggleTheme} />
-      {intro ? null : <IntroAnimation toggleTyped={() => setIntro(!intro)} />}
+      <Header toggleTheme={toggleTheme} />
+      {hasPlayedIntro ? (
+        <Main />
+      ) : (
+        <IntroAnimation toggleTyped={() => setIntro(!hasPlayedIntro)} />
+      )}
     </ThemeProvider>
   );
 };

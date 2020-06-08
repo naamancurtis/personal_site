@@ -1,14 +1,22 @@
 export var lightTheme = {};
 export var darkTheme = {};
 
+const fonts = {
+  code: `'Fira Code', source-code-pro, 'Operator Mono', monospace`,
+  heading: 'Fira Sans Extra Condensed',
+  body: 'Fira Sans',
+};
+
 lightTheme = {
+  fonts: { ...fonts },
   theme: 'light',
   body: '#DEDBE2',
   text: '#5D5D74',
   heading: '#536E8A',
   primaryAccent: '#4A4371',
-  secondaryAccent: '#405070',
-  tertiaryAccent: '#F76B8E',
+  secondaryAccent: '#4B5B9C',
+  tertiaryAccent: '#84C6BE',
+  quarternayAccent: '',
   error: '#E63A57',
 
   oppositeBackground: darkTheme.body,
@@ -24,6 +32,7 @@ darkTheme = {
   primaryAccent: '#DE4F67',
   secondaryAccent: '#41D2DA',
   tertiaryAccent: '#F76B8E',
+  quarternayAccent: '#2FCAA3',
 
   oppositeBackground: lightTheme.body,
   oppositeAccent: lightTheme.accent,

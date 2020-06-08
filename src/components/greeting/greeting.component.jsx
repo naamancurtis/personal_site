@@ -10,6 +10,7 @@ const IntroAnimation = ({ theme, toggleTyped }) => {
 
   useEffect(() => {
     const typings = [];
+    const animationTimeline = new TimelineLite();
 
     typings.push(
       new Typed(greeting.current, {
@@ -30,8 +31,6 @@ const IntroAnimation = ({ theme, toggleTyped }) => {
               backSpeed: 100,
               showCursor: false,
               onComplete: () => {
-                const animationTimeline = new TimelineLite();
-
                 // Work on Hello World
                 animationTimeline.set(greeting.current, {
                   transformOrigin: '0% 0%',
@@ -151,7 +150,10 @@ const IntroAnimation = ({ theme, toggleTyped }) => {
 
     typings[0].start();
 
-    return () => typings.forEach((t) => t.destroy());
+    return () => {
+      typings.forEach((t) => t.destroy());
+      animationTimeline.kill();
+    };
     // eslint-disable-next-line
   }, [theme]);
 
