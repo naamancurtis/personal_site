@@ -1,43 +1,30 @@
 import React from 'react';
-import { NavWrapper, NavHeader } from './nav.styles';
-import { BoldType, Keyword, Trait } from '../function-def/function-def.styles';
-import FunctionDef from '../function-def/function-def.component';
+import { NavWrapper, NavHeader, FnDefWrapper } from './nav.styles';
+import { BoldType, Keyword, Trait } from '../function/types.styles';
+import Function from '../function/function.component';
 
-const aboutMe = {
-  self: {
-    prefix: '&',
-  },
-  result: {
+const ROUTES = [
+  {
+    name: 'about_me',
+    paramPrefix: '&',
     result: 'AboutMe',
   },
-};
-
-const myWork = {
-  self: {
-    prefix: '&mut ',
+  {
+    name: 'my_work',
+    paramPrefix: '&mut ',
+    result: 'Projects',
   },
-  result: {
-    result: 'MyWork',
-  },
-};
-
-const whatIDo = {
-  self: {
-    prefix: '&mut ',
-  },
-  result: {
+  {
+    name: 'what_i_do',
+    paramPrefix: '&mut ',
     result: 'Skills',
   },
-};
-
-const contactMe = {
-  self: {
-    prefix: '& ',
-  },
-  result: {
+  {
+    name: 'contact_me',
+    paramPrefix: '&',
     result: 'ContactDetails',
   },
-};
+];
 
 const Nav = () => {
   return (
@@ -48,34 +35,14 @@ const Nav = () => {
         <Keyword>for </Keyword>
         <BoldType> NaamanCurtis</BoldType> {'{'}
       </NavHeader>
-      <FunctionDef
-        isPub
-        fnName={'about_me'}
-        self={aboutMe.self}
-        result={aboutMe.result}
-      />
-      <br />
-      <FunctionDef
-        isPub
-        fnName={'my_work'}
-        self={myWork.self}
-        result={myWork.result}
-      />
-      <br />
-      <FunctionDef
-        isPub
-        fnName={'what_i_do'}
-        self={whatIDo.self}
-        result={whatIDo.result}
-      />
-      <br />
-      <FunctionDef
-        isPub
-        fnName={'contact_me'}
-        self={contactMe.self}
-        result={contactMe.result}
-      />
-
+      <FnDefWrapper>
+        {ROUTES.map((route) => (
+          <>
+            <br />
+            <Function route={route} />
+          </>
+        ))}
+      </FnDefWrapper>
       <NavHeader>{'}'}</NavHeader>
     </NavWrapper>
   );

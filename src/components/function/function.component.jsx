@@ -1,16 +1,11 @@
 import React, { useEffect, useState, useRef } from 'react';
-import { TimelineLite, TweenLite } from 'gsap';
-import {
-  Fn,
-  FnDef,
-  Type,
-  ReservedWord,
-  OpaqueFnText,
-  FnResult,
-} from './function-def.styles';
+import { TimelineLite } from 'gsap';
+import { Type } from './types.styles';
+import { Fn, FnDef, OpaqueFnText, FnResult } from './function.styles';
+import FunctionDef from './function-def/function-def.component';
 import SvgElipisis from './elipisis-component.component';
 
-const FunctionDef = ({ isPub, fnName, self, result }) => {
+const Function = ({ route, contentComponent }) => {
   const [isHover, setHover] = useState(false);
 
   const [animationState, setAnimationState] = useState({
@@ -25,7 +20,6 @@ const FunctionDef = ({ isPub, fnName, self, result }) => {
   });
   const arrow = useRef(null);
   const curlys = useRef(null);
-  const fnDef = useRef(null);
 
   // Set up Animations
   useEffect(() => {
@@ -74,11 +68,6 @@ const FunctionDef = ({ isPub, fnName, self, result }) => {
         },
         '<'
       );
-      // hoverTimeline.eventCallback('onComplete', () => {
-      //   if (!isHover) {
-      //     hoverTimeline.pause();
-      //   }
-      // });
       hoverTimeline.pause();
 
       setAnimationState({
@@ -106,19 +95,11 @@ const FunctionDef = ({ isPub, fnName, self, result }) => {
     if (isHover) {
       timeline.eventCallback('onComplete', null);
       timeline.play();
-      TweenLite.to(fnDef.current, {
-        opacity: 0.7,
-        duration: 0.7,
-      });
     } else {
       if (!timeline.reversed()) {
         timeline.iteration(1).reverse();
       }
       timeline.eventCallback('onComplete', () => timeline.pause());
-      TweenLite.to(fnDef.current, {
-        opacity: 0.1,
-        duration: 0.7,
-      });
     }
   }, [isHover, animationState.hoverTimeline]);
 
@@ -131,46 +112,27 @@ const FunctionDef = ({ isPub, fnName, self, result }) => {
         setHover(false);
       }}
     >
-      <FnDef ref={fnDef}>
-        {isPub ? <OpaqueFnText>pub </OpaqueFnText> : null}
-        <OpaqueFnText>fn </OpaqueFnText>
-        <Type>{fnName}</Type>
-        <OpaqueFnText>{'('}</OpaqueFnText>
-        {self ? (
-          <>
-            <ReservedWord>{self['prefix'] + 'self'}</ReservedWord>
-          </>
-        ) : null}
-        <OpaqueFnText>{') '}</OpaqueFnText>
-      </FnDef>
-
+      <FunctionDef
+        isHover={isHover}
+        fnName={route.name}
+        paramPrefix={route.paramPrefix}
+      />
       <FnResult>
         <OpaqueFnText ref={arrow} className="arrow">
           {'-> '}
         </OpaqueFnText>
-        {result['generic'] ? (
-          <>
-            <ReservedWord>{result['result']}</ReservedWord>
-            {'<'}
-            <OpaqueFnText>{result['generic']}</OpaqueFnText>
-            {'> {...}'}
-          </>
-        ) : (
-          <>
-            <Type> {result['result']} </Type>
-            <OpaqueFnText ref={curlys}>
-              {'{'}
-              <SvgElipisis
-                fnName={fnName}
-                setElipisisRef={setElipisisRef.bind(this)}
-              />
-              {'}'}
-            </OpaqueFnText>
-          </>
-        )}
+        <>
+          <Type> {route.result} </Type>
+          <OpaqueFnText ref={curlys}>
+            {'{'}
+            <SvgElipisis setElipisisRef={setElipisisRef.bind(this)} />
+            {'}'}
+          </OpaqueFnText>
+        </>
       </FnResult>
+      {contentComponent}
     </Fn>
   );
 };
 
-export default FunctionDef;
+export default Function;
