@@ -11,12 +11,14 @@ const StyledHeader = styled.div`
 export default StyledHeader;
 
 export const HeaderBrand = styled.span`
-  font-family: 'Fifteen', source-code-pro, Menlo, Monaco, Consolas,
-    'Courier New', monospace;
+  font-family: 'Fira Sans Extra Condensed', source-code-pro, Menlo, Monaco,
+    Consolas, 'Courier New', monospace;
   color: ${(props) => props.theme.oppositeBackground};
-  font-weight: 600;
+  font-weight: 400;
+  letter-spacing: 1.3px;
 `;
 
-export const HeaderBrandThin = styled.span`
-  font-weight: 300;
+export const HeaderBrandCurly = styled.span`
+  font-family: 'Fira Code', source-code-pro;
+  font-weight: 600;
 `;

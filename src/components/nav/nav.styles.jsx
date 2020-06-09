@@ -4,6 +4,7 @@ import media from '../../styles/media';
 export const NavWrapper = styled.div`
   font-family: ${({ theme }) => theme.fonts.code};
   display: inline-block;
+  width: max-content;
   ${media.tablet`
     max-width: 40vw;
   `};

@@ -68,7 +68,7 @@ const FunctionResult = ({ showAnimation, result }) => {
           {'-> '}
         </OpaqueFnText>
         <>
-          <Type> {result} </Type>
+          <span> {result} </span>
           <OpaqueFnText ref={curlys}>
             {'{'}
             <SvgElipisis />
