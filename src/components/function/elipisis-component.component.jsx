@@ -1,20 +1,30 @@
 import React, { useContext, useEffect, useRef } from 'react';
+import { TimelineLite } from 'gsap';
 import { ThemeContext } from 'styled-components';
 
-const SvgElipisis = ({ setElipisisRef }) => {
+const SvgElipisis = () => {
   const theme = useContext(ThemeContext);
   const leftCircle = useRef(null);
   const rightCircle = useRef(null);
 
   useEffect(() => {
-    if (leftCircle.current && rightCircle.current) {
-      setElipisisRef({
-        leftCircle: leftCircle.current,
-        rightCircle: rightCircle.current,
-      });
-    }
-    // Putting setElipisisRef in the deps array causes recursion limit
-    // eslint-disable-next-line
+    if (!leftCircle || !rightCircle) return;
+
+    const elipisisTimeline = new TimelineLite({ repeat: -1, yoyo: true });
+    elipisisTimeline.from(leftCircle.current, {
+      x: '-1.5px',
+      duration: 1,
+    });
+    elipisisTimeline.from(
+      rightCircle.current,
+      {
+        x: '1.5px',
+        duration: 1,
+      },
+      '<'
+    );
+
+    return () => elipisisTimeline.kill();
   }, [leftCircle, rightCircle]);
 
   return (

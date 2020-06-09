@@ -3,7 +3,7 @@ import { TweenLite } from 'gsap';
 import { OpaqueFnText, FnDef } from '../function.styles';
 import { Type, ReservedWord } from '../types.styles';
 
-const FunctionDef = ({ isHover, hideCompletely, fnName, paramPrefix }) => {
+const FunctionDef = ({ isShown, hideCompletely, fnName, paramPrefix }) => {
   const self = useRef(null);
 
   useEffect(() => {
@@ -17,7 +17,7 @@ const FunctionDef = ({ isHover, hideCompletely, fnName, paramPrefix }) => {
       return;
     }
 
-    if (isHover) {
+    if (isShown) {
       TweenLite.to(self.current, {
         opacity: 0.7,
         duration: 0.7,
@@ -25,12 +25,12 @@ const FunctionDef = ({ isHover, hideCompletely, fnName, paramPrefix }) => {
       });
     } else {
       TweenLite.to(self.current, {
-        opacity: 0.1,
+        opacity: 0.2,
         duration: 0.7,
         fontSize: '0.7em',
       });
     }
-  }, [isHover, hideCompletely]);
+  }, [isShown, hideCompletely]);
 
   return (
     <FnDef ref={self}>
