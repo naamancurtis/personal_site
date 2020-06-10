@@ -38,17 +38,21 @@ const Logo = () => {
       '<'
     );
 
-    timeline.to(
-      name.current,
-      {
-        duration: 1.5,
-        opacity: 1,
-      },
-      '-=0.25'
-    );
+    timeline
+      .to(
+        name.current,
+        {
+          duration: 1.5,
+          opacity: 1,
+        },
+        '-=0.25'
+      )
+      .eventCallback('onComplete', () => timeline.kill());
+
+    console.log('rerunning animation');
 
     return () => timeline.kill();
-  });
+  }, [timeline]);
 
   return (
     <LogoWrapper>

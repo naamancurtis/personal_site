@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { TimelineLite } from 'gsap';
 import { OpaqueFnText, FnResult, FnContent } from '../function.styles';
+import { BoldKeyword } from '../types.styles';
 import SvgElipisis from '../elipisis-component.component';
 
 const FunctionResult = ({ showAnimation, result, isOpen, children }) => {
@@ -136,7 +137,7 @@ const FunctionResult = ({ showAnimation, result, isOpen, children }) => {
           {'-> '}
         </OpaqueFnText>
         <>
-          <span> {result} </span>
+          <BoldKeyword> {result} </BoldKeyword>
           <span>
             <OpaqueFnText ref={openingCurly}> {'{'}</OpaqueFnText>
             <SvgElipisis hideComponent={isOpen} />

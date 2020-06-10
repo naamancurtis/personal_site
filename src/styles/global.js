@@ -1,4 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
+import LightenOrDarken from './utility.functions';
 import media from './media';
 
 export default createGlobalStyle`
@@ -20,5 +21,18 @@ export default createGlobalStyle`
     ${media.tablet`
       height: 100vh; 
     `};
+
+    .underline {
+    background-image: linear-gradient(120deg, ${({ theme }) =>
+      LightenOrDarken(theme.quarternayAccent, -15)} 0%, ${({ theme }) =>
+  LightenOrDarken(theme.secondaryAccent, -15)} 100%);
+    background-repeat: no-repeat;
+    background-size: 100% 0.2em;
+    background-position: 0 92%;
+    transition: background-size 0.25 ease-in;
+    &:hover {
+      background-size: 100% 92%;
+  }
+    }
   }
 `;

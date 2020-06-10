@@ -14,6 +14,10 @@ export const Keyword = styled.span`
   font-weight: 500;
 `;
 
+export const BoldKeyword = styled(Keyword)`
+  font-weight: 900;
+`;
+
 export const OpaqueKeyword = styled(Keyword)`
   opacity: 0.75;
 `;
