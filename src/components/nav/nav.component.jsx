@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
+import fitty from 'fitty';
 import { NavWrapper, NavHeader, FnDefWrapper } from './nav.styles';
 import { BoldType, Keyword, Trait } from '../function/types.styles';
 import Function from '../function/function.component';
@@ -27,9 +28,18 @@ const ROUTES = [
 ];
 
 const Nav = () => {
+  const wrapper = useRef(null);
+
+  useEffect(() => {
+    if (!wrapper) return;
+
+    const fitText = fitty(wrapper.current);
+
+    return () => fitText.unsubscribe();
+  });
   return (
     <NavWrapper>
-      <NavHeader>
+      <NavHeader ref={wrapper}>
         <Keyword>impl </Keyword>
         <Trait>SoftwareEngineer </Trait>
         <Keyword>for </Keyword>

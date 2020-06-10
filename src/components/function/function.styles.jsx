@@ -16,10 +16,6 @@ export const OpaqueFnText = styled.span`
   &.arrow {
     position: relative;
   }
-
-  &.is-open {
-    text-align: left;
-  }
 `;
 
 export const FnDef = styled.div`
@@ -35,5 +31,7 @@ export const FnResult = styled.div`
 export const FnContent = styled.div`
   margin: 0 1em;
   width: 90%;
-  opacity: 1;
+  height: 0;
+  display: none;
+  opacity: 0;
 `;

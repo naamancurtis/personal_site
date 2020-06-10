@@ -8,21 +8,24 @@ const FunctionResult = ({ showAnimation, result, isOpen }) => {
   const curlys = useRef(null);
   const openingCurly = useRef(null);
   const closingCurly = useRef(null);
+  const content = useRef(null);
 
-  const [timeline, setTimeline] = useState(
+  const [pulseTimeline, setPulseTimeline] = useState(
     new TimelineLite({ repeat: -1, yoyo: true })
   );
+
+  const [hiddenTimeline, setHiddenTimeline] = useState(new TimelineLite());
 
   // Set up Animation Timeline
   useEffect(() => {
     if (!arrow || !curlys) return;
 
-    if (!timeline) {
-      setTimeline(new TimelineLite({ repeat: -1, yoyo: true }));
+    if (!pulseTimeline) {
+      setPulseTimeline(new TimelineLite({ repeat: -1, yoyo: true }));
       return;
     }
 
-    timeline.fromTo(
+    pulseTimeline.fromTo(
       [openingCurly.current, closingCurly.current],
       {
         fontWeight: 100,
@@ -34,35 +37,97 @@ const FunctionResult = ({ showAnimation, result, isOpen }) => {
       }
     );
 
-    timeline.to(
-      [openingCurly.current, closingCurly.current],
+    pulseTimeline.to(
+      arrow.current,
       {
         left: '3px',
         duration: 1,
       },
       '<'
     );
-    timeline.pause();
+    pulseTimeline.pause();
 
-    return () => timeline.kill();
-  }, [timeline]);
+    return () => pulseTimeline.kill();
+  }, [pulseTimeline]);
 
   // Manage play/pause of timeline
   useEffect(() => {
-    if (!timeline) return;
+    if (!pulseTimeline) return;
 
     // If we're hovering
     if (showAnimation && !isOpen) {
-      timeline.eventCallback('onComplete', null);
-      timeline.play();
+      pulseTimeline.eventCallback('onComplete', null);
+      pulseTimeline.play();
       return;
     }
 
-    if (!timeline.reversed()) {
-      timeline.iteration(1).reverse();
+    if (!pulseTimeline.reversed()) {
+      pulseTimeline.iteration(1).reverse();
     }
-    timeline.eventCallback('onComplete', () => timeline.pause());
-  }, [showAnimation, timeline, isOpen]);
+    pulseTimeline.eventCallback('onComplete', () => pulseTimeline.pause());
+  }, [showAnimation, pulseTimeline, isOpen]);
+
+  // Set up Hidden Timeline
+  useEffect(() => {
+    if (!content) return;
+    if (!hiddenTimeline) {
+      setHiddenTimeline(new TimelineLite());
+      return;
+    }
+    hiddenTimeline.pause();
+
+    hiddenTimeline.to(
+      closingCurly.current,
+      {
+        duration: 0.25,
+        position: 'relative',
+        top: '1em',
+      },
+      1
+    );
+
+    hiddenTimeline.to(
+      closingCurly.current,
+      {
+        duration: 1.5,
+        left: '-99%',
+      },
+      '<'
+    );
+
+    hiddenTimeline.to(
+      content.current,
+      {
+        display: 'block',
+        duration: 1.5,
+      },
+      '<'
+    );
+
+    hiddenTimeline.to(
+      content.current,
+      {
+        opacity: 1,
+        duration: 0.75,
+        height: '100%',
+      },
+      '>'
+    );
+  }, [hiddenTimeline, content]);
+
+  // Manage play/pause of hidden timeline
+  useEffect(() => {
+    if (!closingCurly) return;
+    if (!content) return;
+
+    if (isOpen) {
+      hiddenTimeline.seek(0).play();
+    } else {
+      if (hiddenTimeline.progress() !== 0) {
+        hiddenTimeline.reverse();
+      }
+    }
+  }, [isOpen, hiddenTimeline]);
 
   return (
     <>
@@ -75,18 +140,17 @@ const FunctionResult = ({ showAnimation, result, isOpen }) => {
           <span>
             <OpaqueFnText ref={openingCurly}> {'{'}</OpaqueFnText>
             <SvgElipisis hideComponent={isOpen} />
-            <FnContent>
-              {' '}
+            <FnContent ref={content}>
               Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsam
               natus, alias eos omnis culpa molestias. Iure, sequi dolorum! Ullam
               nesciunt veniam et facere veritatis maxime nostrum voluptatum
-              magnam distinctio quos.{' '}
+              magnam distinctio quos.
             </FnContent>
             <OpaqueFnText
               ref={closingCurly}
               className={isOpen ? 'is-open' : null}
             >
-              {'}'}{' '}
+              {'}'}
             </OpaqueFnText>
           </span>
         </>
