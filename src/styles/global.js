@@ -16,7 +16,6 @@ export default createGlobalStyle`
     height: 100vh;
 
     font-family: 'Fira Sans Extra Condensed', 'Fira Sans', Fifteen, Roboto, Helvetica;
-    transition: all 0.25s linear;
     padding: 0 1rem;
     ${media.tablet`
       height: 100vh; 

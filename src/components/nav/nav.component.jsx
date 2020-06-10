@@ -3,12 +3,14 @@ import fitty from 'fitty';
 import { NavWrapper, NavHeader, FnDefWrapper } from './nav.styles';
 import { BoldType, Keyword, Trait } from '../function/types.styles';
 import Function from '../function/function.component';
+import AboutMe from '../../pages/about-me/about-me.component';
 
 const ROUTES = [
   {
     name: 'about_me',
     paramPrefix: '&',
     result: 'AboutMe',
+    component: <AboutMe />,
   },
   {
     name: 'my_work',
@@ -49,7 +51,7 @@ const Nav = () => {
         {ROUTES.map((route) => (
           <div key={route.name}>
             <br />
-            <Function route={route} />
+            <Function route={route} children={route.component}></Function>
           </div>
         ))}
       </FnDefWrapper>

@@ -1,16 +1,15 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import PropTypes from 'prop-types';
 
-import StyledHeader, { HeaderBrand, HeaderBrandCurly } from './header.styles';
+import StyledHeader, { HeaderBrand } from './header.styles';
 import ThemeToggleButton from '../theme-toggle-button/theme-toggler-button.component';
+import Logo from './logo/logo.component';
 
 const Header = ({ toggleTheme }) => {
   return (
     <StyledHeader>
       <HeaderBrand>
-        <HeaderBrandCurly>{'{'}</HeaderBrandCurly>
-        {' Naaman Curtis '.toUpperCase()}
-        <HeaderBrandCurly>{'}'}</HeaderBrandCurly>
+        <Logo />
       </HeaderBrand>
       <ThemeToggleButton toggleTheme={toggleTheme} />
     </StyledHeader>

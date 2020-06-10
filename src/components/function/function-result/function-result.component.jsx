@@ -3,7 +3,7 @@ import { TimelineLite } from 'gsap';
 import { OpaqueFnText, FnResult, FnContent } from '../function.styles';
 import SvgElipisis from '../elipisis-component.component';
 
-const FunctionResult = ({ showAnimation, result, isOpen }) => {
+const FunctionResult = ({ showAnimation, result, isOpen, children }) => {
   const arrow = useRef(null);
   const curlys = useRef(null);
   const openingCurly = useRef(null);
@@ -140,12 +140,7 @@ const FunctionResult = ({ showAnimation, result, isOpen }) => {
           <span>
             <OpaqueFnText ref={openingCurly}> {'{'}</OpaqueFnText>
             <SvgElipisis hideComponent={isOpen} />
-            <FnContent ref={content}>
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsam
-              natus, alias eos omnis culpa molestias. Iure, sequi dolorum! Ullam
-              nesciunt veniam et facere veritatis maxime nostrum voluptatum
-              magnam distinctio quos.
-            </FnContent>
+            <FnContent ref={content}>{children}</FnContent>
             <OpaqueFnText
               ref={closingCurly}
               className={isOpen ? 'is-open' : null}
