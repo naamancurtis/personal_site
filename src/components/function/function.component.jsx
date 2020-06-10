@@ -5,6 +5,7 @@ import FunctionResult from './function-result/function-result.component';
 
 const Function = ({ route, contentComponent }) => {
   const [isHover, setHover] = useState(false);
+  const [isOpen, toggleOpen] = useState(false);
 
   return (
     <Fn
@@ -14,13 +15,18 @@ const Function = ({ route, contentComponent }) => {
       onMouseLeave={() => {
         setHover(false);
       }}
+      onClick={() => toggleOpen(!isOpen)}
     >
       <FunctionDef
-        isShown={isHover}
+        isShown={isHover || isOpen}
         fnName={route.name}
         paramPrefix={route.paramPrefix}
       />
-      <FunctionResult showAnimation={isHover} result={route.result} />
+      <FunctionResult
+        showAnimation={isHover}
+        result={route.result}
+        isOpen={isOpen}
+      />
       {contentComponent}
     </Fn>
   );

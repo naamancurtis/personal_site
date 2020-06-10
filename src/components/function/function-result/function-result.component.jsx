@@ -1,10 +1,9 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { TimelineLite } from 'gsap';
-import { Type } from '../types.styles';
 import { OpaqueFnText, FnResult } from '../function.styles';
 import SvgElipisis from '../elipisis-component.component';
 
-const FunctionResult = ({ showAnimation, result }) => {
+const FunctionResult = ({ showAnimation, result, isOpen }) => {
   const arrow = useRef(null);
   const curlys = useRef(null);
 
@@ -71,7 +70,7 @@ const FunctionResult = ({ showAnimation, result }) => {
           <span> {result} </span>
           <OpaqueFnText ref={curlys}>
             {'{'}
-            <SvgElipisis />
+            <SvgElipisis hideComponent={isOpen} />
             {'}'}
           </OpaqueFnText>
         </>

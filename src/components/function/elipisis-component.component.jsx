@@ -1,21 +1,33 @@
-import React, { useContext, useEffect, useRef } from 'react';
-import { TimelineLite } from 'gsap';
+import React, { useContext, useEffect, useRef, useState } from 'react';
+import { TimelineLite, TweenLite } from 'gsap';
 import { ThemeContext } from 'styled-components';
 
-const SvgElipisis = () => {
+const SvgElipisis = ({ hideComponent }) => {
   const theme = useContext(ThemeContext);
+  const self = useRef(null);
   const leftCircle = useRef(null);
   const rightCircle = useRef(null);
+  const [timeline, setTimeline] = useState(
+    new TimelineLite({ repeat: -1, yoyo: true })
+  );
 
   useEffect(() => {
     if (!leftCircle || !rightCircle) return;
 
-    const elipisisTimeline = new TimelineLite({ repeat: -1, yoyo: true });
-    elipisisTimeline.from(leftCircle.current, {
-      x: '-1.5px',
-      duration: 1,
-    });
-    elipisisTimeline.from(
+    if (!timeline) {
+      setTimeline(new TimelineLite({ repeat: -1, yoyo: true }));
+      return;
+    }
+
+    timeline.from(
+      leftCircle.current,
+      {
+        x: '-1.5px',
+        duration: 1,
+      },
+      0
+    );
+    timeline.from(
       rightCircle.current,
       {
         x: '1.5px',
@@ -23,9 +35,28 @@ const SvgElipisis = () => {
       },
       '<'
     );
+    timeline.play();
 
-    return () => elipisisTimeline.kill();
-  }, [leftCircle, rightCircle]);
+    return () => timeline.kill();
+  }, [leftCircle, rightCircle, timeline]);
+
+  useEffect(() => {
+    if (!self) return;
+
+    if (hideComponent) {
+      TweenLite.to(self.current, {
+        opacity: 0,
+        duration: 0.5,
+      });
+      timeline.pause();
+    } else {
+      TweenLite.to(self.current, {
+        opacity: 1,
+        duration: 0.5,
+      });
+      timeline.play();
+    }
+  });
 
   return (
     <svg
@@ -37,6 +68,7 @@ const SvgElipisis = () => {
       height="5pt"
       overflow="visible"
       fill={theme.text}
+      ref={self}
     >
       <defs>
         <clipPath id="elipisis_svg__a">
@@ -70,4 +102,3 @@ const SvgElipisis = () => {
 };
 
 export default SvgElipisis;
-

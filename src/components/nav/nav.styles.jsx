@@ -15,5 +15,5 @@ export const NavHeader = styled.h2`
 `;
 
 export const FnDefWrapper = styled.div`
-  margin-right: 30px;
+  margin-right: 1.2em;
 `;

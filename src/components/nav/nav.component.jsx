@@ -37,10 +37,10 @@ const Nav = () => {
       </NavHeader>
       <FnDefWrapper>
         {ROUTES.map((route) => (
-          <>
+          <div key={route.name}>
             <br />
             <Function route={route} />
-          </>
+          </div>
         ))}
       </FnDefWrapper>
       <NavHeader>{'}'}</NavHeader>
