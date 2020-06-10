@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useRef, useState } from 'react';
-import { TimelineLite, TweenLite } from 'gsap';
+import { TimelineLite } from 'gsap';
 import { ThemeContext } from 'styled-components';
 
 const SvgElipisis = ({ hideComponent }) => {
@@ -7,19 +7,23 @@ const SvgElipisis = ({ hideComponent }) => {
   const self = useRef(null);
   const leftCircle = useRef(null);
   const rightCircle = useRef(null);
-  const [timeline, setTimeline] = useState(
+  // Used two make the two outer dots bounce in and out
+  const [yoyoTimeline, setYoyoTimeline] = useState(
     new TimelineLite({ repeat: -1, yoyo: true })
   );
+
+  // Transition state between hidden and showing
+  const [hiddenTimeline, setHiddenTimeline] = useState(new TimelineLite());
 
   useEffect(() => {
     if (!leftCircle || !rightCircle) return;
 
-    if (!timeline) {
-      setTimeline(new TimelineLite({ repeat: -1, yoyo: true }));
+    if (!yoyoTimeline) {
+      setYoyoTimeline(new TimelineLite({ repeat: -1, yoyo: true }));
       return;
     }
 
-    timeline.from(
+    yoyoTimeline.from(
       leftCircle.current,
       {
         x: '-1.5px',
@@ -27,7 +31,7 @@ const SvgElipisis = ({ hideComponent }) => {
       },
       0
     );
-    timeline.from(
+    yoyoTimeline.from(
       rightCircle.current,
       {
         x: '1.5px',
@@ -35,28 +39,53 @@ const SvgElipisis = ({ hideComponent }) => {
       },
       '<'
     );
-    timeline.play();
+    yoyoTimeline.play();
 
-    return () => timeline.kill();
-  }, [leftCircle, rightCircle, timeline]);
+    return () => yoyoTimeline.kill();
+  }, [leftCircle, rightCircle, yoyoTimeline]);
+
+  // Should only be run once
+  useEffect(() => {
+    if (!self) return;
+
+    if (!hiddenTimeline) {
+      setHiddenTimeline(new TimelineLite());
+      return;
+    }
+
+    hiddenTimeline.pause();
+    hiddenTimeline.to(
+      self.current,
+      {
+        opacity: 0,
+        duration: 1,
+        width: 0,
+      },
+      0
+    );
+    hiddenTimeline.to(
+      self.current,
+      {
+        display: 'none',
+        duration: 0.1,
+      },
+      '>'
+    );
+  }, [hiddenTimeline]);
 
   useEffect(() => {
     if (!self) return;
 
     if (hideComponent) {
-      TweenLite.to(self.current, {
-        opacity: 0,
-        duration: 0.5,
-      });
-      timeline.pause();
+      hiddenTimeline.seek(0).play();
+      yoyoTimeline.pause();
     } else {
-      TweenLite.to(self.current, {
-        opacity: 1,
-        duration: 0.5,
-      });
-      timeline.play();
+      if (hiddenTimeline.progress() !== 0) {
+        hiddenTimeline.reverse();
+      }
+      yoyoTimeline.play();
     }
-  });
+  }, [hideComponent, hiddenTimeline, yoyoTimeline]);
 
   return (
     <svg
