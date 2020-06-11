@@ -30,7 +30,7 @@ export const Name = styled.div`
   font-weight: normal;
   font-size: 7vw;
   margin-bottom: 1rem;
-  font-family: Fira Sans, Fifteen;
+  font-family: ${({ theme }) => theme.fonts.heading};
   font-weight: 900;
   color: ${({ theme }) => theme.primaryAccent};
   overflow: hidden;

@@ -16,7 +16,7 @@ export const NavLineItem = styled.div`
 `;
 
 export const NavHeader = styled.h2`
-  font-size: 1.1em;
+  font-size: 1.3em;
   opacity: 0.7;
 `;
 

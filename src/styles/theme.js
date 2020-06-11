@@ -3,7 +3,7 @@ export var darkTheme = {};
 
 const fonts = {
   code: `'Fira Code', source-code-pro, 'Operator Mono', monospace`,
-  heading: 'Fira Sans Extra Condensed',
+  heading: 'Fira Sans Extra Condensed, Fira Sans',
   body: 'Fira Sans',
 };
 

@@ -51,6 +51,7 @@
     "eslint": "^6.6.0",
     "eslint-config-airbnb-prettier": "^1.1.0",
     "prettier": "^2.0.5",
-    "storybook": "^5.3.19"
+    "storybook": "^5.3.19",
+    "storybook-addon-styled-component-theme": "^1.3.0"
   }
 }

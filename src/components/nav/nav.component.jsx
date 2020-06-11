@@ -5,6 +5,9 @@ import { NavWrapper, NavHeader, FnDefWrapper, NavLineItem } from './nav.styles';
 import { BoldType, Keyword, Trait } from '../function/types.styles';
 import Function from '../function/function.component';
 import AboutMe from '../../pages/about-me/about-me.component';
+import ProjectPage from '../../pages/projects/projects.component';
+import SkillsPage from '../../pages/skills/skills.component';
+import ContactDetailsPage from '../../pages/contact-details/contact-details.component';
 
 const ROUTES = [
   {
@@ -17,29 +20,40 @@ const ROUTES = [
     name: 'my_work',
     paramPrefix: '&mut ',
     result: 'Projects',
-    component: <AboutMe />,
+    component: <ProjectPage />,
   },
   {
     name: 'what_i_do',
     paramPrefix: '&mut ',
     result: 'Skills',
-    component: <AboutMe />,
+    component: <SkillsPage />,
   },
   {
     name: 'contact_me',
     paramPrefix: '&',
     result: 'ContactDetails',
-    component: <AboutMe />,
+    component: <ContactDetailsPage />,
   },
 ];
 
 const Nav = () => {
   const wrapper = useRef(null);
+  const closingCurly = useRef(null);
 
   useEffect(() => {
-    if (!wrapper) return;
+    if (!wrapper || !closingCurly) return;
 
-    const fitText = fitty(wrapper.current);
+    const wrapperRef = wrapper.current;
+
+    const fitText = fitty(wrapperRef);
+
+    const resizeClosingCurly = (e) => {
+      const size = e.detail.newValue;
+      closingCurly.current.style.fontSize = `${size}px`;
+    };
+
+    wrapperRef.addEventListener('fit', resizeClosingCurly);
+
     TweenLite.from('.route', {
       opacity: 0,
       duration: 0.75,
@@ -47,8 +61,12 @@ const Nav = () => {
       stagger: 0.2,
     });
 
-    return () => fitText.unsubscribe();
+    return () => {
+      fitText.unsubscribe();
+      wrapperRef.removeEventListener('fit', resizeClosingCurly);
+    };
   });
+
   return (
     <NavWrapper>
       <NavHeader ref={wrapper}>
@@ -65,7 +83,10 @@ const Nav = () => {
           </NavLineItem>
         ))}
       </FnDefWrapper>
-      <NavHeader>{'}'}</NavHeader>
+      <NavHeader ref={closingCurly}>
+        <br />
+        {'}'}
+      </NavHeader>
     </NavWrapper>
   );
 };

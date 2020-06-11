@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { TimelineLite } from 'gsap';
-import { AboutMeWrapper } from './about-me.styles';
+import { AboutMeWrapper, AboutMeParagraph } from './about-me.styles';
 
 const AboutMe = ({ isShown }) => {
   const self = useRef(null);
@@ -16,7 +16,7 @@ const AboutMe = ({ isShown }) => {
     timeline.pause();
 
     timeline.from('.about-me-text', {
-      y: -100,
+      x: -50,
       stagger: 0.3,
       opacity: 0,
       duration: 0.75,
@@ -38,24 +38,24 @@ const AboutMe = ({ isShown }) => {
 
   return (
     <AboutMeWrapper ref={self}>
-      <p className="about-me-text">
+      <AboutMeParagraph className="about-me-text">
         I'm a full-stack Software Engineer who uses technology to create
         products and solutions that&nbsp;
         <span className="underline">positively impact</span> people's day-to-day
         lives.
-      </p>
+      </AboutMeParagraph>
       <br />
-      <p className="about-me-text">
+      <AboutMeParagraph className="about-me-text">
         Both passionate and enthuastic, I enjoy taking on challenges and
         finding&nbsp;
         <span className="underline">innovative solutions</span> to them.
-      </p>
+      </AboutMeParagraph>
       <br />
-      <p className="about-me-text">
+      <AboutMeParagraph className="about-me-text">
         I firmly believe that the best products and solutions are created when
         you bring a <span className="underline">diverse group</span> of people
         together and allow each to bring their unique perspectives to the table.
-      </p>
+      </AboutMeParagraph>
     </AboutMeWrapper>
   );
 };
