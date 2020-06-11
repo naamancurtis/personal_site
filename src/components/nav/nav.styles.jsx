@@ -11,6 +11,10 @@ export const NavWrapper = styled.div`
   `};
 `;
 
+export const NavLineItem = styled.div`
+  position: relative;
+`;
+
 export const NavHeader = styled.h2`
   font-size: 1.1em;
   opacity: 0.7;

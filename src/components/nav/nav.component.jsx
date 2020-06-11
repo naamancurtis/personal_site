@@ -1,6 +1,7 @@
 import React, { useRef, useEffect } from 'react';
 import fitty from 'fitty';
-import { NavWrapper, NavHeader, FnDefWrapper } from './nav.styles';
+import { TweenLite } from 'gsap';
+import { NavWrapper, NavHeader, FnDefWrapper, NavLineItem } from './nav.styles';
 import { BoldType, Keyword, Trait } from '../function/types.styles';
 import Function from '../function/function.component';
 import AboutMe from '../../pages/about-me/about-me.component';
@@ -39,6 +40,12 @@ const Nav = () => {
     if (!wrapper) return;
 
     const fitText = fitty(wrapper.current);
+    TweenLite.from('.route', {
+      opacity: 0,
+      duration: 0.75,
+      left: '-100px',
+      stagger: 0.2,
+    });
 
     return () => fitText.unsubscribe();
   });
@@ -52,10 +59,10 @@ const Nav = () => {
       </NavHeader>
       <FnDefWrapper>
         {ROUTES.map((route) => (
-          <div key={route.name}>
+          <NavLineItem key={route.name} className="route">
             <br />
             <Function route={route} children={route.component}></Function>
-          </div>
+          </NavLineItem>
         ))}
       </FnDefWrapper>
       <NavHeader>{'}'}</NavHeader>
