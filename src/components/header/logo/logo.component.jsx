@@ -49,8 +49,6 @@ const Logo = () => {
       )
       .eventCallback('onComplete', () => timeline.kill());
 
-    console.log('rerunning animation');
-
     return () => timeline.kill();
   }, [timeline]);
 

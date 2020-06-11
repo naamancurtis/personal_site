@@ -23,16 +23,19 @@ export default createGlobalStyle`
     `};
 
     .underline {
-    background-image: linear-gradient(120deg, ${({ theme }) =>
-      LightenOrDarken(theme.quarternayAccent, -15)} 0%, ${({ theme }) =>
+      background-image: linear-gradient(120deg, ${({ theme }) =>
+        LightenOrDarken(theme.quarternayAccent, -15)} 0%, ${({ theme }) =>
   LightenOrDarken(theme.secondaryAccent, -15)} 100%);
-    background-repeat: no-repeat;
-    background-size: 100% 0.2em;
-    background-position: 0 92%;
-    transition: background-size 0.25 ease-in;
-    &:hover {
-      background-size: 100% 92%;
-  }
+      background-repeat: no-repeat;
+      background-size: 100% 0.2em;
+      background-position: 0 92%;
+      transition: background-size 0.25 ease-in;
+
+      &:hover {
+        background-size: 105% 98%;
+        color: ${({ theme }) => theme.body};
+        font-weight: 500;
+      }
     }
   }
 `;

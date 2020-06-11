@@ -23,9 +23,11 @@ export const FnDef = styled.div`
   margin: 0;
   opacity: 0.1;
   font-size: 0.7em;
+  margin-top: 0.3em;
 `;
 
 export const FnResult = styled.div`
+  margin-top: 0.2em;
   text-align: right;
   font-size: 1.3em;
 `;
@@ -37,4 +39,5 @@ export const FnContent = styled.div`
   height: 0;
   display: none;
   opacity: 0;
+  cursor: default;
 `;

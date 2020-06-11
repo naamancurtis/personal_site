@@ -141,7 +141,16 @@ const FunctionResult = ({ showAnimation, result, isOpen, children }) => {
           <span>
             <OpaqueFnText ref={openingCurly}> {'{'}</OpaqueFnText>
             <SvgElipisis hideComponent={isOpen} />
-            <FnContent ref={content}>{children}</FnContent>
+            <FnContent
+              ref={content}
+              onClick={(e) => {
+                // Don't want to the section to close if the content is clicked on
+                e.stopPropagation();
+                e.preventDefault();
+              }}
+            >
+              {React.cloneElement(children, { isShown: isOpen })}
+            </FnContent>
             <OpaqueFnText
               ref={closingCurly}
               className={isOpen ? 'is-open' : null}

@@ -16,16 +16,19 @@ const ROUTES = [
     name: 'my_work',
     paramPrefix: '&mut ',
     result: 'Projects',
+    component: <AboutMe />,
   },
   {
     name: 'what_i_do',
     paramPrefix: '&mut ',
     result: 'Skills',
+    component: <AboutMe />,
   },
   {
     name: 'contact_me',
     paramPrefix: '&',
     result: 'ContactDetails',
+    component: <AboutMe />,
   },
 ];
 

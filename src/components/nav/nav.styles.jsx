@@ -13,7 +13,7 @@ export const NavWrapper = styled.div`
 
 export const NavHeader = styled.h2`
   font-size: 1.1em;
-  opacity: 0.6;
+  opacity: 0.7;
 `;
 
 export const FnDefWrapper = styled.div`
