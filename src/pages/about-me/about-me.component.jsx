@@ -1,14 +1,11 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { TimelineLite } from 'gsap';
 import { AboutMeWrapper, AboutMeParagraph } from './about-me.styles';
 
 const AboutMe = ({ isShown }) => {
-  const self = useRef(null);
   const [timeline, setTimeline] = useState(new TimelineLite());
 
   useEffect(() => {
-    if (!self) return;
-
     if (!timeline) {
       setTimeline(new TimelineLite());
       return;
@@ -22,10 +19,10 @@ const AboutMe = ({ isShown }) => {
       duration: 0.75,
       delay: 2.5,
     });
-  }, [self, timeline]);
+  }, [timeline]);
 
   useEffect(() => {
-    if (!self || !isShown || !timeline) return;
+    if (!isShown || !timeline) return;
 
     if (isShown) {
       timeline.seek(0).play();
@@ -34,10 +31,10 @@ const AboutMe = ({ isShown }) => {
         timeline.reverse();
       }
     }
-  }, [self, timeline, isShown]);
+  }, [timeline, isShown]);
 
   return (
-    <AboutMeWrapper ref={self}>
+    <AboutMeWrapper>
       <AboutMeParagraph className="about-me-text">
         I'm a full-stack Software Engineer who uses technology to create
         products and solutions that&nbsp;

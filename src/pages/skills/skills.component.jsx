@@ -1,4 +1,5 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
+import { TimelineLite } from 'gsap';
 import SkillCard from '../../components/skill-card/skill-card.component';
 import {
   SkillsWrapper,
@@ -76,27 +77,56 @@ const SKILLS = [
   },
 ];
 
-const SkillsPage = () => {
+const SkillsPage = ({ isShown }) => {
   const theme = useContext(ThemeContext);
+  const [timeline, setTimeline] = useState(new TimelineLite());
+
+  useEffect(() => {
+    if (!timeline) {
+      setTimeline(new TimelineLite());
+      return;
+    }
+    timeline.pause();
+
+    timeline.from('.skills-item', {
+      x: -50,
+      stagger: 0.3,
+      opacity: 0,
+      duration: 0.75,
+      delay: 2.5,
+    });
+  }, [timeline]);
+
+  useEffect(() => {
+    if (!isShown || !timeline) return;
+
+    if (isShown) {
+      timeline.seek(0).play();
+    } else {
+      if (timeline.progress() !== 0) {
+        timeline.reverse();
+      }
+    }
+  }, [timeline, isShown]);
 
   return (
     <SkillsWrapper>
-      <p>
-        I build anything from user journey driven web apps, to internal business
-        apps to simple quality of life CLI tools.
+      <p className="skills-item">
+        I build anything from web apps to CLI tools, anything that provides
+        value and an improved quality of life to the user.
       </p>
       <br />
-      <p>
+      <p className="skills-item">
         To do this I focus on creating solutions with{' '}
         <span className="underline">intuitive user experiences</span> where the
         user and their needs stay firmly at the center of the experience.
       </p>
       <br />
-      <SmallText>
-        See below for a list of tools, technologies and frameworks I'm familiar
-        with.
+      <SmallText className="skills-item">
+        See below for a list of languages, technologies and frameworks I'm
+        familiar with.
       </SmallText>
-      <SkillBlockWrapper>
+      <SkillBlockWrapper className="skills-item">
         <SkillCardsWrapper>
           {SKILLS.map((skill) => {
             if (skill.imgFn) {
