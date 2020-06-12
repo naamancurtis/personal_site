@@ -134,6 +134,16 @@ export const pSBC = (p, c0, c1, l) => {
     );
 };
 
+export function convertRgbStrToObject(str) {
+  if (!str) return { r: 0, g: 0, b: 0 };
+  const splitRgbString = str.substr(4, str.length - 5).split(',');
+  return {
+    r: splitRgbString[0],
+    g: splitRgbString[1],
+    b: splitRgbString[2],
+  };
+}
+
 // https://stackoverflow.com/questions/5623838/rgb-to-hex-and-hex-to-rgb
 export function hexToRgb(hex) {
   // Expand shorthand form (e.g. "03F") to full form (e.g. "0033FF")

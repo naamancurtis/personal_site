@@ -7,6 +7,8 @@ import {
   SubmitButton,
   FormWrapper,
   FormTitle,
+  FormGroup,
+  FormLabel,
 } from './contact-details.styles';
 
 const ContactDetailsPage = () => {
@@ -14,29 +16,53 @@ const ContactDetailsPage = () => {
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
 
-  const handleSubmit = (e) => {};
+  const handleSubmit = (e) => {
+    e.preventDefault();
+  };
+
+  const clearForm = () => {
+    setName('');
+    setEmail('');
+    setMessage('');
+  };
 
   return (
     <FormWrapper>
       <FormTitle> Drop me a message </FormTitle>
       <Form onSubmit={handleSubmit}>
-        <FormInput
-          id="name"
-          name="name"
-          type="text"
-          onChange={(e) => setName(e.target.value)}
-        />
-        <FormInput
-          id="email"
-          name="email"
-          type="email"
-          onChange={(e) => setEmail(e.target.value)}
-        />
-        <FormTextArea
-          id="message"
-          onChange={(e) => setMessage(e.target.value)}
-          rows="6"
-        />
+        <FormGroup>
+          <FormInput
+            id="name"
+            name="name"
+            type="text"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            required
+          />
+          <FormLabel value={name}>Name</FormLabel>
+        </FormGroup>
+        <FormGroup>
+          <FormInput
+            id="email"
+            name="email"
+            type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+          />
+          <FormLabel value={email}>Email</FormLabel>
+        </FormGroup>
+        <FormGroup>
+          <FormTextArea
+            id="message"
+            value={message}
+            name="message"
+            onChange={(e) => setMessage(e.target.value)}
+            rows="6"
+            required
+          />
+          <FormLabel value={message}>Message</FormLabel>
+        </FormGroup>
         <SubmitButton>Send Message</SubmitButton>
       </Form>
     </FormWrapper>
