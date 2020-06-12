@@ -16,6 +16,7 @@ const Function = ({ route, children }) => {
         setHover(false);
       }}
       onClick={() => toggleOpen(!isOpen)}
+      className={isOpen ? 'is-open' : null}
     >
       <FunctionDef
         isShown={isHover || isOpen}

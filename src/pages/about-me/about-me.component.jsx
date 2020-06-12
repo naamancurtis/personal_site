@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { TimelineLite } from 'gsap';
 import { AboutMeWrapper, AboutMeParagraph } from './about-me.styles';
+import { Line } from '../../styles/components';
 
 const AboutMe = ({ isShown }) => {
   const [timeline, setTimeline] = useState(new TimelineLite());
@@ -35,6 +36,7 @@ const AboutMe = ({ isShown }) => {
 
   return (
     <AboutMeWrapper>
+      <Line />
       <AboutMeParagraph className="about-me-text">
         I'm a full-stack Software Engineer who uses technology to create
         products and solutions that&nbsp;

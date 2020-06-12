@@ -3,6 +3,7 @@ import { LightenDarkenColor } from '../../styles/utility.functions';
 
 import Sun from './sun.svg';
 import Moon from './moon.svg';
+import { indentBoxShadowCss } from '../../styles/neumorphic';
 
 export const ToggleSwitchWrapper = styled.div`
   position: relative;
@@ -16,18 +17,7 @@ export const ToggleSwitchLabel = styled.label`
   width: 60px;
   height: 34px;
   border-radius: 4px;
-  box-shadow: ${(props) => {
-    if (props.theme.theme === 'dark') {
-      return `
-        inset 3px 3px 16px 0 rgba(222, 219, 226, 0.1),
-        inset -6px -6px 10px 0 rgba(57, 58, 71, 0.5);
-        `;
-    }
-    return `
-    inset -6px 6px 16px 0 rgba(57, 58, 71, 0.1),
-    inset 6px 6px 10px 0 rgba(222, 219, 226, 0.5);
-  `;
-  }}
+  ${indentBoxShadowCss} 
 
   background-color: ${(props) => props.theme.body};
   cursor: pointer;

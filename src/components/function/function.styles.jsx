@@ -1,4 +1,8 @@
 import styled from 'styled-components';
+import {
+  defaultBoxShadowCss,
+  indentBoxShadowCss,
+} from '../../styles/neumorphic';
 
 export const Fn = styled.div`
   font-family: ${({ theme }) => theme.fonts.code};
@@ -7,14 +11,32 @@ export const Fn = styled.div`
   cursor: pointer;
   display: flex;
   flex-direction: column;
+  padding: 1em 1.3em;
+  border-radius: 10px;
+  height: 100%;
+
+  &:hover {
+    ${defaultBoxShadowCss}
+  }
+
+  &.is-open {
+    ${indentBoxShadowCss}
+    &:hover {
+    }
+  }
 `;
 
 export const OpaqueFnText = styled.span`
   opacity: 0.5;
   font-weight: 400;
+  display: inline-block;
 
   &.arrow {
     position: relative;
+  }
+
+  &.is-open {
+    padding-bottom: 1.5rem;
   }
 `;
 

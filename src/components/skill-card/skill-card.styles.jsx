@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { hexToRgb } from '../../styles/utility.functions';
 
 export const SkillCardWrapper = styled.div`
-  padding-top: 1rem;
+  margin-bottom: 1rem;
   display: inline-flex;
 `;
 

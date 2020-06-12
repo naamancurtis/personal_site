@@ -8,6 +8,7 @@ import {
   SkillCardsWrapper,
 } from './skills.styles';
 import { ThemeContext } from 'styled-components';
+import { Line } from '../../styles/components';
 
 const SKILLS = [
   {
@@ -111,8 +112,9 @@ const SkillsPage = ({ isShown }) => {
 
   return (
     <SkillsWrapper>
+      <Line />
       <p className="skills-item">
-        I build anything from web apps to CLI tools, anything that provides
+        I build all sorts, from web apps to CLI tools, anything that provides
         value and an improved quality of life to the user.
       </p>
       <br />
@@ -126,6 +128,7 @@ const SkillsPage = ({ isShown }) => {
         See below for a list of languages, technologies and frameworks I'm
         familiar with.
       </SmallText>
+      <Line />
       <SkillBlockWrapper className="skills-item">
         <SkillCardsWrapper>
           {SKILLS.map((skill) => {
@@ -136,6 +139,7 @@ const SkillsPage = ({ isShown }) => {
           })}
         </SkillCardsWrapper>
       </SkillBlockWrapper>
+      <Line />
     </SkillsWrapper>
   );
 };

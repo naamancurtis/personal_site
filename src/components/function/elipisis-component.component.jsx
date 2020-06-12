@@ -72,7 +72,7 @@ const SvgElipisis = ({ hideComponent }) => {
       hiddenTimeline.seek(0).play();
       yoyoTimeline.pause();
     } else {
-      if (hiddenTimeline.progress() !== 0) {
+      if (!hideComponent && hiddenTimeline.progress() !== 0) {
         setTimeout(() => {
           hiddenTimeline.reverse();
         }, 2500);

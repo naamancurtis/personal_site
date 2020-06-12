@@ -10,6 +10,7 @@ import {
   FormGroup,
   FormLabel,
 } from './contact-details.styles';
+import { Line } from '../../styles/components';
 
 const ContactDetailsPage = () => {
   const [name, setName] = useState('');
@@ -28,6 +29,7 @@ const ContactDetailsPage = () => {
 
   return (
     <FormWrapper>
+      <Line />
       <FormTitle> Drop me a message </FormTitle>
       <Form onSubmit={handleSubmit}>
         <FormGroup>
