@@ -57,19 +57,11 @@ const SvgElipisis = ({ hideComponent }) => {
     hiddenTimeline.to(
       self.current,
       {
-        opacity: 0,
+        autoAlpha: 0,
         duration: 1,
         width: 0,
       },
       0
-    );
-    hiddenTimeline.to(
-      self.current,
-      {
-        display: 'none',
-        duration: 0.1,
-      },
-      '>'
     );
   }, [hiddenTimeline]);
 

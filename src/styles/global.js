@@ -1,5 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
-import LightenOrDarken from './utility.functions';
+import { LightenDarkenColor } from './utility.functions';
 import media from './media';
 
 export default createGlobalStyle`
@@ -24,8 +24,8 @@ export default createGlobalStyle`
 
     .underline {
       background-image: linear-gradient(120deg, ${({ theme }) =>
-        LightenOrDarken(theme.quarternayAccent, -15)} 0%, ${({ theme }) =>
-  LightenOrDarken(theme.secondaryAccent, -15)} 100%);
+        LightenDarkenColor(theme.quarternayAccent, -15)} 0%, ${({ theme }) =>
+  LightenDarkenColor(theme.secondaryAccent, -15)} 100%);
       background-repeat: no-repeat;
       background-size: 100% 0.2em;
       background-position: 0 92%;

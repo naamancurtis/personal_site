@@ -108,7 +108,7 @@ const FunctionResult = ({ showAnimation, result, isOpen, children }) => {
     hiddenTimeline.to(
       content.current,
       {
-        opacity: 1,
+        autoAlpha: 1,
         duration: 0.75,
         height: '100%',
       },

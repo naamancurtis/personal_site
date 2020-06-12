@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import LightenDarkenColor from '../../styles/utility.functions';
+import { LightenDarkenColor } from '../../styles/utility.functions';
 
 import Sun from './sun.svg';
 import Moon from './moon.svg';

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import SkillCard from '../../components/skill-card/skill-card.component';
 import {
   SkillsWrapper,
@@ -6,8 +6,9 @@ import {
   SkillBlockWrapper,
   SkillCardsWrapper,
 } from './skills.styles';
+import { ThemeContext } from 'styled-components';
 
-const programmingLanguages = [
+const SKILLS = [
   {
     name: 'Rust',
     alt: 'Rust Programming Language ',
@@ -35,9 +36,6 @@ const programmingLanguages = [
     imgSrc:
       'https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png',
   },
-];
-
-const frameworks = [
   {
     name: 'Angular',
     alt: 'Angular',
@@ -51,9 +49,17 @@ const frameworks = [
     imgSrc:
       'https://cdn4.iconfinder.com/data/icons/logos-3/600/React.js_logo-512.png',
   },
-];
-
-const technologies = [
+  {
+    name: 'Node.js',
+    alt: 'Node.js',
+    description: 'Node.js',
+    imgSrc: '',
+    imgFn: (theme) => {
+      return theme.theme === 'dark'
+        ? 'https://nodejs.org/static/images/logos/nodejs-new-pantone-white.svg'
+        : 'https://nodejs.org/static/images/logos/nodejs-new-pantone-black.svg';
+    },
+  },
   {
     name: 'Docker',
     alt: 'Docker',
@@ -71,50 +77,54 @@ const technologies = [
 ];
 
 const SkillsPage = () => {
-  let temp = 1;
+  const theme = useContext(ThemeContext);
 
   return (
     <SkillsWrapper>
       <p>
-        I build innovative digital products and tools to&nbsp;
-        <span className="underline">
-          drive business outcomes and end user value.
-        </span>
+        I build anything from user journey driven web apps, to internal business
+        apps to simple quality of life CLI tools.
       </p>
       <br />
       <p>
-        br I enjoy building anything from microservices and web apps to CLI
-        tools and everything inbetween and have done so across a number of
-        different programming languages and frameworks (and I'm always happy and
-        enthuastic to pick up new ones).
+        To do this I focus on creating solutions with{' '}
+        <span className="underline">intuitive user experiences</span> where the
+        user and their needs stay firmly at the center of the experience.
       </p>
       <br />
       <SmallText>
-        See below for a list of tools and technologies I'm already familiar
+        See below for a list of tools, technologies and frameworks I'm familiar
         with.
       </SmallText>
       <SkillBlockWrapper>
-        <h2> Programming Languages </h2>
         <SkillCardsWrapper>
-          {programmingLanguages.map((language) => (
-            <SkillCard {...language} />
-          ))}
+          {SKILLS.map((skill) => {
+            if (skill.imgFn) {
+              skill.imgSrc = skill.imgFn(theme);
+            }
+            return <SkillCard key={skill.name} {...skill} />;
+          })}
         </SkillCardsWrapper>
-      </SkillBlockWrapper>
-      <SkillBlockWrapper>
-        <h2>Frameworks</h2>
-        {frameworks.map((framework) => (
-          <SkillCard {...framework} />
-        ))}
-      </SkillBlockWrapper>
-      <SkillBlockWrapper>
-        <h2>Additional Technologies</h2>
-        {technologies.map((technology) => (
-          <SkillCard {...technology} />
-        ))}
       </SkillBlockWrapper>
     </SkillsWrapper>
   );
 };
 
 export default SkillsPage;
+
+// <p>
+//   I build innovative digital products and tools to&nbsp;
+//   <span className="underline">drive business outcomes</span> and&nbsp;
+//   <span className="underline">end user value.</span>
+// </p>
+// <br />
+// <p>
+//   I enjoy building anything from&nbsp;
+//   <span className="underline">
+//     microservices and web apps to CLI tools
+//   </span>
+//   &nbsp;and everything inbetween and have done so across a number of
+//   different programming languages and frameworks (and I'm always happy and
+//   enthuastic to pick up new ones).
+// </p>
+// <br />
