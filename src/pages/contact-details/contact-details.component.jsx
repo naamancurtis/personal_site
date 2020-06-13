@@ -13,6 +13,7 @@ import {
 import { Line } from '../../styles/components';
 import AnimatedText from '../../components/animated-text/animated-text.component';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import Button from '../../components/button/button.component';
 
 const ContactDetailsPage = ({ isOpen }) => {
   const [name, setName] = useState('');
@@ -68,10 +69,7 @@ const ContactDetailsPage = ({ isOpen }) => {
           />
           <FormLabel value={message}>Message</FormLabel>
         </FormGroup>
-        <SubmitButton>
-          <FontAwesomeIcon icon={['far', 'envelope-open']} />
-          Send Message
-        </SubmitButton>
+        <Button text="Send Message" icon={['far', 'envelope-open']} />
       </Form>
     </FormWrapper>
   );

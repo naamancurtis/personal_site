@@ -11,7 +11,7 @@ export const Fn = styled.div`
   cursor: pointer;
   display: flex;
   flex-direction: column;
-  padding: 1em 1.3em 0.3em 1.3em;
+  padding: 1em 1.3em 0.7em 1.3em;
   border-radius: 10px;
   height: 100%;
 
