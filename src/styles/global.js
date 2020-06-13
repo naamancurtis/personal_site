@@ -42,7 +42,6 @@ export default createGlobalStyle`
       &:hover {
         background-size: 110% 98%;
         color: ${({ theme }) => theme.body};
-        font-weight: 500;
       }
     }
   }

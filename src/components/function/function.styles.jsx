@@ -11,7 +11,7 @@ export const Fn = styled.div`
   cursor: pointer;
   display: flex;
   flex-direction: column;
-  padding: 1em 1.3em;
+  padding: 1em 1.3em 0.3em 1.3em;
   border-radius: 10px;
   height: 100%;
 
@@ -28,16 +28,9 @@ export const Fn = styled.div`
 
 export const OpaqueFnText = styled.span`
   opacity: 0.5;
-  font-weight: 400;
+  font-weight: 300;
   display: inline-block;
-
-  &.arrow {
-    position: relative;
-  }
-
-  &.is-open {
-    padding-bottom: 1.5rem;
-  }
+  padding-bottom: 1.5rem;
 `;
 
 export const FnDef = styled.div`
@@ -63,4 +56,14 @@ export const FnContent = styled.div`
   display: none;
   opacity: 0;
   cursor: default;
+`;
+
+export const ArrowWrapper = styled.span`
+  position: relative;
+  margin-right: 0.3em;
+`;
+
+export const FnCurlys = styled(OpaqueFnText)`
+  position: relative;
+  top: -1px;
 `;

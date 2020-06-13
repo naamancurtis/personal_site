@@ -121,7 +121,8 @@ const SkillsPage = ({ isOpen }) => {
       <p className="skills-item">
         To do this I focus on creating solutions with{' '}
         <span className="underline">intuitive user experiences</span> where the
-        user and their needs stay firmly at the center of the experience.
+        user and their needs stay first and foremost in design and
+        implementation.
       </p>
       <br />
       <SmallText className="skills-item">

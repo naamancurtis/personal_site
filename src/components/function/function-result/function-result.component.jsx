@@ -1,8 +1,15 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { TimelineLite } from 'gsap';
-import { OpaqueFnText, FnResult, FnContent } from '../function.styles';
+import {
+  OpaqueFnText,
+  FnResult,
+  FnContent,
+  ArrowWrapper,
+  FnCurlys,
+} from '../function.styles';
 import { BoldKeyword } from '../types.styles';
 import SvgElipisis from '../elipisis-component.component';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const FunctionResult = ({ showAnimation, result, isOpen, children }) => {
   const arrow = useRef(null);
@@ -26,27 +33,16 @@ const FunctionResult = ({ showAnimation, result, isOpen, children }) => {
       return;
     }
 
-    pulseTimeline.fromTo(
-      [openingCurly.current, closingCurly.current],
-      {
-        fontWeight: 100,
-        duration: 1,
-      },
-      {
-        fontWeight: 600,
-        duration: 1,
-      }
-    );
-
-    pulseTimeline.to(
-      arrow.current,
-      {
-        left: '3px',
-        duration: 1,
-      },
-      '<'
-    );
-    pulseTimeline.pause();
+    pulseTimeline
+      .to(
+        arrow.current,
+        {
+          left: '3px',
+          duration: 1,
+        },
+        '<'
+      )
+      .pause();
 
     return () => pulseTimeline.kill();
   }, [pulseTimeline]);
@@ -57,8 +53,7 @@ const FunctionResult = ({ showAnimation, result, isOpen, children }) => {
 
     // If we're hovering
     if (showAnimation && !isOpen) {
-      pulseTimeline.eventCallback('onComplete', null);
-      pulseTimeline.play();
+      pulseTimeline.eventCallback('onComplete', null).play();
       return;
     }
 
@@ -77,43 +72,41 @@ const FunctionResult = ({ showAnimation, result, isOpen, children }) => {
     }
     hiddenTimeline.pause();
 
-    hiddenTimeline.to(
-      closingCurly.current,
-      {
-        duration: 0.25,
-        position: 'relative',
-        top: '1em',
-      },
-      1
-    );
-
-    hiddenTimeline.to(
-      closingCurly.current,
-      {
-        duration: 1.5,
-        left: '-99%',
-      },
-      '<'
-    );
-
-    hiddenTimeline.to(
-      content.current,
-      {
-        display: 'block',
-        duration: 1.5,
-      },
-      '<'
-    );
-
-    hiddenTimeline.to(
-      content.current,
-      {
-        autoAlpha: 1,
-        duration: 0.75,
-        height: '100%',
-      },
-      '>'
-    );
+    hiddenTimeline
+      .to(
+        closingCurly.current,
+        {
+          duration: 0.25,
+          position: 'relative',
+          top: '1em',
+        },
+        1
+      )
+      .to(
+        closingCurly.current,
+        {
+          duration: 1.5,
+          left: '-99%',
+        },
+        '<'
+      )
+      .to(
+        content.current,
+        {
+          display: 'block',
+          duration: 1.5,
+        },
+        '<'
+      )
+      .to(
+        content.current,
+        {
+          autoAlpha: 1,
+          duration: 0.75,
+          height: '100%',
+        },
+        '>'
+      );
   }, [hiddenTimeline, content]);
 
   // Manage play/pause of hidden timeline
@@ -133,31 +126,24 @@ const FunctionResult = ({ showAnimation, result, isOpen, children }) => {
   return (
     <>
       <FnResult>
-        <OpaqueFnText ref={arrow} className="arrow">
-          {'-> '}
-        </OpaqueFnText>
+        <ArrowWrapper ref={arrow}>
+          <FontAwesomeIcon icon="long-arrow-alt-right" />
+        </ArrowWrapper>
         <>
           <BoldKeyword> {result} </BoldKeyword>
-          <span>
-            <OpaqueFnText ref={openingCurly}> {'{'}</OpaqueFnText>
-            <SvgElipisis hideComponent={isOpen} />
-            <FnContent
-              ref={content}
-              onClick={(e) => {
-                // Don't want to the section to close if the content is clicked on
-                e.stopPropagation();
-                e.preventDefault();
-              }}
-            >
-              {React.cloneElement(children, { isOpen: isOpen })}
-            </FnContent>
-            <OpaqueFnText
-              ref={closingCurly}
-              className={isOpen ? 'is-open' : null}
-            >
-              {'}'}
-            </OpaqueFnText>
-          </span>
+          <FnCurlys ref={openingCurly}> {'{'}</FnCurlys>
+          <SvgElipisis hideComponent={isOpen} />
+          <FnContent
+            ref={content}
+            onClick={(e) => {
+              // Don't want to the section to close if the content is clicked on
+              e.stopPropagation();
+              e.preventDefault();
+            }}
+          >
+            {React.cloneElement(children, { isOpen: isOpen })}
+          </FnContent>
+          <FnCurlys ref={closingCurly}>{'}'}</FnCurlys>
         </>
       </FnResult>
     </>

@@ -115,6 +115,9 @@ export const SubmitButton = styled.button`
   padding: 0.5em 0.75em;
   transition: box-shadow 0.2s;
   cursor: pointer;
+  display: inline-flex;
+  justify-content: space-around;
+  align-items: center;
 
   box-shadow: ${(props) => {
     const rgb = hexToRgb(props.theme.secondaryAccent);

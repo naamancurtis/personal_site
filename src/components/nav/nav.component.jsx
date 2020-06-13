@@ -77,10 +77,10 @@ const Nav = () => {
   return (
     <NavWrapper>
       <NavHeader ref={wrapper}>
-        <Keyword>impl </Keyword>
-        <Trait>SoftwareEngineer </Trait>
-        <Keyword>for </Keyword>
-        <BoldType> NaamanCurtis</BoldType> <Curlys>{'{'}</Curlys>
+        <Keyword>impl &nbsp;</Keyword>
+        <Trait>SoftwareEngineer &nbsp;</Trait>
+        <Keyword>for &nbsp;</Keyword>
+        <BoldType> NaamanCurtis&nbsp;</BoldType> <Curlys>{'{'}</Curlys>
       </NavHeader>
       <RoutesWrapper>
         <FnDefWrapper>

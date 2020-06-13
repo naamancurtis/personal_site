@@ -32,7 +32,7 @@ const Logo = () => {
     timeline.to(
       name.current,
       {
-        width: '115px',
+        width: '150px',
         duration: 1.5,
       },
       '<'

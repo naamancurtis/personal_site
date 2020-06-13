@@ -24,7 +24,7 @@ const AnimatedText = ({ text, isOpen }) => {
       .to(cursor.current, {
         duration: 1.5,
         scaleX: 1,
-        ease: 'elastic.out(1, 0.3)',
+        ease: 'back.out(1.7)',
         delay: 3.5,
       })
       .to(

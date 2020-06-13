@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { pSBC } from '../../styles/utility.functions';
-import { indentBoxShadowCss } from '../../styles/neumorphic';
+import { defaultBoxShadowCss } from '../../styles/neumorphic';
 
 export const AnimationWrapper = styled.div`
   display: inline-block;
@@ -26,6 +26,6 @@ export const AnimatedCursor = styled.span`
   z-index: 100;
   transform-origin: left;
   border-radius: 10px;
-  background-color: ${({ theme }) => pSBC(-0.2, theme.primaryAccent)};
-  ${indentBoxShadowCss};
+  background-color: ${({ theme }) => pSBC(-0.2, theme.body)};
+  ${defaultBoxShadowCss};
 `;

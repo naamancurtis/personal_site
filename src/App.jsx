@@ -6,8 +6,16 @@ import { darkTheme, lightTheme } from './styles/theme';
 import Header from './components/header/header.component';
 import IntroAnimation from './components/greeting/greeting.component';
 import Main from './pages/main/main.component';
-
 import './App.css';
+
+// Font Awesome Setup
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { faLongArrowAltRight } from '@fortawesome/free-solid-svg-icons';
+import { faEnvelopeOpen } from '@fortawesome/free-regular-svg-icons';
+
+library.add(faLongArrowAltRight, faEnvelopeOpen);
+
+// App Starts Here
 
 const App = () => {
   const [theme, setTheme] = useState('dark');
