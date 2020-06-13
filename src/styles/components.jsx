@@ -9,7 +9,8 @@ export const Line = styled.div`
   box-shadow: ${(props) => {
     const primaryRgb = convertRgbStrToObject(pSBC(-0.3, props.theme.body, 'c'));
     return `
-        2px 2px 10px 0 rgba(${primaryRgb.r}, ${primaryRgb.g}, ${primaryRgb.b}, 0.9);
+        2px 2px 8px 0 rgba(${primaryRgb.r}, ${primaryRgb.g}, ${primaryRgb.b}, 1);
+        -2px -2px 16px 0 rgba(${primaryRgb.r}, ${primaryRgb.g}, ${primaryRgb.b}, 1);
         `;
   }};
 `;

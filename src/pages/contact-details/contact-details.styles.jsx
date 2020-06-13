@@ -11,6 +11,9 @@ import {
 
 export const FormTitle = styled.h2`
   margin-bottom: 1em;
+  font-family: ${({ theme }) => theme.fonts.heading};
+  letter-spacing: 1.2px;
+  font-weight: 300;
 `;
 
 export const FormWrapper = styled.div`
@@ -18,6 +21,7 @@ export const FormWrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  width: 100%;
 `;
 
 export const Form = styled.form`
@@ -44,6 +48,7 @@ export const FormLabel = styled.label`
   top: 0.5em;
   left: 35px;
   transition: 300ms ease all;
+  font-family: ${({ theme }) => theme.fonts.body};
 
   ${({ value }) => {
     if (value.length > 0) {

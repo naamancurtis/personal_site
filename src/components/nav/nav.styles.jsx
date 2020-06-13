@@ -5,7 +5,7 @@ export const NavWrapper = styled.div`
   font-family: ${({ theme }) => theme.fonts.code};
   display: inline-block;
   white-space: nowrap;
-  width: 90vw;
+  width: 100%;
   ${media.tablet`
     max-width: 40vw;
   `};
@@ -16,11 +16,22 @@ export const NavLineItem = styled.div`
 `;
 
 export const NavHeader = styled.h2`
+  display: inline-block;
+  white-space: nowrap;
   font-size: 1.3em;
-  opacity: 0.7;
+  opacity: 1;
+  align-self: start;
+`;
+
+export const RoutesWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
 `;
 
 export const FnDefWrapper = styled.div`
-  margin-right: 1.2em;
   white-space: normal;
+  width: 100%;
 `;

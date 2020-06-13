@@ -3,7 +3,7 @@ import { TimelineLite } from 'gsap';
 import { AboutMeWrapper, AboutMeParagraph } from './about-me.styles';
 import { Line } from '../../styles/components';
 
-const AboutMe = ({ isShown }) => {
+const AboutMe = ({ isOpen }) => {
   const [timeline, setTimeline] = useState(new TimelineLite());
 
   useEffect(() => {
@@ -23,16 +23,16 @@ const AboutMe = ({ isShown }) => {
   }, [timeline]);
 
   useEffect(() => {
-    if (!isShown || !timeline) return;
+    if (!isOpen || !timeline) return;
 
-    if (isShown) {
+    if (isOpen) {
       timeline.seek(0).play();
     } else {
       if (timeline.progress() !== 0) {
         timeline.reverse();
       }
     }
-  }, [timeline, isShown]);
+  }, [timeline, isOpen]);
 
   return (
     <AboutMeWrapper>

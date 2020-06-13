@@ -23,23 +23,24 @@ const SvgElipisis = ({ hideComponent }) => {
       return;
     }
 
-    yoyoTimeline.from(
-      leftCircle.current,
-      {
-        x: '-1.5px',
-        duration: 1,
-      },
-      0
-    );
-    yoyoTimeline.from(
-      rightCircle.current,
-      {
-        x: '1.5px',
-        duration: 1,
-      },
-      '<'
-    );
-    yoyoTimeline.play();
+    yoyoTimeline
+      .from(
+        leftCircle.current,
+        {
+          x: '-1.5px',
+          duration: 1,
+        },
+        0
+      )
+      .from(
+        rightCircle.current,
+        {
+          x: '1.5px',
+          duration: 1,
+        },
+        '<'
+      )
+      .play();
 
     return () => yoyoTimeline.kill();
   }, [leftCircle, rightCircle, yoyoTimeline]);
@@ -53,8 +54,7 @@ const SvgElipisis = ({ hideComponent }) => {
       return;
     }
 
-    hiddenTimeline.pause();
-    hiddenTimeline.to(
+    hiddenTimeline.pause().to(
       self.current,
       {
         autoAlpha: 0,

@@ -1,7 +1,13 @@
 import React, { useRef, useEffect } from 'react';
 import fitty from 'fitty';
 import { TweenLite } from 'gsap';
-import { NavWrapper, NavHeader, FnDefWrapper, NavLineItem } from './nav.styles';
+import {
+  NavWrapper,
+  NavHeader,
+  FnDefWrapper,
+  NavLineItem,
+  RoutesWrapper,
+} from './nav.styles';
 import { BoldType, Keyword, Trait } from '../function/types.styles';
 import Function from '../function/function.component';
 import AboutMe from '../../pages/about-me/about-me.component';
@@ -75,18 +81,20 @@ const Nav = () => {
         <Keyword>for </Keyword>
         <BoldType> NaamanCurtis</BoldType> {'{'}
       </NavHeader>
-      <FnDefWrapper>
-        {ROUTES.map((route) => (
-          <NavLineItem key={route.name} className="route">
-            <br />
-            <Function route={route} children={route.component}></Function>
-          </NavLineItem>
-        ))}
-      </FnDefWrapper>
-      <NavHeader ref={closingCurly}>
-        <br />
-        {'}'}
-      </NavHeader>
+      <RoutesWrapper>
+        <FnDefWrapper>
+          {ROUTES.map((route) => (
+            <NavLineItem key={route.name} className="route">
+              <br />
+              <Function route={route} children={route.component}></Function>
+            </NavLineItem>
+          ))}
+        </FnDefWrapper>
+        <NavHeader ref={closingCurly}>
+          <br />
+          {'}'}
+        </NavHeader>
+      </RoutesWrapper>
     </NavWrapper>
   );
 };

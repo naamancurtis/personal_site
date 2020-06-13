@@ -43,9 +43,10 @@ export const OpaqueFnText = styled.span`
 export const FnDef = styled.div`
   height: 1rem;
   margin: 0;
-  opacity: 0.1;
-  font-size: 0.7em;
+  opacity: 0.2;
+  font-size: 0.9em;
   margin-top: 0.3em;
+  margin-bottom: 0.3em;
 `;
 
 export const FnResult = styled.div`

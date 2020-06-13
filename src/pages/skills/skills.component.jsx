@@ -78,7 +78,7 @@ const SKILLS = [
   },
 ];
 
-const SkillsPage = ({ isShown }) => {
+const SkillsPage = ({ isOpen }) => {
   const theme = useContext(ThemeContext);
   const [timeline, setTimeline] = useState(new TimelineLite());
 
@@ -99,16 +99,16 @@ const SkillsPage = ({ isShown }) => {
   }, [timeline]);
 
   useEffect(() => {
-    if (!isShown || !timeline) return;
+    if (!isOpen || !timeline) return;
 
-    if (isShown) {
+    if (isOpen) {
       timeline.seek(0).play();
     } else {
       if (timeline.progress() !== 0) {
         timeline.reverse();
       }
     }
-  }, [timeline, isShown]);
+  }, [timeline, isOpen]);
 
   return (
     <SkillsWrapper>

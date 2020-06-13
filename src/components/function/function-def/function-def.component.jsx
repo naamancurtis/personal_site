@@ -19,15 +19,15 @@ const FunctionDef = ({ isShown, hideCompletely, fnName, paramPrefix }) => {
 
     if (isShown) {
       TweenLite.to(self.current, {
-        opacity: 0.7,
+        opacity: 0.8,
         duration: 0.7,
-        fontSize: '1em',
+        fontSize: '1.2em',
       });
     } else {
       TweenLite.to(self.current, {
         opacity: 0.2,
         duration: 0.7,
-        fontSize: '0.7em',
+        fontSize: '0.9em',
       });
     }
   }, [isShown, hideCompletely]);
