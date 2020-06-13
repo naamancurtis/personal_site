@@ -4,7 +4,7 @@ import {
   AnimatedH2,
   AnimationWrapper,
   AnimatedCursor,
-} from './text-reveal.styles';
+} from './animated-text.styles';
 
 const AnimatedText = ({ text, isOpen }) => {
   const animatedText = useRef(null);

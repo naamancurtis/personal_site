@@ -11,7 +11,7 @@ import {
   FormLabel,
 } from './contact-details.styles';
 import { Line } from '../../styles/components';
-import AnimatedText from '../../components/text-reveal/text-reveal.component';
+import AnimatedText from '../../components/animated-text/animated-text.component';
 
 const ContactDetailsPage = ({ isOpen }) => {
   const [name, setName] = useState('');
@@ -32,6 +32,7 @@ const ContactDetailsPage = ({ isOpen }) => {
     <FormWrapper>
       <Line />
       <AnimatedText text={'Drop me a message'} isOpen={isOpen} />
+      <br />
       <Form onSubmit={handleSubmit}>
         <FormGroup>
           <FormInput

@@ -6,7 +6,7 @@ export const Type = styled.span`
 `;
 
 export const BoldType = styled(Type)`
-  font-weight: 900;
+  font-weight: 700;
 `;
 
 export const Keyword = styled.span`
@@ -15,7 +15,7 @@ export const Keyword = styled.span`
 `;
 
 export const BoldKeyword = styled(Keyword)`
-  font-weight: 900;
+  font-weight: 700;
 `;
 
 export const OpaqueKeyword = styled(Keyword)`

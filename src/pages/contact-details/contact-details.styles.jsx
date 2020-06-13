@@ -49,6 +49,7 @@ export const FormLabel = styled.label`
   left: 35px;
   transition: 300ms ease all;
   font-family: ${({ theme }) => theme.fonts.body};
+  font-weight: 300;
 
   ${({ value }) => {
     if (value.length > 0) {

@@ -1,10 +1,16 @@
 export var lightTheme = {};
 export var darkTheme = {};
 
+// const fonts = {
+// code: `'Fira Code', source-code-pro, 'Operator Mono', monospace`,
+// heading: 'Fira Sans Extra Condensed, Fira Sans',
+// body: 'Fira Sans Extra Condensed, Fira Sans',
+// };
+
 const fonts = {
-  code: `'Fira Code', source-code-pro, 'Operator Mono', monospace`,
-  heading: 'Fira Sans Extra Condensed, Fira Sans',
-  body: 'Fira Sans Extra Condensed, Fira Sans',
+  code: ` Ubuntu,'Fira Code', source-code-pro, 'Operator Mono', monospace`,
+  heading: 'Raleway, Ubuntu, Fira Sans Extra Condensed, Fira Sans',
+  body: 'Ubuntu, Fira Sans Extra Condensed, Fira Sans',
 };
 
 lightTheme = {

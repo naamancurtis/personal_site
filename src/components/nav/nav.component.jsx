@@ -7,6 +7,7 @@ import {
   FnDefWrapper,
   NavLineItem,
   RoutesWrapper,
+  Curlys,
 } from './nav.styles';
 import { BoldType, Keyword, Trait } from '../function/types.styles';
 import Function from '../function/function.component';
@@ -79,7 +80,7 @@ const Nav = () => {
         <Keyword>impl </Keyword>
         <Trait>SoftwareEngineer </Trait>
         <Keyword>for </Keyword>
-        <BoldType> NaamanCurtis</BoldType> {'{'}
+        <BoldType> NaamanCurtis</BoldType> <Curlys>{'{'}</Curlys>
       </NavHeader>
       <RoutesWrapper>
         <FnDefWrapper>
@@ -90,10 +91,10 @@ const Nav = () => {
             </NavLineItem>
           ))}
         </FnDefWrapper>
-        <NavHeader ref={closingCurly}>
+        <Curlys ref={closingCurly}>
           <br />
           {'}'}
-        </NavHeader>
+        </Curlys>
       </RoutesWrapper>
     </NavWrapper>
   );

@@ -16,7 +16,15 @@ export default createGlobalStyle`
     width: 100vw;
     height: 100vh;
 
-    font-family: 'Fira Sans Extra Condensed', 'Fira Sans', Fifteen, Roboto, Helvetica;
+    h1,h2,h3,h4,h5,h6 {
+      font-family: ${({ theme }) => theme.fonts.heading};
+    }
+
+    p {
+      font-family: ${({ theme }) => theme.fonts.body};
+      font-weight: 300;
+  }
+
     padding: 0 1rem;
     ${media.tablet`
       height: 100vh; 
@@ -28,11 +36,11 @@ export default createGlobalStyle`
   LightenDarkenColor(theme.secondaryAccent, -15)} 100%);
       background-repeat: no-repeat;
       background-size: 100% 0.2em;
-      background-position: 0 92%;
-      transition: background-size 0.25 ease-in;
+      background-position: 0 105%;
+    transition: background-size 0.25 ease-in;
 
       &:hover {
-        background-size: 105% 98%;
+        background-size: 110% 98%;
         color: ${({ theme }) => theme.body};
         font-weight: 500;
       }

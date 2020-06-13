@@ -35,3 +35,13 @@ export const FnDefWrapper = styled.div`
   white-space: normal;
   width: 100%;
 `;
+
+export const Curlys = styled.span`
+  font-family: ${({ theme }) => theme.fonts.code};
+  display: inline-block;
+  white-space: nowrap;
+  font-size: 1.3em;
+  opacity: 1;
+  align-self: start;
+  font-weight: 300;
+`;

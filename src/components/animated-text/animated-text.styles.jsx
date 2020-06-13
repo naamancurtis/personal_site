@@ -5,7 +5,7 @@ import { indentBoxShadowCss } from '../../styles/neumorphic';
 export const AnimationWrapper = styled.div`
   display: inline-block;
   position: relative;
-  margin-bottom: 1em;
+  margin-bottom: 1.5em;
   box-sizing: content-box;
 `;
 
