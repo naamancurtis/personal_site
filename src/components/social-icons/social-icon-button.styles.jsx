@@ -23,29 +23,43 @@ export const SocialButton = css`
   }
 `;
 
-const GITHUB_GREY = '#f6f8fa';
-
 export const GitHubIconWrapper = styled.a`
   ${SocialButton};
   color: ${({ theme }) => theme.text};
 
   &:hover {
-    color: ${GITHUB_GREY};
   }
 `;
-
-const LINKEDIN_BLUE = '#2867B2';
 
 export const LinkedInIconWrapper = styled.a`
   ${SocialButton};
   color: ${({ theme }) => theme.text};
 
   &:hover {
-    color: ${LINKEDIN_BLUE};
   }
 `;
 
 export const MailIconWrapper = styled.a`
   ${SocialButton};
   color: ${({ theme }) => theme.text};
+`;
+
+export const SocialIconsWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+`;
+
+export const SocialWrapperWithLabel = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const SocialLabel = styled.span`
+  font-size: 1rem;
 `;

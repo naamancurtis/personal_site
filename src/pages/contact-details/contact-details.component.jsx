@@ -8,17 +8,18 @@ import {
   FormGroup,
   FormLabel,
   FormTitle,
-  SocialWrapperWithLabel,
-  SocialLabel,
-  SocialIconsWrapper,
 } from './contact-details.styles';
 import { Line } from '../../styles/components';
-import AnimatedText from '../../components/animated-text/animated-text.component';
 import Button from '../../components/button/button.component';
 import {
   GitHubIcon,
   LinkedInIcon,
 } from '../../components/social-icons/social-icon-button.component';
+import {
+  SocialWrapperWithLabel,
+  SocialLabel,
+  SocialIconsWrapper,
+} from '../../components/social-icons/social-icon-button.styles';
 
 const ContactDetailsPage = ({ isOpen, showIcons }) => {
   const [name, setName] = useState('');

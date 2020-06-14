@@ -13,6 +13,7 @@ import { library } from '@fortawesome/fontawesome-svg-core';
 import {
   faLongArrowAltRight,
   faEnvelope,
+  faUserPlus,
 } from '@fortawesome/free-solid-svg-icons';
 import { faEnvelopeOpen } from '@fortawesome/free-regular-svg-icons';
 import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
@@ -23,7 +24,8 @@ library.add(
   faEnvelopeOpen,
   faGithub,
   faEnvelope,
-  faLinkedin
+  faLinkedin,
+  faUserPlus
 );
 
 // App Starts Here

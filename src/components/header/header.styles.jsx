@@ -1,7 +1,10 @@
 import styled from 'styled-components';
-import { defaultBoxShadowCss } from '../../styles/neumorphic.js';
+import {
+  indentBoxShadowCss,
+  defaultBoxShadowCss,
+} from '../../styles/neumorphic.js';
 
-const StyledHeader = styled.div`
+export const StyledHeader = styled.div`
   width: 100%;
   height: 80px;
   display: flex;
@@ -21,4 +24,33 @@ const StyledHeader = styled.div`
   }
 `;
 
-export default StyledHeader;
+export const HeaderIconsWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-width: 200px;
+`;
+
+export const HeaderIconWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: ${({ theme }) => theme.text};
+  padding: 8.5px;
+  cursor: pointer;
+  font-size: 1rem;
+  border-radius: 5px;
+
+  &.is-open {
+    ${indentBoxShadowCss}
+  }
+`;
+
+export const HeaderTextLink = styled.span`
+  color: ${({ theme }) => theme.text};
+  font-family: ${({ theme }) => theme.fonts.heading};
+  cursor: pointer;
+  font-size: 14px;
+  border-radius: 5px;
+  font-weight: 700;
+`;

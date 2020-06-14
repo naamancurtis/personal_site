@@ -1,11 +1,17 @@
 import React, { useState, useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 
-import StyledHeader from './header.styles';
+import {
+  StyledHeader,
+  HeaderIconWrapper,
+  HeaderIconsWrapper,
+  HeaderTextLink,
+} from './header.styles';
 import ThemeToggleButton from '../theme-toggle-button/theme-toggler-button.component';
 import Logo from './logo/logo.component';
 
 const Header = ({ toggleTheme }) => {
+  const [socialDrawOpen, setSocialDraw] = useState(false);
   const self = useRef(null);
 
   const handleScroll = () => {
@@ -26,7 +32,14 @@ const Header = ({ toggleTheme }) => {
   return (
     <StyledHeader ref={self}>
       <Logo />
-      <ThemeToggleButton toggleTheme={toggleTheme} />
+      <HeaderIconsWrapper>
+        <HeaderIconWrapper className={socialDrawOpen ? 'is-open' : null}>
+          <HeaderTextLink onClick={() => setSocialDraw(!socialDrawOpen)}>
+            {'Contact Me'.toUpperCase()}
+          </HeaderTextLink>
+        </HeaderIconWrapper>
+        <ThemeToggleButton toggleTheme={toggleTheme} />
+      </HeaderIconsWrapper>
     </StyledHeader>
   );
 };
