@@ -15,6 +15,7 @@ export default createGlobalStyle`
     font-size: 16px;
     width: 100vw;
     height: 100vh;
+    padding-top: 80px;
 
     h1,h2,h3,h4,h5,h6 {
       font-family: ${({ theme }) => theme.fonts.heading};
@@ -37,7 +38,7 @@ export default createGlobalStyle`
       background-repeat: no-repeat;
       background-size: 100% 0.2em;
       background-position: 0 105%;
-    transition: background-size 0.25 ease-in;
+      transition: background-size 0.25 ease-in;
 
       &:hover {
         background-size: 110% 98%;

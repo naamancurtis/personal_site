@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
 
 import StyledHeader from './header.styles';
@@ -6,8 +6,25 @@ import ThemeToggleButton from '../theme-toggle-button/theme-toggler-button.compo
 import Logo from './logo/logo.component';
 
 const Header = ({ toggleTheme }) => {
+  const self = useRef(null);
+
+  const handleScroll = () => {
+    if (!self) return;
+    if (window.scrollY > 15) {
+      self.current.classList.add('scrolled');
+    } else {
+      self.current.classList.remove('scrolled');
+    }
+  };
+
+  // Set up listener
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
-    <StyledHeader>
+    <StyledHeader ref={self}>
       <Logo />
       <ThemeToggleButton toggleTheme={toggleTheme} />
     </StyledHeader>

@@ -1,9 +1,4 @@
-import styled, { css } from 'styled-components';
-import {
-  hexToRgb,
-  pSBC,
-  convertRgbStrToObject,
-} from '../../styles/utility.functions';
+import styled from 'styled-components';
 import {
   defaultBoxShadowCss,
   indentBoxShadowCss,

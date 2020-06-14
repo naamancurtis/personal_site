@@ -7,6 +7,7 @@ import {
   FormWrapper,
   FormGroup,
   FormLabel,
+  FormTitle,
 } from './contact-details.styles';
 import { Line } from '../../styles/components';
 import AnimatedText from '../../components/animated-text/animated-text.component';
@@ -30,7 +31,7 @@ const ContactDetailsPage = ({ isOpen }) => {
   return (
     <FormWrapper>
       <Line />
-      <AnimatedText text={'Drop me a message'} isOpen={isOpen} />
+      <FormTitle> Drop me a message </FormTitle>
       <br />
       <Form onSubmit={handleSubmit}>
         <FormGroup>
