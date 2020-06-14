@@ -80,7 +80,7 @@ const Nav = () => {
         <Keyword>impl &nbsp;</Keyword>
         <Trait>SoftwareEngineer &nbsp;</Trait>
         <Keyword>for &nbsp;</Keyword>
-        <BoldType> NaamanCurtis&nbsp;</BoldType> <Curlys>{'{'}</Curlys>
+        <BoldType>NaamanCurtis&nbsp;</BoldType> <Curlys>{'{'}</Curlys>
       </NavHeader>
       <RoutesWrapper>
         <FnDefWrapper>

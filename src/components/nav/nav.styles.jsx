@@ -18,9 +18,10 @@ export const NavLineItem = styled.div`
 export const NavHeader = styled.h2`
   display: inline-block;
   white-space: nowrap;
-  font-size: 1.3em;
+  font-size: 1em;
   opacity: 1;
   align-self: start;
+  width: max-content;
 `;
 
 export const RoutesWrapper = styled.div`
@@ -40,8 +41,9 @@ export const Curlys = styled.span`
   font-family: ${({ theme }) => theme.fonts.code};
   display: inline-block;
   white-space: nowrap;
-  font-size: 1.3em;
   opacity: 1;
   align-self: start;
   font-weight: 300;
+  position: relative;
+  top: -1px;
 `;

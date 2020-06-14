@@ -22,7 +22,7 @@ export default createGlobalStyle`
 
     p {
       font-family: ${({ theme }) => theme.fonts.body};
-      font-weight: 300;
+      font-weight: 500;
   }
 
     padding: 0 1rem;

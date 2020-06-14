@@ -30,7 +30,7 @@ export const Name = styled.div`
   font-weight: normal;
   font-size: 7vw;
   margin-bottom: 1rem;
-  font-family: ${({ theme }) => theme.fonts.heading};
+  font-family: ${({ theme }) => theme.fonts.code};
   font-weight: 900;
   color: ${({ theme }) => theme.primaryAccent};
   overflow: hidden;
@@ -43,7 +43,7 @@ export const Name = styled.div`
   `}
 
   .leader-text {
-    font-family: Fira Sans Extra Condensed;
+    font-family: ${({ theme }) => theme.fonts.code};
     font-weight: 300;
     display: inline-block;
     vertical-align: top;
@@ -54,7 +54,7 @@ export const Name = styled.div`
 `;
 
 export const Role = styled.div`
-  font-family: Fira Sans, Fifteen;
+  font-family: ${({ theme }) => theme.fonts.heading};
   font-weight: normal;
   font-size: 5vw;
   letter-spacing: 1.6px;

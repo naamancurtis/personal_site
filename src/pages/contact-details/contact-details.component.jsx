@@ -4,15 +4,12 @@ import {
   Form,
   FormInput,
   FormTextArea,
-  SubmitButton,
   FormWrapper,
-  FormTitle,
   FormGroup,
   FormLabel,
 } from './contact-details.styles';
 import { Line } from '../../styles/components';
 import AnimatedText from '../../components/animated-text/animated-text.component';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Button from '../../components/button/button.component';
 
 const ContactDetailsPage = ({ isOpen }) => {

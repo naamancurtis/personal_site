@@ -10,7 +10,7 @@ export var darkTheme = {};
 const fonts = {
   code: ` Ubuntu,'Fira Code', source-code-pro, 'Operator Mono', monospace`,
   heading: 'Raleway, Ubuntu, Fira Sans Extra Condensed, Fira Sans',
-  body: 'Ubuntu, Fira Sans Extra Condensed, Fira Sans',
+  body: 'Raleway, Ubuntu, Fira Sans Extra Condensed, Fira Sans',
 };
 
 lightTheme = {
