@@ -29,7 +29,7 @@ export const RoutesWrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 100%;
+  width: 95%;
 `;
 
 export const FnDefWrapper = styled.div`

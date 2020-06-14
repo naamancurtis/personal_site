@@ -47,13 +47,15 @@ const AboutMe = ({ isOpen }) => {
       <AboutMeParagraph className="about-me-text">
         Both passionate and enthuastic, I enjoy taking on challenges and
         finding&nbsp;
-        <span className="underline">innovative solutions</span> to them.
+        <span className="underline">innovative solutions</span>, always keeping
+        sight of the longer term vision and ambition of the project.
       </AboutMeParagraph>
       <br />
       <AboutMeParagraph className="about-me-text">
         I firmly believe that the best products and solutions are created when
         you bring a <span className="underline">diverse group</span> of people
-        together and allow each to bring their unique perspectives to the table.
+        together and allow each to bring their unique ideas and perspectives to
+        the table.
       </AboutMeParagraph>
     </AboutMeWrapper>
   );

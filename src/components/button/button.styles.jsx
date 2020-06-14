@@ -83,6 +83,13 @@ export const ButtonText = styled.span`
   ${SubmitButton}:hover & {
     transition: box-shadow 0.2s;
     background-color: ${({ theme }) => pSBC(-0.1, theme.body)};
+    text-shadow: ${(props) => {
+      const rgb = convertRgbStrToObject(
+        pSBC(-0.1, props.theme.secondaryAccent, 'c')
+      );
+      return `5px 3px 5px rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, 0.2)`;
+    }};
+  
     box-shadow: ${(props) => {
       const rgb = hexToRgb(props.theme.secondaryAccent);
       if (props.theme.theme === 'dark') {
@@ -96,9 +103,9 @@ export const ButtonText = styled.span`
           b: splitRgbString[2],
         };
         return `
-        0px 0px 8px 0 rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, 0.5),
-        inset 0px 0px 8px 0 rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, 0.2),
-        inset 0px 0px 14px 0 rgba(${darkRgb.r}, ${darkRgb.g}, ${darkRgb.b}, 0.7);
+        0 0 8px 0 rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, 0.5),
+        inset 0 0 8px 0 rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, 0.2),
+        inset 0 0 14px 0 rgba(${darkRgb.r}, ${darkRgb.g}, ${darkRgb.b}, 0.7);
         `;
       }
       return `

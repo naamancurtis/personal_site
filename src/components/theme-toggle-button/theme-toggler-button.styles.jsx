@@ -3,11 +3,16 @@ import { LightenDarkenColor } from '../../styles/utility.functions';
 
 import Sun from './sun.svg';
 import Moon from './moon.svg';
-import { indentBoxShadowCss } from '../../styles/neumorphic';
+import {
+  defaultBoxShadowCss,
+  indentBoxShadowCss,
+} from '../../styles/neumorphic';
 
 export const ToggleSwitchWrapper = styled.div`
   position: relative;
   height: 34px;
+  ${defaultBoxShadowCss};
+  border-radius: 4px;
 `;
 
 export const ToggleSwitchLabel = styled.label`
@@ -45,8 +50,9 @@ export const Switch = styled.input`
   z-index: 1;
   border-radius: 15px;
   margin: 0;
-  width: 60px;props.theme.body
-  height: 35px;
+  top: 0;
+  width: 60px;
+  height: 34px;
 
   &:checked + ${ToggleSwitchLabel} {
     background: ${(props) => props.theme.body};
@@ -54,12 +60,13 @@ export const Switch = styled.input`
     &::after {
       content: url(${Moon});
       fill: ${(props) => props.theme.text};
+      position: absolute;
       display: block;
       width: 30px;
       height: 33px;
+      top: -1px;
       margin-left: 30px;
-      box-shadow: -3px 0px 3px 1px rgba(0, 0, 0, 0.2),
-        2px 2px 10px 0 rgba(222, 219, 226, 0.1);
+      ${indentBoxShadowCss};
       transition: 0.5s;
       border-radius: 3px;
       border: 1px solid ${(props) => LightenDarkenColor(props.theme.body, -3)};

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { SubmitButton, ButtonText, ButtonIcon } from './button.styles';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 

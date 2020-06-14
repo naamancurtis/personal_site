@@ -8,12 +8,19 @@ import {
   FormGroup,
   FormLabel,
   FormTitle,
+  SocialWrapperWithLabel,
+  SocialLabel,
+  SocialIconsWrapper,
 } from './contact-details.styles';
 import { Line } from '../../styles/components';
 import AnimatedText from '../../components/animated-text/animated-text.component';
 import Button from '../../components/button/button.component';
+import {
+  GitHubIcon,
+  LinkedInIcon,
+} from '../../components/social-icons/social-icon-button.component';
 
-const ContactDetailsPage = ({ isOpen }) => {
+const ContactDetailsPage = ({ isOpen, showIcons }) => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
@@ -30,6 +37,19 @@ const ContactDetailsPage = ({ isOpen }) => {
 
   return (
     <FormWrapper>
+      {showIcons ? (
+        <>
+          <Line />
+          <SocialIconsWrapper>
+            <SocialWrapperWithLabel>
+              <GitHubIcon /> <SocialLabel>GitHub</SocialLabel>
+            </SocialWrapperWithLabel>
+            <SocialWrapperWithLabel>
+              <LinkedInIcon /> <SocialLabel>LinkedIn</SocialLabel>
+            </SocialWrapperWithLabel>
+          </SocialIconsWrapper>
+        </>
+      ) : null}
       <Line />
       <FormTitle> Drop me a message </FormTitle>
       <br />

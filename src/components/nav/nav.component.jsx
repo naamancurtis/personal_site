@@ -39,7 +39,7 @@ const ROUTES = [
     name: 'contact_me',
     paramPrefix: '&',
     result: 'ContactDetails',
-    component: <ContactDetailsPage />,
+    component: <ContactDetailsPage showIcons={true} />,
   },
 ];
 

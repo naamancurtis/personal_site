@@ -10,10 +10,21 @@ import './App.css';
 
 // Font Awesome Setup
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { faLongArrowAltRight } from '@fortawesome/free-solid-svg-icons';
+import {
+  faLongArrowAltRight,
+  faEnvelope,
+} from '@fortawesome/free-solid-svg-icons';
 import { faEnvelopeOpen } from '@fortawesome/free-regular-svg-icons';
+import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
+import SocialBar from './components/social-bar/social-bar.component';
 
-library.add(faLongArrowAltRight, faEnvelopeOpen);
+library.add(
+  faLongArrowAltRight,
+  faEnvelopeOpen,
+  faGithub,
+  faEnvelope,
+  faLinkedin
+);
 
 // App Starts Here
 
@@ -27,6 +38,7 @@ const App = () => {
     <ThemeProvider theme={theme === 'dark' ? darkTheme : lightTheme}>
       <GlobalStyles />
       <Header toggleTheme={toggleTheme} />
+      <SocialBar />
       {hasPlayedIntro ? (
         <Main />
       ) : (
