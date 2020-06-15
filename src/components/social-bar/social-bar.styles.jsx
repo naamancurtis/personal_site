@@ -16,7 +16,11 @@ export const SocialBarWrapper = styled.div`
   padding: 2rem 2rem;
   height: 100vh;
 
-  box-shadow: -3px 0 6px 0 ${({ theme }) => pSBC(-0.2, theme.body)};
+  border-left: solid 1px ${({ theme }) => pSBC(-0.05, theme.body)};
+
+  &.scrolled {
+    box-shadow: -3px 0 6px 0 ${({ theme }) => pSBC(-0.2, theme.body)};
+  }
 
   ${media.tablet`
     right: 1rem;

@@ -19,13 +19,13 @@ export const defaultBoxShadowCss = css`
     }
 
     // Light Mode
-    const primaryRgb = convertRgbStrToObject(pSBC(0.3, props.theme.body, 'c'));
+    const primaryRgb = convertRgbStrToObject(pSBC(0.5, props.theme.body, 'c'));
     const secondaryRgb = convertRgbStrToObject(
       pSBC(0.1, props.theme.contrastBody, 'c')
     );
 
     return `
-        -3px -3px 8px 0 rgba(${primaryRgb.r}, ${primaryRgb.g}, ${primaryRgb.b}, 0.9),
+        -3px -3px 8px 0 rgba(${primaryRgb.r}, ${primaryRgb.g}, ${primaryRgb.b}, 1),
         6px 6px 10px 0 rgba(${secondaryRgb.r}, ${secondaryRgb.g}, ${secondaryRgb.b}, 0.15);
         `;
   }};
@@ -49,13 +49,13 @@ export const indentBoxShadowCss = css`
     }
 
     // Light Mode
-    const primaryRgb = convertRgbStrToObject(pSBC(0.3, props.theme.body, 'c'));
+    const primaryRgb = convertRgbStrToObject(pSBC(0.5, props.theme.body, 'c'));
     const secondaryRgb = convertRgbStrToObject(
       pSBC(0.1, props.theme.contrastBody, 'c')
     );
 
     return `
-        inset -6px -6px 8px 0 rgba(${primaryRgb.r}, ${primaryRgb.g}, ${primaryRgb.b}, 0.9),
+        inset -6px -6px 8px 0 rgba(${primaryRgb.r}, ${primaryRgb.g}, ${primaryRgb.b}, 1),
         inset 3px 3px 10px 0 rgba(${secondaryRgb.r}, ${secondaryRgb.g}, ${secondaryRgb.b}, 0.15);
         `;
   }}};

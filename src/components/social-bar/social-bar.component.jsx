@@ -5,12 +5,13 @@ import {
   LinkedInIcon,
   MailIcon,
 } from '../social-icons/social-icon-button.component';
+import { forwardRef } from 'react';
 
-const SocialBar = ({ showText, isHidden }) => {
+const SocialBar = forwardRef(({ showText, isHidden }, ref) => {
   return (
     <>
       {isHidden ? null : (
-        <SocialBarWrapper>
+        <SocialBarWrapper ref={ref}>
           <GitHubIcon showText={showText} />
           <LinkedInIcon showText={showText} />
           <MailIcon showText={showText} />
@@ -18,6 +19,6 @@ const SocialBar = ({ showText, isHidden }) => {
       )}
     </>
   );
-};
+});
 
 export default SocialBar;

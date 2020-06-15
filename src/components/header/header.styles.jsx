@@ -15,7 +15,7 @@ export const StyledHeader = styled.div`
   position: fixed;
   top: 0;
   left: 0;
-  padding: 0 1em;
+  padding: 0 2em 0 1em;
   background-color: ${({ theme }) => theme.body};
   z-index: 100;
   transition: box-shadow 0.3s;

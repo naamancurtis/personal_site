@@ -27,8 +27,8 @@ const ThemeToggleButton = ({ toggleTheme }) => {
             <FontAwesomeIcon
               icon={
                 theme.theme === 'dark'
-                  ? ['far', 'lightbulb']
-                  : ['fas', 'lightbulb']
+                  ? ['fas', 'lightbulb']
+                  : ['far', 'lightbulb']
               }
             />
           </IconWrapper>

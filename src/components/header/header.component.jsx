@@ -16,6 +16,7 @@ import SocialBar from '../social-bar/social-bar.component';
 const Header = ({ toggleTheme }) => {
   const [socialDrawHidden, setSocialDraw] = useState(true);
   const self = useRef(null);
+  const socialDraw = useRef(null);
 
   const isMobile = useMedia({ query: GLOBAL_MEDIA_QUERIES.mobile });
 
@@ -23,8 +24,14 @@ const Header = ({ toggleTheme }) => {
     if (!self) return;
     if (window.scrollY > 15) {
       self.current.classList.add('scrolled');
+      if (socialDraw) {
+        socialDraw.current.classList.add('scrolled');
+      }
     } else {
       self.current.classList.remove('scrolled');
+      if (socialDraw) {
+        socialDraw.current.classList.remove('scrolled');
+      }
     }
   };
 
@@ -36,7 +43,9 @@ const Header = ({ toggleTheme }) => {
 
   return (
     <>
-      {isMobile ? <SocialBar isHidden={socialDrawHidden} showText /> : null}
+      {isMobile ? (
+        <SocialBar ref={socialDraw} isHidden={socialDrawHidden} showText />
+      ) : null}
       <StyledHeader ref={self}>
         <Logo />
         <HeaderIconsWrapper>
