@@ -9,6 +9,7 @@ export const FormTitle = styled.h2`
   font-family: ${({ theme }) => theme.fonts.heading};
   letter-spacing: 1.2px;
   font-weight: 500;
+  margin-bottom: 1.2rem;
 `;
 
 export const FormWrapper = styled.div`

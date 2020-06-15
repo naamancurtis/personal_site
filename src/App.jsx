@@ -5,6 +5,7 @@ import { useMedia } from 'react-media';
 import GlobalStyles from './styles/global';
 import { darkTheme, lightTheme } from './styles/theme';
 import { GLOBAL_MEDIA_QUERIES } from './styles/media';
+import { useDarkMode } from './styles/use-theme';
 
 import Header from './components/header/header.component';
 import IntroAnimation from './components/greeting/greeting.component';
@@ -34,15 +35,17 @@ library.add(
 // App Starts Here
 
 const App = () => {
-  const [theme, setTheme] = useState('light');
-  const toggleTheme = () => setTheme(theme === 'dark' ? 'light' : 'dark');
+  const [theme, toggleTheme, mountedComponent] = useDarkMode();
+  const themeMode = theme === 'dark' ? darkTheme : lightTheme;
 
   const [hasPlayedIntro, setIntro] = useState(true);
 
   const isMobile = useMedia({ query: GLOBAL_MEDIA_QUERIES.mobile });
 
+  if (!mountedComponent) return <div />;
+
   return (
-    <ThemeProvider theme={theme === 'dark' ? darkTheme : lightTheme}>
+    <ThemeProvider theme={themeMode}>
       <GlobalStyles />
       <Header toggleTheme={toggleTheme} />
       {isMobile ? null : <SocialBar />}

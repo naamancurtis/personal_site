@@ -37,8 +37,7 @@ export const ToggleSwitchLabel = styled.label`
     height: 33px;
     border-radius: 3px;
     background: ${(props) => props.theme.body};
-    box-shadow: 3px 0px 3px 1px rgba(57, 58, 71, 0.2),
-    -2px -2px 10px rgba(57, 58, 71, 0.1);
+    ${defaultBoxShadowCss};
 
     border: 1px solid ${(props) => LightenDarkenColor(props.theme.body, -3)};
     transition: 0.5s;
