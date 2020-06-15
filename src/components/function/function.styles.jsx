@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import media from '../../styles/media';
 import {
   defaultBoxShadowCss,
   indentBoxShadowCss,
@@ -15,6 +16,9 @@ export const Fn = styled.div`
   border-radius: 10px;
   height: 100%;
 
+  ${media.tablet`
+    padding: 1em 1.1em 0.7em 1.3em;
+  `};
   &:hover {
     ${defaultBoxShadowCss}
   }

@@ -22,12 +22,13 @@ export const NavHeader = styled.h2`
   opacity: 1;
   align-self: start;
   width: max-content;
+  margin-bottom: 0.5rem;
 `;
 
 export const RoutesWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: start;
   align-items: center;
   width: 95%;
 `;

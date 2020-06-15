@@ -129,7 +129,10 @@ const SkillsPage = ({ isOpen }) => {
       <br />
       <SmallText className="skills-item">
         See below for a list of languages, technologies and frameworks I'm
-        familiar with.
+        familiar with. <br /> <br />
+        I'm particularly interested in the{' '}
+        <span className="underline">Rust</span> programming language and it's
+        ability to create high performance, scalable and secure applications.
       </SmallText>
       <Line />
       <SkillBlockWrapper className="skills-item">
@@ -148,20 +151,3 @@ const SkillsPage = ({ isOpen }) => {
 };
 
 export default SkillsPage;
-
-// <p>
-//   I build innovative digital products and tools to&nbsp;
-//   <span className="underline">drive business outcomes</span> and&nbsp;
-//   <span className="underline">end user value.</span>
-// </p>
-// <br />
-// <p>
-//   I enjoy building anything from&nbsp;
-//   <span className="underline">
-//     microservices and web apps to CLI tools
-//   </span>
-//   &nbsp;and everything inbetween and have done so across a number of
-//   different programming languages and frameworks (and I'm always happy and
-//   enthuastic to pick up new ones).
-// </p>
-// <br />

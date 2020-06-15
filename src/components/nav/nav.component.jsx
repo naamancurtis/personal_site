@@ -91,11 +91,11 @@ const Nav = () => {
             </NavLineItem>
           ))}
         </FnDefWrapper>
-        <Curlys ref={closingCurly}>
-          <br />
-          {'}'}
-        </Curlys>
       </RoutesWrapper>
+      <Curlys ref={closingCurly}>
+        <br />
+        {'}'}
+      </Curlys>
     </NavWrapper>
   );
 };
