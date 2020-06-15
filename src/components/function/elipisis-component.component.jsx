@@ -90,6 +90,7 @@ const SvgElipisis = ({ hideComponent }) => {
       width={20}
       height="5pt"
       overflow="visible"
+      opacity={0.75}
       fill={theme.text}
       ref={self}
     >

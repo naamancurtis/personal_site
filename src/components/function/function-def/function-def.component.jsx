@@ -1,7 +1,7 @@
 import React, { useRef, useEffect } from 'react';
 import { TweenLite } from 'gsap';
 import { OpaqueFnText, FnDef } from '../function.styles';
-import { Type, ReservedWord } from '../types.styles';
+import { Type, Params, FunctionName } from '../types.styles';
 
 const FunctionDef = ({ isShown, hideCompletely, fnName, paramPrefix }) => {
   const self = useRef(null);
@@ -34,11 +34,11 @@ const FunctionDef = ({ isShown, hideCompletely, fnName, paramPrefix }) => {
 
   return (
     <FnDef ref={self}>
-      <OpaqueFnText>pub fn </OpaqueFnText> <Type>{fnName}</Type>
+      <OpaqueFnText>pub fn </OpaqueFnText> <FunctionName>{fnName}</FunctionName>
       <OpaqueFnText>{'('}</OpaqueFnText>
       {self ? (
         <>
-          <ReservedWord>{paramPrefix + 'self'}</ReservedWord>
+          <Params>{paramPrefix + 'self'}</Params>
         </>
       ) : null}
       <OpaqueFnText>{') '}</OpaqueFnText>

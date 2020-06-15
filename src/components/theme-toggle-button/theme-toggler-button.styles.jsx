@@ -1,8 +1,5 @@
 import styled from 'styled-components';
-import { LightenDarkenColor } from '../../styles/utility.functions';
 
-import Sun from './sun.svg';
-import Moon from './moon.svg';
 import {
   defaultBoxShadowCss,
   indentBoxShadowCss,
@@ -27,20 +24,33 @@ export const ToggleSwitchLabel = styled.label`
   background-color: ${(props) => props.theme.body};
   cursor: pointer;
 
-  &::after {
-    line-height: 35px;
-    text-align: center;
-    content: url(${Sun});
-    color: ${(props) => props.theme.text};
+  & .icon {
     display: block;
     width: 30px;
     height: 33px;
     border-radius: 3px;
     background: ${(props) => props.theme.body};
     ${defaultBoxShadowCss};
+  }
+`;
 
-    border: 1px solid ${(props) => LightenDarkenColor(props.theme.body, -3)};
-    transition: 0.5s;
+export const IconWrapper = styled.span`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.4rem;
+  width: 30px;
+  height: 33px;
+  border-radius: 3px;
+  background: ${(props) => props.theme.body};
+  position: relative;
+  left: 0;
+  ${defaultBoxShadowCss};
+
+  transition: 0.5s;
+
+  &.dark {
+    left: 30px;
   }
 `;
 
@@ -55,20 +65,6 @@ export const Switch = styled.input`
 
   &:checked + ${ToggleSwitchLabel} {
     background: ${(props) => props.theme.body};
-
-    &::after {
-      content: url(${Moon});
-      fill: ${(props) => props.theme.text};
-      position: absolute;
-      display: block;
-      width: 30px;
-      height: 33px;
-      top: -1px;
-      margin-left: 30px;
-      ${indentBoxShadowCss};
-      transition: 0.5s;
-      border-radius: 3px;
-      border: 1px solid ${(props) => LightenDarkenColor(props.theme.body, -3)};
-    }
   }
 `;
+

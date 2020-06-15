@@ -1,19 +1,15 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import {
   hexToRgb,
   pSBC,
   convertRgbStrToObject,
 } from '../../styles/utility.functions';
-import {
-  defaultBoxShadowCss,
-  indentBoxShadowCss,
-} from '../../styles/neumorphic';
 
 export const SubmitButton = styled.button`
   font-size: 1em;
   font-weight: 700;
   width: 50%;
-  color: ${({ theme }) => theme.secondaryAccent};
+  color: ${({ theme }) => theme.type};
   background-color: ${({ theme }) => theme.body};
   border-radius: 10px;
   border: none;
@@ -27,7 +23,7 @@ export const SubmitButton = styled.button`
   overflow: hidden;
 
   box-shadow: ${(props) => {
-    const rgb = hexToRgb(props.theme.secondaryAccent);
+    const rgb = hexToRgb(props.theme.type);
     const bodyRGBstring = pSBC(0.4, props.theme.body, 'c');
     const bodyRGB = convertRgbStrToObject(bodyRGBstring);
     if (props.theme.theme === 'dark') {
@@ -41,32 +37,6 @@ export const SubmitButton = styled.button`
     6px 6px 10px 0 rgba(222, 219, 226, 0.5);
   `;
   }};
-
-  // &:hover {
-  //   transition: box-shadow 0.2s;
-  //   box-shadow: ${(props) => {
-    //     const rgb = hexToRgb(props.theme.secondaryAccent);
-    //     if (props.theme.theme === 'dark') {
-    //       const darkRgbString = pSBC(-0.4, props.theme.body, 'c');
-    //       const splitRgbString = darkRgbString
-    //         .substr(4, darkRgbString.length - 5)
-    //         .split(',');
-    //       const darkRgb = {
-    //         r: splitRgbString[0],
-    //         g: splitRgbString[1],
-    //         b: splitRgbString[2],
-    //       };
-    //       return `
-    //       0px 0px 8px 0 rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, 0.5),
-    //       inset 0px 0px 10px 0 rgba(${darkRgb.r}, ${darkRgb.g}, ${darkRgb.b}, 1);
-    //       `;
-    //     }
-    //     return `
-    //   -6px 6px 16px 0 rgba(57, 58, 71, 0.1),
-    //   6px 6px 10px 0 rgba(222, 219, 226, 0.5);
-    // `;
-    //  }};
-    //
   }}
 `;
 
@@ -84,14 +54,12 @@ export const ButtonText = styled.span`
     transition: box-shadow 0.2s;
     background-color: ${({ theme }) => pSBC(-0.1, theme.body)};
     text-shadow: ${(props) => {
-      const rgb = convertRgbStrToObject(
-        pSBC(-0.1, props.theme.secondaryAccent, 'c')
-      );
+      const rgb = convertRgbStrToObject(pSBC(-0.1, props.theme.type, 'c'));
       return `5px 3px 5px rgba(${rgb.r}, ${rgb.g}, ${rgb.b}, 0.2)`;
     }};
   
     box-shadow: ${(props) => {
-      const rgb = hexToRgb(props.theme.secondaryAccent);
+      const rgb = hexToRgb(props.theme.type);
       if (props.theme.theme === 'dark') {
         const darkRgbString = pSBC(-0.5, props.theme.body, 'c');
         const splitRgbString = darkRgbString

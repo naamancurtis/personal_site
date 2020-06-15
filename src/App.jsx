@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { ThemeProvider } from 'styled-components';
 import { useMedia } from 'react-media';
 
@@ -19,8 +19,12 @@ import {
   faLongArrowAltRight,
   faEnvelope,
   faUserPlus,
+  faLightbulb as solidLightbulb,
 } from '@fortawesome/free-solid-svg-icons';
-import { faEnvelopeOpen } from '@fortawesome/free-regular-svg-icons';
+import {
+  faEnvelopeOpen,
+  faLightbulb,
+} from '@fortawesome/free-regular-svg-icons';
 import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import { useGreeting } from './storage/greeting';
 
@@ -30,7 +34,9 @@ library.add(
   faGithub,
   faEnvelope,
   faLinkedin,
-  faUserPlus
+  faUserPlus,
+  faLightbulb,
+  solidLightbulb
 );
 
 // App Starts Here
@@ -44,8 +50,6 @@ const App = () => {
     greetingHasBeenShown,
     readyToMount,
   ] = useGreeting();
-
-  console.log('Shouldd show Greeting', shouldShowGreeting);
 
   const isMobile = useMedia({ query: GLOBAL_MEDIA_QUERIES.mobile });
 

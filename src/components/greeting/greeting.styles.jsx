@@ -34,7 +34,7 @@ export const Name = styled.div`
   margin-bottom: 1rem;
   font-family: ${({ theme }) => theme.fonts.code};
   font-weight: 900;
-  color: ${({ theme }) => theme.secondaryAccent};
+  color: ${({ theme }) => theme.type};
   overflow: hidden;
   text-overflow: hidden;
   height: 8vw;
@@ -61,7 +61,7 @@ export const Role = styled.div`
   font-size: 5vw;
   letter-spacing: 1.6px;
   opacity: 0;
-  color: ${({ theme }) => theme.quarternayAccent};
+  color: ${({ theme }) => theme.trait};
 
   ${media.desktop`
     font-size: 4vw;

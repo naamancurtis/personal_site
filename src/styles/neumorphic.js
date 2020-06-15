@@ -2,7 +2,6 @@ import { css } from 'styled-components';
 import { pSBC, convertRgbStrToObject } from './utility.functions';
 
 export const defaultBoxShadowCss = css`
-  if (!props.theme.body || !props.theme.contrastBody) return;
   box-shadow: ${(props) => {
     // Dark Mode
     if (props.theme.theme === 'dark') {

@@ -4,8 +4,10 @@ import {
   ToggleSwitchLabel,
   ToggleSwitchWrapper,
   Switch,
+  IconWrapper,
 } from './theme-toggler-button.styles';
 import { ThemeContext } from 'styled-components';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const ThemeToggleButton = ({ toggleTheme }) => {
   const theme = useContext(ThemeContext);
@@ -20,7 +22,17 @@ const ThemeToggleButton = ({ toggleTheme }) => {
           checked={theme.theme === 'dark'}
           onChange={() => toggleTheme()}
         />
-        <ToggleSwitchLabel htmlFor="toggle-theme" />
+        <ToggleSwitchLabel htmlFor="toggle-theme">
+          <IconWrapper className={`${theme.theme === 'dark' ? 'dark' : ''}`}>
+            <FontAwesomeIcon
+              icon={
+                theme.theme === 'dark'
+                  ? ['far', 'lightbulb']
+                  : ['fas', 'lightbulb']
+              }
+            />
+          </IconWrapper>
+        </ToggleSwitchLabel>
       </ToggleSwitchWrapper>
     </div>
   );

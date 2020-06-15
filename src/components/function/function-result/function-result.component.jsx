@@ -1,13 +1,12 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { TimelineLite } from 'gsap';
 import {
-  OpaqueFnText,
   FnResult,
   FnContent,
   ArrowWrapper,
   FnCurlys,
 } from '../function.styles';
-import { BoldKeyword } from '../types.styles';
+import { FunctionResultStyle } from '../types.styles';
 import SvgElipisis from '../elipisis-component.component';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
@@ -130,7 +129,7 @@ const FunctionResult = ({ showAnimation, result, isOpen, children }) => {
           <FontAwesomeIcon icon="long-arrow-alt-right" />
         </ArrowWrapper>
         <>
-          <BoldKeyword> {result} </BoldKeyword>
+          <FunctionResultStyle> {result} </FunctionResultStyle>
           <FnCurlys ref={openingCurly}> {'{'}</FnCurlys>
           <SvgElipisis hideComponent={isOpen} />
           <FnContent
