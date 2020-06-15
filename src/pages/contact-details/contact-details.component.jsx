@@ -42,12 +42,8 @@ const ContactDetailsPage = ({ isOpen, showIcons }) => {
         <>
           <Line />
           <SocialIconsWrapper>
-            <SocialWrapperWithLabel>
-              <GitHubIcon /> <SocialLabel>GitHub</SocialLabel>
-            </SocialWrapperWithLabel>
-            <SocialWrapperWithLabel>
-              <LinkedInIcon /> <SocialLabel>LinkedIn</SocialLabel>
-            </SocialWrapperWithLabel>
+            <GitHubIcon showText />
+            <LinkedInIcon showText />
           </SocialIconsWrapper>
         </>
       ) : null}

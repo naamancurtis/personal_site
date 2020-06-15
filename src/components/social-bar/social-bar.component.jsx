@@ -6,11 +6,17 @@ import {
   MailIcon,
 } from '../social-icons/social-icon-button.component';
 
-const SocialBar = () => {
+const SocialBar = ({ showText, isHidden }) => {
   return (
-    <SocialBarWrapper>
-      <GitHubIcon /> <LinkedInIcon /> <MailIcon />
-    </SocialBarWrapper>
+    <>
+      {isHidden ? null : (
+        <SocialBarWrapper>
+          <GitHubIcon showText={showText} />
+          <LinkedInIcon showText={showText} />
+          <MailIcon showText={showText} />
+        </SocialBarWrapper>
+      )}
+    </>
   );
 };
 

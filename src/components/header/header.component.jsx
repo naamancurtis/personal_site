@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { useMedia } from 'react-media';
 import PropTypes from 'prop-types';
 
 import {
@@ -9,10 +10,14 @@ import {
 } from './header.styles';
 import ThemeToggleButton from '../theme-toggle-button/theme-toggler-button.component';
 import Logo from './logo/logo.component';
+import { GLOBAL_MEDIA_QUERIES } from '../../styles/media';
+import SocialBar from '../social-bar/social-bar.component';
 
 const Header = ({ toggleTheme }) => {
-  const [socialDrawOpen, setSocialDraw] = useState(false);
+  const [socialDrawHidden, setSocialDraw] = useState(true);
   const self = useRef(null);
+
+  const isMobile = useMedia({ query: GLOBAL_MEDIA_QUERIES.mobile });
 
   const handleScroll = () => {
     if (!self) return;
@@ -30,17 +35,28 @@ const Header = ({ toggleTheme }) => {
   }, []);
 
   return (
-    <StyledHeader ref={self}>
-      <Logo />
-      <HeaderIconsWrapper>
-        <HeaderIconWrapper className={socialDrawOpen ? 'is-open' : null}>
-          <HeaderTextLink onClick={() => setSocialDraw(!socialDrawOpen)}>
-            {'Contact Me'.toUpperCase()}
-          </HeaderTextLink>
-        </HeaderIconWrapper>
-        <ThemeToggleButton toggleTheme={toggleTheme} />
-      </HeaderIconsWrapper>
-    </StyledHeader>
+    <>
+      {isMobile ? <SocialBar isHidden={socialDrawHidden} showText /> : null}
+      <StyledHeader ref={self}>
+        <Logo />
+        <HeaderIconsWrapper>
+          {isMobile ? (
+            <>
+              <HeaderIconWrapper
+                className={socialDrawHidden ? null : 'is-open'}
+              >
+                <HeaderTextLink
+                  onClick={() => setSocialDraw(!socialDrawHidden)}
+                >
+                  {'Contact Me'.toUpperCase()}
+                </HeaderTextLink>
+              </HeaderIconWrapper>
+            </>
+          ) : null}
+          <ThemeToggleButton toggleTheme={toggleTheme} />
+        </HeaderIconsWrapper>
+      </StyledHeader>
+    </>
   );
 };
 

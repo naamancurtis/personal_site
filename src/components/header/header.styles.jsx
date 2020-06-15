@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import media from '../../styles/media';
 import {
   indentBoxShadowCss,
   defaultBoxShadowCss,
@@ -29,6 +30,10 @@ export const HeaderIconsWrapper = styled.div`
   justify-content: space-between;
   align-items: center;
   min-width: 200px;
+
+  ${media.tablet`
+    justify-content: end;
+  `}
 `;
 
 export const HeaderIconWrapper = styled.div`

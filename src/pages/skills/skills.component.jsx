@@ -122,9 +122,9 @@ const SkillsPage = ({ isOpen }) => {
         To do this I focus on creating solutions with{' '}
         <span className="underline">intuitive user experiences</span> where the
         user and their needs stay first and foremost in{' '}
-        <span class="underline">design and implementation</span>. While always
-        factoring in performance, simplicity, scalability, testability and
-        security.
+        <span className="underline">design and implementation</span>. While
+        always factoring in performance, simplicity, scalability, testability
+        and security.
       </p>
       <br />
       <SmallText className="skills-item">

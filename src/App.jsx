@@ -1,13 +1,17 @@
 import React, { useState } from 'react';
 import { ThemeProvider } from 'styled-components';
+import { useMedia } from 'react-media';
 
 import GlobalStyles from './styles/global';
 import { darkTheme, lightTheme } from './styles/theme';
+import { GLOBAL_MEDIA_QUERIES } from './styles/media';
+
 import Header from './components/header/header.component';
 import IntroAnimation from './components/greeting/greeting.component';
 import Main from './pages/main/main.component';
-import './App.css';
+import SocialBar from './components/social-bar/social-bar.component';
 
+import './App.css';
 // Font Awesome Setup
 import { library } from '@fortawesome/fontawesome-svg-core';
 import {
@@ -17,7 +21,6 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { faEnvelopeOpen } from '@fortawesome/free-regular-svg-icons';
 import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
-import SocialBar from './components/social-bar/social-bar.component';
 
 library.add(
   faLongArrowAltRight,
@@ -36,11 +39,13 @@ const App = () => {
 
   const [hasPlayedIntro, setIntro] = useState(true);
 
+  const isMobile = useMedia({ query: GLOBAL_MEDIA_QUERIES.mobile });
+
   return (
     <ThemeProvider theme={theme === 'dark' ? darkTheme : lightTheme}>
       <GlobalStyles />
       <Header toggleTheme={toggleTheme} />
-      <SocialBar />
+      {isMobile ? null : <SocialBar />}
       {hasPlayedIntro ? (
         <Main />
       ) : (

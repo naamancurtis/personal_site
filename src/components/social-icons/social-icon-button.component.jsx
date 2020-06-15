@@ -4,23 +4,39 @@ import {
   GitHubIconWrapper,
   LinkedInIconWrapper,
   MailIconWrapper,
+  SocialWrapperWithLabel,
+  SocialLabel,
 } from './social-icon-button.styles';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-export const GitHubIcon = () => (
-  <GitHubIconWrapper href={GITHUB_URL} target="_blank">
-    <FontAwesomeIcon icon={['fab', 'github']} />
-  </GitHubIconWrapper>
+export const GitHubIcon = ({ showText }) => (
+  <SocialWrapperWithLabel>
+    <GitHubIconWrapper href={GITHUB_URL} target="_blank">
+      <FontAwesomeIcon icon={['fab', 'github']} />
+    </GitHubIconWrapper>
+    {showText ? <SocialLabel>GitHub</SocialLabel> : null}
+  </SocialWrapperWithLabel>
 );
 
-export const LinkedInIcon = () => (
-  <LinkedInIconWrapper href={LINKEDIN_URL} target="_blank">
-    <FontAwesomeIcon icon={['fab', 'linkedin']} />
-  </LinkedInIconWrapper>
+export const LinkedInIcon = ({ showText }) => (
+  <SocialWrapperWithLabel>
+    <LinkedInIconWrapper href={LINKEDIN_URL} target="_blank">
+      <FontAwesomeIcon icon={['fab', 'linkedin']} />
+    </LinkedInIconWrapper>
+    {showText ? <SocialLabel>LinkedIn</SocialLabel> : null}
+  </SocialWrapperWithLabel>
 );
 
-export const MailIcon = () => (
-  <MailIconWrapper href={LINKEDIN_URL} target="_blank">
-    <FontAwesomeIcon icon={['fas', 'envelope']} />
-  </MailIconWrapper>
+export const MailIcon = ({ showText }) => (
+  <SocialWrapperWithLabel>
+    <MailIconWrapper href={''} target="_blank">
+      <FontAwesomeIcon icon={['fas', 'envelope']} />
+    </MailIconWrapper>
+    {showText ? (
+      <SocialLabel>
+        Contact
+        <br /> Me
+      </SocialLabel>
+    ) : null}
+  </SocialWrapperWithLabel>
 );

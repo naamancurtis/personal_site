@@ -61,5 +61,8 @@ export const SocialWrapperWithLabel = styled.div`
 `;
 
 export const SocialLabel = styled.span`
+  text-align: center;
   font-size: 1rem;
+  font-family: ${({ theme }) => theme.fonts.body};
+  font-weight: 500;
 `;
