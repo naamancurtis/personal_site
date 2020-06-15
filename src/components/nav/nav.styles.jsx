@@ -6,9 +6,22 @@ export const NavWrapper = styled.div`
   display: inline-block;
   white-space: nowrap;
   width: 100%;
+  font-size: 1em;
+
   ${media.tablet`
-    max-width: 40vw;
+    max-width: 70vw;
+    font-size: 1.1em;
   `};
+
+  ${media.desktop`
+    max-width: 60vw;
+    font-size: 1.2em;
+  `}
+
+  ${media.widescreen`
+    max-width: 50vw;
+    font-size: 1.3em;
+  `}
 `;
 
 export const NavLineItem = styled.div`

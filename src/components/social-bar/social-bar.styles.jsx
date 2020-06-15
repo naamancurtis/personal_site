@@ -27,5 +27,6 @@ export const SocialBarWrapper = styled.div`
     top: 95px;
     padding: 0;
     box-shadow: none;
+    border-left: none;
   `}
 `;

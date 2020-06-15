@@ -23,6 +23,10 @@ export const StyledHeader = styled.div`
   &.scrolled {
     ${defaultBoxShadowCss};
   }
+
+  ${media.tablet`
+    padding: 0 1em;
+  `}
 `;
 
 export const HeaderIconsWrapper = styled.div`

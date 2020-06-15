@@ -24,12 +24,12 @@ const Header = ({ toggleTheme }) => {
     if (!self) return;
     if (window.scrollY > 15) {
       self.current.classList.add('scrolled');
-      if (socialDraw) {
+      if (socialDraw && socialDraw.current) {
         socialDraw.current.classList.add('scrolled');
       }
     } else {
       self.current.classList.remove('scrolled');
-      if (socialDraw) {
+      if (socialDraw && socialDraw.current) {
         socialDraw.current.classList.remove('scrolled');
       }
     }

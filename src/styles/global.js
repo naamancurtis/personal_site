@@ -26,8 +26,5 @@ export default createGlobalStyle`
     }
 
     padding: 0 1rem;
-    ${media.tablet`
-      height: 100vh; 
-    `};
 }`;
 

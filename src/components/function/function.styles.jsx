@@ -38,7 +38,7 @@ export const OpaqueFnText = styled.span`
 `;
 
 export const FnDef = styled.div`
-  height: 1rem;
+  height: 1em;
   margin: 0;
   opacity: 0.2;
   font-size: 0.9em;
@@ -60,6 +60,10 @@ export const FnContent = styled.div`
   display: none;
   opacity: 0;
   cursor: default;
+
+  ${media.desktop`
+    font-size: 1.1rem;
+  `}
 `;
 
 export const ArrowWrapper = styled.span`
