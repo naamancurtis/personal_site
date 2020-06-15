@@ -14,3 +14,20 @@ export const Line = styled.div`
         `;
   }};
 `;
+
+export const Underline = styled.span`
+  background-image: linear-gradient(
+    120deg,
+    ${({ theme }) => theme.underlineStart} 0%,
+    ${({ theme }) => theme.underlineEnd} 100%
+  );
+  background-repeat: no-repeat;
+  background-size: 100% 0.2em;
+  background-position: 0 105%;
+  transition: background-size 0.25 ease-in;
+
+  &:hover {
+    background-size: 110% 98%;
+    color: ${({ theme }) => theme.body};
+  }
+`;

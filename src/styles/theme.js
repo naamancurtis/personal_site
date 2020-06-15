@@ -8,24 +8,41 @@ export var darkTheme = {};
 // };
 
 const fonts = {
-  code: ` Ubuntu,'Fira Code', source-code-pro, 'Operator Mono', monospace`,
+  code: `Ubuntu,'Fira Code', source-code-pro, 'Operator Mono', monospace`,
   heading: 'Raleway, Ubuntu, Fira Sans Extra Condensed, Fira Sans',
   body: 'Raleway, Ubuntu, Fira Sans Extra Condensed, Fira Sans',
 };
+
+// lightTheme = {
+//   fonts: { ...fonts },
+//   theme: 'light',
+//   body: '#DEDBE2',
+//   text: '#393A47',
+//   heading: '#536E8A',
+//   primaryAccent: '#4A4371',
+//   secondaryAccent: '#4B5B9C',
+//   tertiaryAccent: '#84C6BE',
+//   quarternayAccent: '',
+//   error: '#E63A57',
+
+//   contrastBody: darkTheme.body,
+//   oppositeAccent: darkTheme.accent,
+// };
 
 lightTheme = {
   fonts: { ...fonts },
   theme: 'light',
   body: '#DEDBE2',
-  text: '#5D5D74',
-  heading: '#536E8A',
-  primaryAccent: '#4A4371',
-  secondaryAccent: '#4B5B9C',
-  tertiaryAccent: '#84C6BE',
-  quarternayAccent: '',
+  text: '#595F78',
+  primaryAccent: '#41B3A3',
+  secondaryAccent: '#44318D',
+  tertiaryAccent: '#EB7274',
+  quarternayAccent: '#41B3A3',
   error: '#E63A57',
+  underlineStart: '#41B3A3',
+  underlineEnd: '#8860D0',
 
-  oppositeBackground: darkTheme.body,
+  contrastBody: darkTheme.body,
   oppositeAccent: darkTheme.accent,
 };
 
@@ -34,12 +51,13 @@ darkTheme = {
   theme: 'dark',
   body: '#393A47',
   text: lightTheme.body,
-  heading: '#2FCAA3',
   primaryAccent: '#DE4F67',
   secondaryAccent: '#41D2DA',
   tertiaryAccent: '#F76B8E',
   quarternayAccent: '#2FCAA3',
+  underlineStart: '#2FCAA3',
+  underlineEnd: '#41D2DA',
 
-  oppositeBackground: lightTheme.body,
+  contrastBody: lightTheme.body,
   oppositeAccent: lightTheme.accent,
 };

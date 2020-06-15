@@ -34,7 +34,7 @@ library.add(
 // App Starts Here
 
 const App = () => {
-  const [theme, setTheme] = useState('dark');
+  const [theme, setTheme] = useState('light');
   const toggleTheme = () => setTheme(theme === 'dark' ? 'light' : 'dark');
 
   const [hasPlayedIntro, setIntro] = useState(true);

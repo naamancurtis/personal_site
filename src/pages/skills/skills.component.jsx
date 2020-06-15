@@ -8,7 +8,7 @@ import {
   SkillCardsWrapper,
 } from './skills.styles';
 import { ThemeContext } from 'styled-components';
-import { Line } from '../../styles/components';
+import { Line, Underline } from '../../styles/components';
 
 const SKILLS = [
   {
@@ -120,19 +120,18 @@ const SkillsPage = ({ isOpen }) => {
       <br />
       <p className="skills-item">
         To do this I focus on creating solutions with{' '}
-        <span className="underline">intuitive user experiences</span> where the
-        user and their needs stay first and foremost in{' '}
-        <span className="underline">design and implementation</span>. While
-        always factoring in performance, simplicity, scalability, testability
-        and security.
+        <Underline>intuitive user experiences</Underline> where the user and
+        their needs stay first and foremost in{' '}
+        <Underline>design and implementation</Underline>. While always factoring
+        in performance, simplicity, scalability, testability and security.
       </p>
       <br />
       <SmallText className="skills-item">
         See below for a list of languages, technologies and frameworks I'm
         familiar with. <br /> <br />
-        I'm particularly interested in the{' '}
-        <span className="underline">Rust</span> programming language and it's
-        ability to create high performance, scalable and secure applications.
+        I'm particularly interested in the <Underline>Rust</Underline>{' '}
+        programming language and it's ability to create high performance,
+        scalable and secure applications.
       </SmallText>
       <Line />
       <SkillBlockWrapper className="skills-item">

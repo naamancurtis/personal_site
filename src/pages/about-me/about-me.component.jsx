@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { TimelineLite } from 'gsap';
 import { AboutMeWrapper, AboutMeParagraph } from './about-me.styles';
-import { Line } from '../../styles/components';
+import { Line, Underline } from '../../styles/components';
 
 const AboutMe = ({ isOpen }) => {
   const [timeline, setTimeline] = useState(new TimelineLite());
@@ -40,22 +40,20 @@ const AboutMe = ({ isOpen }) => {
       <AboutMeParagraph className="about-me-text">
         I'm a full-stack Software Engineer who uses technology to create
         products and solutions that&nbsp;
-        <span className="underline">positively impact</span> people's day-to-day
-        lives.
+        <Underline>positively impact</Underline> people's day-to-day lives.
       </AboutMeParagraph>
       <br />
       <AboutMeParagraph className="about-me-text">
         Both passionate and enthuastic, I enjoy taking on challenges and
         finding&nbsp;
-        <span className="underline">innovative solutions</span>, always keeping
-        sight of the longer term vision and ambition of the project.
+        <Underline>innovative solutions</Underline>, always keeping sight of the
+        longer term vision and ambition of the project.
       </AboutMeParagraph>
       <br />
       <AboutMeParagraph className="about-me-text">
         I firmly believe that the best products and solutions are created when
-        you bring a <span className="underline">diverse group</span> of people
-        together and allow each to bring their unique ideas and perspectives to
-        the table.
+        you bring a <Underline>diverse group</Underline> of people together and
+        allow each to bring their unique ideas and perspectives to the table.
       </AboutMeParagraph>
     </AboutMeWrapper>
   );

@@ -30,7 +30,11 @@ export const RoutesWrapper = styled.div`
   flex-direction: column;
   justify-content: start;
   align-items: center;
-  width: 95%;
+  width: 100%;
+
+  ${media.tablet`
+    width: 95%;
+  `}
 `;
 
 export const FnDefWrapper = styled.div`
