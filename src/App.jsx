@@ -22,6 +22,7 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { faEnvelopeOpen } from '@fortawesome/free-regular-svg-icons';
 import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
+import { useGreeting } from './storage/greeting';
 
 library.add(
   faLongArrowAltRight,
@@ -38,21 +39,27 @@ const App = () => {
   const [theme, toggleTheme, mountedComponent] = useDarkMode();
   const themeMode = theme === 'dark' ? darkTheme : lightTheme;
 
-  const [hasPlayedIntro, setIntro] = useState(true);
+  const [
+    shouldShowGreeting,
+    greetingHasBeenShown,
+    readyToMount,
+  ] = useGreeting();
+
+  console.log('Shouldd show Greeting', shouldShowGreeting);
 
   const isMobile = useMedia({ query: GLOBAL_MEDIA_QUERIES.mobile });
 
-  if (!mountedComponent) return <div />;
+  if (!mountedComponent || !readyToMount) return <div />;
 
   return (
     <ThemeProvider theme={themeMode}>
       <GlobalStyles />
       <Header toggleTheme={toggleTheme} />
       {isMobile ? null : <SocialBar />}
-      {hasPlayedIntro ? (
-        <Main />
+      {shouldShowGreeting === true ? (
+        <IntroAnimation setGreetingShown={greetingHasBeenShown} />
       ) : (
-        <IntroAnimation toggleTyped={() => setIntro(!hasPlayedIntro)} />
+        <Main />
       )}
     </ThemeProvider>
   );

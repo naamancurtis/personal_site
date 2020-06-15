@@ -13,22 +13,6 @@ const fonts = {
   body: 'Raleway, Ubuntu, Fira Sans Extra Condensed, Fira Sans',
 };
 
-// lightTheme = {
-//   fonts: { ...fonts },
-//   theme: 'light',
-//   body: '#DEDBE2',
-//   text: '#393A47',
-//   heading: '#536E8A',
-//   primaryAccent: '#4A4371',
-//   secondaryAccent: '#4B5B9C',
-//   tertiaryAccent: '#84C6BE',
-//   quarternayAccent: '',
-//   error: '#E63A57',
-
-//   contrastBody: darkTheme.body,
-//   oppositeAccent: darkTheme.accent,
-// };
-
 lightTheme = {
   fonts: { ...fonts },
   theme: 'light',

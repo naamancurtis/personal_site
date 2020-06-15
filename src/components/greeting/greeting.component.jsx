@@ -3,7 +3,7 @@ import Typed from 'typed.js';
 import { TimelineLite } from 'gsap';
 import { GreetingWrapper, Greeting, Name, Role } from './greeting.styles';
 
-const IntroAnimation = ({ theme, toggleTyped }) => {
+const IntroAnimation = ({ theme, setGreetingShown }) => {
   const greeting = useRef(null);
   const name = useRef(null);
   const role = useRef(null);
@@ -139,7 +139,7 @@ const IntroAnimation = ({ theme, toggleTyped }) => {
 
                 // Trigger state change to move away from Intro component
                 animationTimeline.eventCallback('onComplete', () => {
-                  toggleTyped();
+                  setGreetingShown();
                 });
               },
             })
