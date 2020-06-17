@@ -1,6 +1,7 @@
 import React from 'react';
 import { ThemeProvider } from 'styled-components';
 import { useMedia } from 'react-media';
+import Modal from 'react-modal';
 
 import GlobalStyles from './styles/global';
 import { darkTheme, lightTheme } from './styles/theme';
@@ -13,6 +14,7 @@ import Main from './pages/main/main.component';
 import SocialBar from './components/social-bar/social-bar.component';
 
 import './App.css';
+
 // Font Awesome Setup
 import { library } from '@fortawesome/fontawesome-svg-core';
 import {
@@ -24,6 +26,7 @@ import {
   faSpinner,
   faCheckCircle,
   faTimesCircle,
+  faTimes,
   faLightbulb as solidLightbulb,
 } from '@fortawesome/free-solid-svg-icons';
 import { faLightbulb } from '@fortawesome/free-regular-svg-icons';
@@ -42,8 +45,13 @@ library.add(
   faSpinner,
   faCheckCircle,
   faTimesCircle,
+  faTimes,
   solidLightbulb
 );
+
+// React Modal Setup
+
+Modal.setAppElement('#root');
 
 // App Starts Here
 

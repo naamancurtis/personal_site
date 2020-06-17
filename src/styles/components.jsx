@@ -25,6 +25,7 @@ export const Underline = styled.span`
   background-size: 100% 0.2em;
   background-position: 0 105%;
   transition: background-size 0.25 ease-in;
+  font-style: normal;
 
   &:hover {
     background-size: 110% 98%;

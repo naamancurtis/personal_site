@@ -15,6 +15,7 @@ export const SocialButton = css`
   font-size: 30px;
   cursor: pointer;
   margin: 0.5rem 0;
+  background-color: ${({ theme }) => theme.body};
 
   ${defaultBoxShadowCss};
 

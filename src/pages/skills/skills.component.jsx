@@ -129,7 +129,10 @@ const SkillsPage = ({ isOpen }) => {
       <SmallText className="skills-item">
         See below for a list of languages, technologies and frameworks I'm
         familiar with. <br /> <br />
-        I'm particularly interested in the <Underline>Rust</Underline>{' '}
+        I'm particularly interested in the{' '}
+        <Underline>
+          <b>Rust</b>
+        </Underline>{' '}
         programming language and it's ability to create high performance,
         scalable and secure applications.
       </SmallText>

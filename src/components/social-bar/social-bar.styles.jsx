@@ -10,7 +10,7 @@ export const SocialBarWrapper = styled.div`
   position: fixed;
   top: 60px;
   background-color: ${({ theme }) => theme.body};
-  z-index: 95;
+  z-index: 110;
   right: 0;
 
   padding: 2rem 2rem;
@@ -28,5 +28,6 @@ export const SocialBarWrapper = styled.div`
     padding: 0;
     box-shadow: none;
     border-left: none;
+    background-color: transparent;
   `}
 `;

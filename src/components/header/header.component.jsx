@@ -44,7 +44,12 @@ const Header = ({ toggleTheme }) => {
   return (
     <>
       {isMobile ? (
-        <SocialBar ref={socialDraw} isHidden={socialDrawHidden} showText />
+        <SocialBar
+          ref={socialDraw}
+          isHidden={socialDrawHidden}
+          setIsHidden={setSocialDraw}
+          showText
+        />
       ) : null}
       <StyledHeader ref={self}>
         <Logo />

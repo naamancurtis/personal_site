@@ -86,6 +86,7 @@ export const FormMessageWrapper = styled.div`
   width: 70%;
   margin-bottom: 1.5rem;
   word-wrap: break-word;
+  font-family: ${({ theme }) => theme.fonts.body};
 `;
 
 export const FormSuccessMessage = styled(FormMessageWrapper)`

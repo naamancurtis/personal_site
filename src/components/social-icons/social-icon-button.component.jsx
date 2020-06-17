@@ -27,9 +27,9 @@ export const LinkedInIcon = ({ showText }) => (
   </SocialWrapperWithLabel>
 );
 
-export const MailIcon = ({ showText }) => (
+export const MailIcon = ({ showText, openModal }) => (
   <SocialWrapperWithLabel>
-    <MailIconWrapper href={''} target="_blank">
+    <MailIconWrapper onClick={openModal}>
       <FontAwesomeIcon icon={['fas', 'envelope']} />
     </MailIconWrapper>
     {showText ? (
