@@ -2,14 +2,12 @@ import { css } from 'styled-components';
 import { pSBC, convertRgbStrToObject } from './utility.functions';
 
 export const defaultBoxShadowCss = css`
-  box-shadow: ${(props) => {
+  box-shadow: ${({ theme }) => {
     // Dark Mode
-    if (props.theme.theme === 'dark') {
-      const primaryRgb = convertRgbStrToObject(
-        pSBC(-0.3, props.theme.body, 'c')
-      );
+    if (theme.theme === 'dark') {
+      const primaryRgb = convertRgbStrToObject(pSBC(-0.3, theme.body, 'c'));
       const secondaryRgb = convertRgbStrToObject(
-        pSBC(0, props.theme.contrastBody, 'c')
+        pSBC(0, theme.contrastBody, 'c')
       );
 
       return `
@@ -19,9 +17,9 @@ export const defaultBoxShadowCss = css`
     }
 
     // Light Mode
-    const primaryRgb = convertRgbStrToObject(pSBC(0.5, props.theme.body, 'c'));
+    const primaryRgb = convertRgbStrToObject(pSBC(0.5, theme.body, 'c'));
     const secondaryRgb = convertRgbStrToObject(
-      pSBC(0.1, props.theme.contrastBody, 'c')
+      pSBC(0.1, theme.contrastBody, 'c')
     );
 
     return `
@@ -32,14 +30,12 @@ export const defaultBoxShadowCss = css`
 `;
 
 export const indentBoxShadowCss = css`
-  box-shadow: ${(props) => {
+  box-shadow: ${({ theme }) => {
     // Dark Mode
-    if (props.theme.theme === 'dark') {
-      const primaryRgb = convertRgbStrToObject(
-        pSBC(-0.3, props.theme.body, 'c')
-      );
+    if (theme.theme === 'dark') {
+      const primaryRgb = convertRgbStrToObject(pSBC(-0.3, theme.body, 'c'));
       const secondaryRgb = convertRgbStrToObject(
-        pSBC(0, props.theme.contrastBody, 'c')
+        pSBC(0, theme.contrastBody, 'c')
       );
 
       return `
@@ -49,14 +45,46 @@ export const indentBoxShadowCss = css`
     }
 
     // Light Mode
-    const primaryRgb = convertRgbStrToObject(pSBC(0.5, props.theme.body, 'c'));
+    const primaryRgb = convertRgbStrToObject(pSBC(0.5, theme.body, 'c'));
     const secondaryRgb = convertRgbStrToObject(
-      pSBC(0.1, props.theme.contrastBody, 'c')
+      pSBC(0.1, theme.contrastBody, 'c')
     );
 
     return `
         inset -6px -6px 8px 0 rgba(${primaryRgb.r}, ${primaryRgb.g}, ${primaryRgb.b}, 1),
         inset 3px 3px 10px 0 rgba(${secondaryRgb.r}, ${secondaryRgb.g}, ${secondaryRgb.b}, 0.15);
         `;
-  }}};
+  }};
+`;
+
+export const underlineHighlightBoxShadow = css`
+  box-shadow: ${({ theme }) => {
+    const reducedOpacityStart = convertRgbStrToObject(
+      pSBC(0, theme.underlineStart, 'c')
+    );
+    const reducedOpacityEnd = convertRgbStrToObject(
+      pSBC(0, theme.underlineEnd, 'c')
+    );
+
+    return `
+        -1px -1px 8px 0 rgba(${reducedOpacityStart.r}, ${reducedOpacityStart.g}, ${reducedOpacityStart.b}, 0.3),
+        4px 4px 14px 0 rgba(${reducedOpacityEnd.r}, ${reducedOpacityEnd.g}, ${reducedOpacityEnd.b}, 0.4);
+        `;
+  }};
+`;
+
+export const underlineHighlightTextShadow = css`
+  text-shadow: ${({ theme }) => {
+    const reducedOpacityStart = convertRgbStrToObject(
+      pSBC(0, theme.underlineStart, 'c')
+    );
+    const reducedOpacityEnd = convertRgbStrToObject(
+      pSBC(0, theme.underlineEnd, 'c')
+    );
+
+    return `
+        4px 4px 6px rgba(${reducedOpacityStart.r}, ${reducedOpacityStart.g}, ${reducedOpacityStart.b}, 0.1),
+        1px 1px 3px rgba(${reducedOpacityEnd.r}, ${reducedOpacityEnd.g}, ${reducedOpacityEnd.b}, 0.2);
+        `;
+  }};
 `;

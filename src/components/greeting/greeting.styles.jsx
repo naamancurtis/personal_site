@@ -2,12 +2,11 @@ import styled from 'styled-components';
 import media from '../../styles/media';
 
 export const GreetingWrapper = styled.div`
-  height: 100%;
+  height: 100vh;
   width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin-top: -80px;
 
   ${media.tablet`
     padding-left: 4rem;

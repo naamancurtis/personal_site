@@ -55,7 +55,6 @@ export const FnResult = styled.div`
 export const FnContent = styled.div`
   margin: 0 1em;
   font-size: 1rem;
-  width: 90%;
   height: 0;
   display: none;
   opacity: 0;

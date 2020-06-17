@@ -18,13 +18,15 @@ import { library } from '@fortawesome/fontawesome-svg-core';
 import {
   faLongArrowAltRight,
   faEnvelope,
+  faEnvelopeOpen,
   faUserPlus,
+  faExclamationCircle,
+  faSpinner,
+  faCheckCircle,
+  faTimesCircle,
   faLightbulb as solidLightbulb,
 } from '@fortawesome/free-solid-svg-icons';
-import {
-  faEnvelopeOpen,
-  faLightbulb,
-} from '@fortawesome/free-regular-svg-icons';
+import { faLightbulb } from '@fortawesome/free-regular-svg-icons';
 import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import { useGreeting } from './storage/greeting';
 
@@ -36,6 +38,10 @@ library.add(
   faLinkedin,
   faUserPlus,
   faLightbulb,
+  faExclamationCircle,
+  faSpinner,
+  faCheckCircle,
+  faTimesCircle,
   solidLightbulb
 );
 

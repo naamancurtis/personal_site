@@ -9,17 +9,17 @@ export const NavWrapper = styled.div`
   font-size: 1em;
 
   ${media.tablet`
-    max-width: 70vw;
+    max-width: 70%;
     font-size: 1.1em;
   `};
 
   ${media.desktop`
-    max-width: 60vw;
+    max-width: 60%;
     font-size: 1.2em;
   `}
 
   ${media.widescreen`
-    max-width: 50vw;
+    max-width: 50%;
     font-size: 1.3em;
   `}
 `;

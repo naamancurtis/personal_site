@@ -2,11 +2,14 @@ import React from 'react';
 import { SubmitButton, ButtonText, ButtonIcon } from './button.styles';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-const Button = ({ text, icon }) => {
+const Button = ({ text, icon, buttonClicked }) => {
   return (
-    <SubmitButton>
+    <SubmitButton onClick={buttonClicked}>
       <ButtonIcon>
-        <FontAwesomeIcon icon={icon} />
+        <FontAwesomeIcon
+          icon={icon}
+          className={icon.includes('spinner') ? 'fa-pulse' : ''}
+        />
       </ButtonIcon>
       <ButtonText> {text} </ButtonText>
     </SubmitButton>

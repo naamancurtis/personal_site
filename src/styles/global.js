@@ -1,5 +1,4 @@
 import { createGlobalStyle } from 'styled-components';
-import media from './media';
 
 export default createGlobalStyle`
   * {
@@ -12,9 +11,9 @@ export default createGlobalStyle`
     background: ${({ theme }) => theme.body};
     color: ${({ theme }) => theme.text};
     font-size: 16px;
-    width: 100vw;
-    height: 100vh;
-    padding-top: 80px;
+    width: calc(100% - 2rem);
+    height: 100%;
+    margin: 0 1rem;
 
     h1,h2,h3,h4,h5,h6 {
       font-family: ${({ theme }) => theme.fonts.heading};
@@ -24,7 +23,5 @@ export default createGlobalStyle`
       font-family: ${({ theme }) => theme.fonts.body};
       font-weight: 500;
     }
-
-    padding: 0 1rem;
 }`;
 
