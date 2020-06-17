@@ -13,7 +13,9 @@ const SocialBar = forwardRef(({ showText, isHidden, setIsHidden }, ref) => {
 
   const openModal = () => {
     setModalIsShown(true);
-    setIsHidden(true);
+    if (setIsHidden && typeof setIsHidden === 'function') {
+      setIsHidden(true);
+    }
   };
   const closeModal = () => setModalIsShown(false);
 
