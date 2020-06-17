@@ -140,7 +140,7 @@ const FunctionResult = ({ showAnimation, result, isOpen, children }) => {
               e.preventDefault();
             }}
           >
-            {React.cloneElement(children, { isOpen: isOpen })}
+            {React.cloneElement(children, { isOpen })}
           </FnContent>
           <FnCurlys ref={closingCurly}>{'}'}</FnCurlys>
         </>

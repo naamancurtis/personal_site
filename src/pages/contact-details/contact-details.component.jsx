@@ -1,16 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 
-import {
-  Form,
-  FormInput,
-  FormTextArea,
-  FormWrapper,
-  FormGroup,
-  FormLabel,
-  FormTitle,
-} from './contact-details.styles';
+import { FormWrapper, FormTitle } from './contact-details.styles';
 import { Line } from '../../styles/components';
-import Button from '../../components/button/button.component';
 import {
   GitHubIcon,
   LinkedInIcon,
@@ -32,7 +23,6 @@ const ContactDetailsPage = ({ isOpen, showIcons }) => {
       ) : null}
       <Line />
       <FormTitle> Drop me a message </FormTitle>
-      <br />
       <ContactMeForm />
     </FormWrapper>
   );

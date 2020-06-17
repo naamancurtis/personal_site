@@ -19,7 +19,7 @@ export const Greeting = styled.div`
   font-weight: 300;
   letter-spacing: 2.5px;
   overflow: hidden;
-  font-family: ${({ theme }) => theme.fonts.heading};
+  font-family: ${({ theme }) => theme.fonts.code};
   font-weight: 600;
 
   ${media.desktop`

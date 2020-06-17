@@ -53,12 +53,19 @@ export const FnResult = styled.div`
 `;
 
 export const FnContent = styled.div`
-  margin: 0 1em;
   font-size: 1rem;
   height: 0;
   display: none;
   opacity: 0;
   cursor: default;
+  margin-bottom: -4rem;
+  padding-bottom: 4rem;
+
+  margin-left: -2rem;
+  padding-left: 3rem;
+
+  margin-right: -2rem;
+  padding-right: 3rem;
 
   ${media.desktop`
     font-size: 1.1rem;
