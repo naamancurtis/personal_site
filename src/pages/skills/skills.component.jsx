@@ -1,5 +1,8 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { TimelineLite } from 'gsap';
+
+import IMG_URL from '../../constants/img-urls';
+
 import SkillCard from '../../components/skill-card/skill-card.component';
 import {
   SkillsWrapper,
@@ -15,66 +18,58 @@ const SKILLS = [
     name: 'Rust',
     alt: 'Rust Programming Language ',
     description: 'Rust',
-    imgSrc: 'https://www.rust-lang.org/logos/rust-logo-512x512.png',
+    imgSrc: IMG_URL.RUST,
     additional: '(A particular area of interest)',
   },
   {
     name: 'Go',
     alt: 'Go Programming Language',
     description: 'Golang',
-    imgSrc: 'https://blog.golang.org/go-brand/Go-Logo/SVG/Go-Logo_Blue.svg',
+    imgSrc: IMG_URL.GO,
   },
   {
     name: 'Typescript',
     alt: 'Typescript',
     description: 'TypeScript',
-    imgSrc:
-      'https://cloud.githubusercontent.com/assets/10656223/15247118/e71dc6a2-1909-11e6-9b90-ae86204f41c3.png',
+    imgSrc: IMG_URL.TYPESCRIPT,
   },
   {
     name: 'Javascript',
     alt: 'Javascript',
     description: 'Javascript',
-    imgSrc:
-      'https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png',
+    imgSrc: IMG_URL.JAVASCRIPT,
   },
   {
     name: 'Angular',
     alt: 'Angular',
     description: 'Angular',
-    imgSrc: 'https://angular.io/assets/images/logos/angular/angular.png',
+    imgSrc: IMG_URL.ANGULAR,
   },
   {
     name: 'React',
     alt: 'React',
     description: 'React',
-    imgSrc:
-      'https://cdn4.iconfinder.com/data/icons/logos-3/600/React.js_logo-512.png',
+    imgSrc: IMG_URL.REACT,
   },
   {
     name: 'Node.js',
     alt: 'Node.js',
     description: 'Node.js',
     imgSrc: '',
-    imgFn: (theme) => {
-      return theme.theme === 'dark'
-        ? 'https://nodejs.org/static/images/logos/nodejs-new-pantone-white.svg'
-        : 'https://nodejs.org/static/images/logos/nodejs-new-pantone-black.svg';
-    },
+    imgFn: (theme) =>
+      theme.theme === 'dark' ? IMG_URL.NODE_DARK : IMG_URL.NODE_LIGHT,
   },
   {
     name: 'Docker',
     alt: 'Docker',
     description: 'Docker',
-    imgSrc:
-      'https://www.docker.com/sites/default/files/d8/styles/role_icon/public/2019-07/vertical-logo-monochromatic.png?itok=erja9lKc',
+    imgSrc: IMG_URL.DOCKER,
   },
   {
     name: 'Git',
     alt: 'Git',
     description: 'Git',
-    imgSrc:
-      'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Git_icon.svg/1200px-Git_icon.svg.png',
+    imgSrc: IMG_URL.GIT,
   },
 ];
 

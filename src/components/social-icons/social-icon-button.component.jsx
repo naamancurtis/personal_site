@@ -1,5 +1,5 @@
 import React from 'react';
-import { GITHUB_URL, LINKEDIN_URL } from '../../constants';
+import { GITHUB_URL, LINKEDIN_URL } from '../../constants/constants';
 import {
   GitHubIconWrapper,
   LinkedInIconWrapper,

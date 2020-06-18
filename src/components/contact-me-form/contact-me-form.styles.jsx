@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import media from '../../styles/media';
 import {
   defaultBoxShadowCss,
   indentBoxShadowCss,
@@ -15,11 +16,15 @@ export const Form = styled.form`
 
 export const FormGroup = styled.div`
   position: relative;
-  width: 80%;
+  width: 100%;
   height: max-content;
   text-align: center;
   margin-top: 0.5rem;
   margin-bottom: 2rem;
+
+  ${media.tablet`
+   width: 80%;
+  `}
 `;
 
 export const FormLabel = styled.label`
