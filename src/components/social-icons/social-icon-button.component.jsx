@@ -10,30 +10,36 @@ import {
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 export const GitHubIcon = ({ showText }) => (
-  <SocialWrapperWithLabel>
-    <GitHubIconWrapper href={GITHUB_URL} target="_blank">
-      <FontAwesomeIcon icon={['fab', 'github']} />
+  <SocialWrapperWithLabel className="clickable">
+    <GitHubIconWrapper href={GITHUB_URL} target="_blank" className="clickable">
+      <FontAwesomeIcon className="clickable" icon={['fab', 'github']} />
     </GitHubIconWrapper>
-    {showText ? <SocialLabel>GitHub</SocialLabel> : null}
+    {showText ? <SocialLabel className="clickable">GitHub</SocialLabel> : null}
   </SocialWrapperWithLabel>
 );
 
 export const LinkedInIcon = ({ showText }) => (
-  <SocialWrapperWithLabel>
-    <LinkedInIconWrapper href={LINKEDIN_URL} target="_blank">
-      <FontAwesomeIcon icon={['fab', 'linkedin']} />
+  <SocialWrapperWithLabel className="clickable">
+    <LinkedInIconWrapper
+      className="clickable"
+      href={LINKEDIN_URL}
+      target="_blank"
+    >
+      <FontAwesomeIcon className="clickable" icon={['fab', 'linkedin']} />
     </LinkedInIconWrapper>
-    {showText ? <SocialLabel>LinkedIn</SocialLabel> : null}
+    {showText ? (
+      <SocialLabel className="clickable">LinkedIn</SocialLabel>
+    ) : null}
   </SocialWrapperWithLabel>
 );
 
 export const MailIcon = ({ showText, openModal }) => (
-  <SocialWrapperWithLabel>
-    <MailIconWrapper onClick={openModal}>
-      <FontAwesomeIcon icon={['fas', 'envelope']} />
+  <SocialWrapperWithLabel className="clickable">
+    <MailIconWrapper className="clickable" onClick={openModal}>
+      <FontAwesomeIcon className="clickable" icon={['fas', 'envelope']} />
     </MailIconWrapper>
     {showText ? (
-      <SocialLabel>
+      <SocialLabel className="clickable">
         Contact
         <br /> Me
       </SocialLabel>

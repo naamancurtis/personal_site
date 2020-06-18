@@ -153,9 +153,17 @@ const FunctionResult = ({ showAnimation, result, isOpen, children }) => {
           <FnContent
             ref={content}
             onClick={(e) => {
-              // Don't want to the section to close if the content is clicked on
               e.stopPropagation();
-              e.preventDefault();
+
+              // Don't want to the section to close if the content is clicked on
+              if (
+                !e ||
+                !e.target ||
+                !e.target.classList ||
+                !e.target.classList.contains('clickable')
+              ) {
+                e.preventDefault();
+              }
             }}
           >
             {React.cloneElement(children, { isOpen })}

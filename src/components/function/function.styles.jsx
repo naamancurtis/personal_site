@@ -65,6 +65,10 @@ export const FnContent = styled.div`
   display: none;
   opacity: 0;
   cursor: default;
+
+  margin-top: -2.5rem;
+  padding-top: 2.5rem;
+
   margin-bottom: -4.5rem;
   padding-bottom: 4.5rem;
 
@@ -92,5 +96,5 @@ export const FnCurlys = styled(OpaqueFnText)`
 export const TransparentLine = styled(Line)`
   opacity: 0;
   visible: hidden;
-  display: inline;
+  display: none;
 `;

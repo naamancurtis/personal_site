@@ -1,5 +1,6 @@
 import styled, { css } from 'styled-components';
 import { defaultBoxShadowCss } from '../../styles/neumorphic';
+import { Line } from '../../styles/components';
 
 export const WorkCardWrapper = styled.div`
   height: 600px;
@@ -53,10 +54,9 @@ export const CardDescription = styled.p`
 `;
 
 const flexRowCSS = css`
+  display: flex;
   flex-flow: row nowrap;
-  justify-content: space-between;
   align-items: center;
-  overflow: auto;
 `;
 
 export const StackImg = styled.img`
@@ -71,7 +71,7 @@ export const StackTitle = styled.p`
 `;
 
 export const CardStack = styled.div`
-  ${flexRowCSS}
+  ${flexRowCSS};
 
   & ${StackImg}:last-child {
     margin-right: 0;
@@ -79,5 +79,10 @@ export const CardStack = styled.div`
 `;
 
 export const CardLinkWrapper = styled.div`
-  ${flexRowCSS}
+  ${flexRowCSS};
+  justify-content: space-between;
+`;
+
+export const CardLine = styled(Line)`
+  margin: 0.1rem 0 0.5rem 0;
 `;

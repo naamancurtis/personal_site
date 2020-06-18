@@ -1,6 +1,4 @@
 import React from 'react';
-import { useContext } from 'react';
-import { ThemeContext } from 'styled-components';
 
 import IMG_URL from '../../constants/img-urls';
 
@@ -14,6 +12,7 @@ const PROJECTS = [
     role: 'Front End Lead',
     description:
       'Managing a team of 4-5 people to build an internal business tool. The tool leveraged advanced data configuration and real time analytics to allow designers to bring life saving medicines to market quicker.',
+    nda: true,
     stack: [
       { src: IMG_URL.ANGULAR },
       {
@@ -24,14 +23,13 @@ const PROJECTS = [
     links: {
       live: null,
       code: null,
-      press: '',
+      press:
+        'https://www2.deloitte.com/uk/en/pages/consulting/articles/astrazeneca.html',
     },
   },
 ];
 
 const ProjectPage = () => {
-  const theme = useContext(ThemeContext);
-
   return (
     <ProjectWrapper>
       <WorkCard project={PROJECTS[0]} />
