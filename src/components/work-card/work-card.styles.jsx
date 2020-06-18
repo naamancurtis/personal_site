@@ -22,12 +22,25 @@ export const CardBodyWrapper = styled.div`
   justify-content: space-between;
 `;
 
-export const CardImage = styled.img`
+export const ImageWrapper = styled.div`
   height: 40%;
   width: 100%;
-  background-color: blue;
-  border-radius: 10px 10px 0px 0px;
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+`;
+
+export const CardImage = styled.img`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.8;
   margin-bottom: 1em;
+  object-fit: cover;
+  background-repeat: no-repeat;
+  background-position: center;
 `;
 
 export const CardTitleWrapper = styled.div`
@@ -36,7 +49,7 @@ export const CardTitleWrapper = styled.div`
   display: flex;
   flex-flow: column wrap;
   justify-items: space-between;
-  margin-bottom: 1rem;
+  margin: 1rem 0;
 `;
 
 export const CardTitle = styled.span`
@@ -85,4 +98,17 @@ export const CardLinkWrapper = styled.div`
 
 export const CardLine = styled(Line)`
   margin: 0.1rem 0 0.5rem 0;
+`;
+
+export const NDAOverlay = styled.div`
+  background-color: rgba(0, 0, 0, 0.3);
+  width: 100%;
+  height: 100%;
+  font-size: 0.8rem;
+  position: absolute;
+  border-radius: 8px;
+  padding: 2rem 1rem;
+  top: 0;
+  left: 0;
+  z-index: 5;
 `;

@@ -13,6 +13,8 @@ import {
   StackTitle,
   CardBodyWrapper,
   CardLine,
+  NDAOverlay,
+  ImageWrapper,
 } from './work-card.styles';
 import { useContext } from 'react';
 import { ThemeContext } from 'styled-components';
@@ -22,12 +24,19 @@ import {
   PressButton,
 } from './work-button/work-button.component';
 
+const NDAPanel = () => {
+  return <NDAOverlay>Project was under a confidentiality agreement</NDAOverlay>;
+};
+
 const WorkCard = ({ project }) => {
   const theme = useContext(ThemeContext);
 
   return (
     <WorkCardWrapper>
-      <CardImage />
+      <ImageWrapper>
+        {project.nda ? <NDAPanel /> : null}
+        <CardImage src={project.img} />
+      </ImageWrapper>
       <CardBodyWrapper>
         <CardTitleWrapper>
           <CardTitle> {project.title}</CardTitle>

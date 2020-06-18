@@ -8,6 +8,8 @@ import WorkCard from '../../components/work-card/work-card.component';
 
 const PROJECTS = [
   {
+    img:
+      'https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80',
     title: 'Global Pharmaceutical Company',
     role: 'Front End Lead',
     description:
