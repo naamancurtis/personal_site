@@ -17,7 +17,7 @@ export const Line = styled.div`
 
 export const Underline = styled.span`
   background-image: linear-gradient(
-    120deg,
+    135deg,
     ${({ theme }) => theme.underlineStart} 0%,
     ${({ theme }) => theme.underlineEnd} 100%
   );
@@ -26,9 +26,10 @@ export const Underline = styled.span`
   background-position: 0 105%;
   transition: background-size 0.25 ease-in;
   font-style: normal;
+  padding: 0 2px;
 
   &:hover {
-    background-size: 110% 98%;
+    background-size: 100% 98%;
     color: ${({ theme }) => theme.body};
   }
 `;

@@ -4,6 +4,7 @@ import {
   defaultBoxShadowCss,
   indentBoxShadowCss,
 } from '../../styles/neumorphic';
+import { Line } from '../../styles/components';
 
 export const Fn = styled.div`
   font-family: ${({ theme }) => theme.fonts.code};
@@ -15,16 +16,20 @@ export const Fn = styled.div`
   padding: 1em 1.3em 0.7em 1.3em;
   border-radius: 10px;
   height: 100%;
+  position: sticky;
+  top: 85px;
 
   ${media.tablet`
     padding: 1em 1.1em 0.7em 1.3em;
   `};
+
   &:hover {
     ${defaultBoxShadowCss}
   }
 
   &.is-open {
     ${indentBoxShadowCss}
+
     &:hover {
     }
   }
@@ -44,12 +49,14 @@ export const FnDef = styled.div`
   font-size: 0.9em;
   margin-top: 0.3em;
   margin-bottom: 0.3em;
+  position: sticky;
 `;
 
 export const FnResult = styled.div`
   margin-top: 0.2em;
   text-align: right;
   font-size: 1.3em;
+  position: sticky;
 `;
 
 export const FnContent = styled.div`
@@ -58,8 +65,8 @@ export const FnContent = styled.div`
   display: none;
   opacity: 0;
   cursor: default;
-  margin-bottom: -4rem;
-  padding-bottom: 4rem;
+  margin-bottom: -4.5rem;
+  padding-bottom: 4.5rem;
 
   margin-left: -2rem;
   padding-left: 3rem;
@@ -80,4 +87,10 @@ export const ArrowWrapper = styled.span`
 export const FnCurlys = styled(OpaqueFnText)`
   position: relative;
   top: -1px;
+`;
+
+export const TransparentLine = styled(Line)`
+  opacity: 0;
+  visible: hidden;
+  display: inline;
 `;

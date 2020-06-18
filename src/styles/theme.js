@@ -21,8 +21,11 @@ lightTheme = {
   params: '#4478C2',
   return: '#4478C2',
 
-  underlineStart: '#41B3A3',
-  underlineEnd: '#8860D0',
+  // underlineStart: '#41B3A3',
+  // underlineEnd: '#8860D0',
+
+  underlineStart: '#ECA677',
+  underlineEnd: '#6D62DF',
 
   error: '#E63A57',
   success: '#188D4F',

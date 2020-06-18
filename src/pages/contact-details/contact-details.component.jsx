@@ -1,7 +1,10 @@
 import React from 'react';
 
-import { FormWrapper, FormTitle } from './contact-details.styles';
-import { Line } from '../../styles/components';
+import {
+  FormWrapper,
+  FormTitle,
+  SocialWrapper,
+} from './contact-details.styles';
 import {
   GitHubIcon,
   LinkedInIcon,
@@ -13,15 +16,13 @@ const ContactDetailsPage = ({ isOpen, showIcons }) => {
   return (
     <FormWrapper>
       {showIcons ? (
-        <>
-          <Line />
+        <SocialWrapper>
           <SocialIconsWrapper>
             <GitHubIcon showText />
             <LinkedInIcon showText />
           </SocialIconsWrapper>
-        </>
+        </SocialWrapper>
       ) : null}
-      <Line />
       <FormTitle> Drop me a message </FormTitle>
       <ContactMeForm />
     </FormWrapper>

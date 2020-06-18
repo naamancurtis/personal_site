@@ -112,7 +112,6 @@ const SkillsPage = ({ isOpen }) => {
 
   return (
     <SkillsWrapper>
-      <Line />
       <p className="skills-item">
         I build all sorts, from web apps to CLI tools, anything that provides
         value and an improved quality of life to the user.

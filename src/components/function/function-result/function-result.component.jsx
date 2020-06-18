@@ -5,6 +5,7 @@ import {
   FnContent,
   ArrowWrapper,
   FnCurlys,
+  TransparentLine,
 } from '../function.styles';
 import { FunctionResultStyle } from '../types.styles';
 import SvgElipisis from '../elipisis-component.component';
@@ -16,6 +17,7 @@ const FunctionResult = ({ showAnimation, result, isOpen, children }) => {
   const openingCurly = useRef(null);
   const closingCurly = useRef(null);
   const content = useRef(null);
+  const line = useRef(null);
 
   const [pulseTimeline, setPulseTimeline] = useState(
     new TimelineLite({ repeat: -1, yoyo: true })
@@ -105,6 +107,21 @@ const FunctionResult = ({ showAnimation, result, isOpen, children }) => {
           height: '100%',
         },
         '>'
+      )
+      .to(
+        line.current,
+        {
+          display: 'block',
+        },
+        '<'
+      )
+      .to(
+        line.current,
+        {
+          autoAlpha: 1,
+          duration: 1,
+        },
+        '>'
       );
   }, [hiddenTimeline, content]);
 
@@ -131,6 +148,7 @@ const FunctionResult = ({ showAnimation, result, isOpen, children }) => {
         <>
           <FunctionResultStyle> {result} </FunctionResultStyle>
           <FnCurlys ref={openingCurly}> {'{'}</FnCurlys>
+          <TransparentLine ref={line} />
           <SvgElipisis hideComponent={isOpen} />
           <FnContent
             ref={content}

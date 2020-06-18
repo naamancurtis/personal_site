@@ -20,7 +20,7 @@ export const Greeting = styled.div`
   letter-spacing: 2.5px;
   overflow: hidden;
   font-family: ${({ theme }) => theme.fonts.code};
-  font-weight: 600;
+  font-weight: 300;
 
   ${media.desktop`
     font-size: 8vw;
@@ -33,7 +33,7 @@ export const Name = styled.div`
   margin-bottom: 1rem;
   font-family: ${({ theme }) => theme.fonts.code};
   font-weight: 900;
-  color: ${({ theme }) => theme.return};
+  color: ${({ theme }) => theme.error};
   overflow: hidden;
   text-overflow: hidden;
   height: 8vw;
@@ -60,7 +60,7 @@ export const Role = styled.div`
   font-size: 5vw;
   letter-spacing: 1.6px;
   opacity: 0;
-  color: ${({ theme }) => theme.fnDef};
+  color: ${({ theme }) => theme.heading};
 
   ${media.desktop`
     font-size: 4vw;
