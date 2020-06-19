@@ -1,11 +1,17 @@
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
+import { TimelineLite, TweenLite } from 'gsap';
 
 import IMG_URL from '../../constants/img-urls';
 
-import { ProjectWrapper, NextButton } from './projects.styles';
+import {
+  ProjectWrapper,
+  NextButton,
+  CardStackWrapper,
+} from './projects.styles';
 
 import WorkCard from '../../components/work-card/work-card.component';
 import { useState } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const PROJECTS = [
   {
@@ -14,7 +20,7 @@ const PROJECTS = [
     title: 'Global Pharmaceutical Company',
     role: 'Front End Lead',
     description: [
-      'Managing a team of 4-5 front-end developers to build a global internal business tool.',
+      'Managing a team of 4-5 front-end developers (across timezones) to build a global internal business tool.',
       'The tool leveraged real-time data configuration and analytics to allow trial designers to more effectively design trials. Enabling the company to bring life saving medicines to market quicker.',
     ],
     nda: true,
@@ -39,7 +45,7 @@ const PROJECTS = [
     role: 'Tech Lead',
     description: [
       'Tech lead on digital initiative as well as building a fully functional proof of concept digital application form, a first for the company.',
-      'This form automated the processing of applications against business policy and priorities in real-time, and enabled richer data capture and analysis than ever before.',
+      'This app automated the processing of applications against business policy and priorities in real-time, and enabled richer data capture and analysis than ever before.',
     ],
     nda: true,
     stack: [
@@ -60,38 +66,68 @@ const PROJECTS = [
       press: null,
     },
   },
-  {
-    img: '',
-    title: 'Portfolio Site',
-    description: [''],
-    nda: false,
-    stack: [
-      { src: IMG_URL.REACT, alt: 'React' },
-      { src: IMG_URL.RUST, alt: 'Rust' },
-    ],
-    links: {
-      live: '',
-      code: '',
-      press: '',
-    },
-  },
 ];
 
 const ProjectPage = () => {
-  const [currentCard, setCurrentCard] = useState(0);
+  const [currentCardPointer, setCurrentCard] = useState(0);
+  const [timeline, setTimeline] = useState(new TimelineLite());
+
+  const currentCard = useRef(null);
 
   const movePointer = (movement) => {
-    const idx = currentCard + movement;
-    setCurrentCard(
-      ((idx % PROJECTS.length) + PROJECTS.length) % PROJECTS.length
-    );
+    const idx = currentCardPointer + movement;
+    const nextCard =
+      ((idx % PROJECTS.length) + PROJECTS.length) % PROJECTS.length;
+
+    const newCardStartPosition = movement === 1 ? '-10rem' : '12rem';
+    const oldCardMovement = movement === 1 ? '12rem' : '-10rem';
+
+    if (!timeline) {
+      setTimeline(new TimelineLite());
+      return;
+    }
+    timeline.restart();
+    timeline.clear();
+
+    timeline
+      .to(currentCard.current, {
+        opacity: 0,
+        duration: 0.75,
+        left: oldCardMovement,
+        ease: 'power3.out',
+      })
+      .to(
+        currentCard.current,
+        {
+          left: newCardStartPosition,
+          duration: 0.1,
+          delay: 0.1,
+          onComplete: () => setCurrentCard(nextCard),
+        },
+        '>'
+      );
   };
+
+  useEffect(() => {
+    if (!currentCard.current) return;
+    TweenLite.to(currentCard.current, {
+      opacity: 1,
+      duration: 1,
+      left: 0,
+    });
+  }, [currentCardPointer]);
 
   return (
     <ProjectWrapper>
-      <NextButton onClick={() => movePointer(-1)}>{'<'}</NextButton>
-      <WorkCard project={PROJECTS[currentCard]} />
-      <NextButton onClick={() => movePointer(1)}>{'>'}</NextButton>
+      <NextButton onClick={() => movePointer(-1)}>
+        <FontAwesomeIcon icon={['fas', 'chevron-left']} />
+      </NextButton>
+      <CardStackWrapper>
+        <WorkCard ref={currentCard} project={PROJECTS[currentCardPointer]} />
+      </CardStackWrapper>
+      <NextButton onClick={() => movePointer(1)}>
+        <FontAwesomeIcon icon={['fas', 'chevron-right']} />
+      </NextButton>
     </ProjectWrapper>
   );
 };

@@ -1,7 +1,7 @@
 import React, { useRef, useEffect } from 'react';
 import { TweenLite } from 'gsap';
 import { OpaqueFnText, FnDef } from '../function.styles';
-import { Type, Params, FunctionName } from '../types.styles';
+import { Params, FunctionName } from '../types.styles';
 
 const FunctionDef = ({ isShown, hideCompletely, fnName, paramPrefix }) => {
   const self = useRef(null);

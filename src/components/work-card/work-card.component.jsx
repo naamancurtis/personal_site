@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 
 import {
   WorkCardWrapper,
@@ -15,6 +15,7 @@ import {
   CardLine,
   NDAOverlay,
   ImageWrapper,
+  StyledTooltip,
 } from './work-card.styles';
 import { useContext } from 'react';
 import { ThemeContext } from 'styled-components';
@@ -28,11 +29,11 @@ const NDAPanel = () => {
   return <NDAOverlay>Project was under a confidentiality agreement</NDAOverlay>;
 };
 
-const WorkCard = ({ project }) => {
+const WorkCard = forwardRef(({ project, dummy }, ref) => {
   const theme = useContext(ThemeContext);
 
   return (
-    <WorkCardWrapper>
+    <WorkCardWrapper ref={ref} className={dummy ? 'dummy' : ''}>
       <ImageWrapper>
         {project.nda ? <NDAPanel /> : null}
         <CardImage src={project.img} />
@@ -47,15 +48,20 @@ const WorkCard = ({ project }) => {
           <CardDescription key={i}> {desc} </CardDescription>
         ))}
         <CardLine />
-        <StackTitle>Tech Stack </StackTitle>
         <CardStack>
+          <StackTitle>Stack: </StackTitle>
           {project.stack.map(({ src, srcFn, alt }, index) => {
             let url = src;
             if (srcFn) {
               url = srcFn(theme);
             }
 
-            return <StackImg src={url} key={index} alt={alt} />;
+            return (
+              <div key={index}>
+                <StackImg src={url} alt={alt} data-tip={alt} />
+                <StyledTooltip />
+              </div>
+            );
           })}
         </CardStack>
         <CardLine />
@@ -78,6 +84,6 @@ const WorkCard = ({ project }) => {
       </CardBodyWrapper>
     </WorkCardWrapper>
   );
-};
+});
 
 export default WorkCard;

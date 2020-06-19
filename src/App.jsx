@@ -29,6 +29,8 @@ import {
   faTimes,
   faCode,
   faDesktop,
+  faChevronLeft,
+  faChevronRight,
   faLightbulb as solidLightbulb,
 } from '@fortawesome/free-solid-svg-icons';
 import { faLightbulb, faNewspaper } from '@fortawesome/free-regular-svg-icons';
@@ -50,6 +52,8 @@ library.add(
   faTimes,
   faCode,
   faDesktop,
+  faChevronRight,
+  faChevronLeft,
   solidLightbulb,
   faNewspaper
 );

@@ -1,20 +1,31 @@
 import styled, { css } from 'styled-components';
+import ReactTooltip from 'react-tooltip';
 import media from '../../styles/media';
+
 import { defaultBoxShadowCss } from '../../styles/neumorphic';
 import { Line } from '../../styles/components';
 
 export const WorkCardWrapper = styled.div`
   height: 600px;
-  width: 90%;
+  width: 100%;
   min-width: 325px;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
   align-text: left;
   padding: 1rem;
-  margin: 0 1.5rem;
+  opacity: 0;
+  position: absolute;
+  left: -10rem;
+  top: 0;
+  z-index: 3;
+  background-color: ${({ theme }) => theme.body};
 
   ${defaultBoxShadowCss};
+
+  &.dummy {
+    position: absolute;
+  }
 
   ${media.desktop`
     max-width: 400px;
@@ -29,7 +40,7 @@ export const CardBodyWrapper = styled.div`
 `;
 
 export const ImageWrapper = styled.div`
-  height: 40%;
+  height: 45%;
   width: 100%;
   border-radius: 10px;
   overflow: hidden;
@@ -86,10 +97,11 @@ export const StackImg = styled.img`
   background-color: transparent;
 `;
 
-export const StackTitle = styled.p`
+export const StackTitle = styled.span`
   margin-bottom: 0.3rem;
-  font-weight: 300;
+  font-weight: 500;
   font-family: ${({ theme }) => theme.fonts.code};
+  padding-right: 1rem;
 `;
 
 export const CardStack = styled.div`
@@ -112,15 +124,28 @@ export const CardLine = styled(Line)`
 `;
 
 export const NDAOverlay = styled.div`
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: rgba(0, 0, 0, 0.6);
+  color: ${({ theme }) => theme.contrastText};
   width: 100%;
   height: 100%;
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   position: absolute;
   border-radius: 8px;
   padding: 2rem 1rem;
   top: 0;
   left: 0;
   z-index: 5;
-  color: ${({ theme }) => theme.contrastText};
+`;
+
+export const StyledTooltip = styled(ReactTooltip)`
+  &.type-dark.place-top {
+    background-color: ${({ theme }) => theme.body};
+    ${defaultBoxShadowCss};
+    color: ${({ theme }) => theme.text};
+    font-family: ${({ theme }) => theme.fonts.code};
+
+    &:after {
+      border-top-color: ${({ theme }) => theme.body};
+    }
+  }
 `;

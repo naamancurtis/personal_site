@@ -1,6 +1,11 @@
 export var lightTheme = {};
 export var darkTheme = {};
 
+const _dark_theme = {
+  body: '#393A47',
+  text: '#DEDBE2',
+};
+
 const fonts = {
   code: `Ubuntu,'Fira Code', source-code-pro, 'Operator Mono', monospace`,
   heading: 'Raleway, Ubuntu, Fira Sans Extra Condensed, Fira Sans',
@@ -30,15 +35,15 @@ lightTheme = {
   error: '#E63A57',
   success: '#188D4F',
 
-  contrastBody: darkTheme.body,
-  contrastText: darkTheme.text,
+  contrastBody: _dark_theme.body,
+  contrastText: _dark_theme.text,
 };
 
 darkTheme = {
   ...lightTheme,
   theme: 'dark',
-  body: '#393A47',
-  text: '#DEDBE2',
+  body: _dark_theme.body,
+  text: _dark_theme.text,
 
   // Text Highlighting
   type: '#41D2DA',

@@ -15,4 +15,16 @@ export const NextButton = styled.button`
   height: 60px;
   cursor: pointer;
   overflow: visible;
+  z-index: 50;
+`;
+
+export const CardStackWrapper = styled.div`
+  position: relative;
+  height: 600px;
+  width: 100%;
+  min-width: 325px;
+  max-width: 400px;
+  display: flex;
+  justify-content: center;
+  margin: 0 1.5rem;
 `;
