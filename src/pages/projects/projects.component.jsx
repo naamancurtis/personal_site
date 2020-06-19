@@ -13,8 +13,10 @@ const PROJECTS = [
       'https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80',
     title: 'Global Pharmaceutical Company',
     role: 'Front End Lead',
-    description:
-      'Managing a team of 4-5 people to build an internal business tool. The tool leveraged advanced data configuration and real time analytics to allow designers to bring life saving medicines to market quicker.',
+    description: [
+      'Managing a team of 4-5 front-end developers to build a global internal business tool.',
+      'The tool leveraged real-time data configuration and analytics to allow trial designers to more effectively design trials. Enabling the company to bring life saving medicines to market quicker.',
+    ],
     nda: true,
     stack: [
       { src: IMG_URL.ANGULAR, alt: 'Angular' },
@@ -35,14 +37,21 @@ const PROJECTS = [
       'https://images.unsplash.com/photo-1454165205744-3b78555e5572?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80',
     title: 'Governmental Funding Agency',
     role: 'Tech Lead',
-    description:
-      'Tech lead on digital proposition design program. Built a fully functional Proof of Concept digital application form, which automated the processing of application forms against business policy and priorities in real-time.',
+    description: [
+      'Tech lead on digital initiative as well as building a fully functional proof of concept digital application form, a first for the company.',
+      'This form automated the processing of applications against business policy and priorities in real-time, and enabled richer data capture and analysis than ever before.',
+    ],
     nda: true,
     stack: [
       { src: IMG_URL.ANGULAR, alt: 'Angular' },
       {
         src: IMG_URL.FIREBASE,
         alt: 'Firebase',
+      },
+      {
+        srcFn: (theme) =>
+          theme.theme === 'dark' ? IMG_URL.NODE_DARK : IMG_URL.NODE_LIGHT,
+        alt: 'Node.js & Express.js',
       },
     ],
     links: {
@@ -54,7 +63,7 @@ const PROJECTS = [
   {
     img: '',
     title: 'Portfolio Site',
-    description: '',
+    description: [''],
     nda: false,
     stack: [
       { src: IMG_URL.REACT, alt: 'React' },
@@ -71,19 +80,18 @@ const PROJECTS = [
 const ProjectPage = () => {
   const [currentCard, setCurrentCard] = useState(0);
 
+  const movePointer = (movement) => {
+    const idx = currentCard + movement;
+    setCurrentCard(
+      ((idx % PROJECTS.length) + PROJECTS.length) % PROJECTS.length
+    );
+  };
+
   return (
     <ProjectWrapper>
-      <NextButton onClick={() => setCurrentCard(Math.max(currentCard - 1, 0))}>
-        {'<'}
-      </NextButton>
+      <NextButton onClick={() => movePointer(-1)}>{'<'}</NextButton>
       <WorkCard project={PROJECTS[currentCard]} />
-      <NextButton
-        onClick={() =>
-          setCurrentCard(Math.min(currentCard + 1, PROJECTS.length - 1))
-        }
-      >
-        {'>'}
-      </NextButton>
+      <NextButton onClick={() => movePointer(1)}>{'>'}</NextButton>
     </ProjectWrapper>
   );
 };

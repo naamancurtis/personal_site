@@ -26,7 +26,6 @@ export const CardBodyWrapper = styled.div`
   height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
 `;
 
 export const ImageWrapper = styled.div`
@@ -56,7 +55,8 @@ export const CardTitleWrapper = styled.div`
   display: flex;
   flex-flow: column wrap;
   justify-items: space-between;
-  margin: 1rem 0;
+  margin-top: 1rem;
+  height: 3rem;
 `;
 
 export const CardTitle = styled.span`
@@ -71,6 +71,7 @@ export const CardRole = styled.em`
 
 export const CardDescription = styled.p`
   margin-bottom: 0.5rem;
+  flex-grow: 1;
 `;
 
 const flexRowCSS = css`
@@ -86,13 +87,14 @@ export const StackImg = styled.img`
 `;
 
 export const StackTitle = styled.p`
-  margin-bottom: 0.5rem;
-  font-weight: 600;
+  margin-bottom: 0.3rem;
+  font-weight: 300;
   font-family: ${({ theme }) => theme.fonts.code};
 `;
 
 export const CardStack = styled.div`
   ${flexRowCSS};
+  height: 2.5rem;
 
   & ${StackImg}:last-child {
     margin-right: 0;
@@ -102,6 +104,7 @@ export const CardStack = styled.div`
 export const CardLinkWrapper = styled.div`
   ${flexRowCSS};
   justify-content: space-between;
+  height: 3rem;
 `;
 
 export const CardLine = styled(Line)`

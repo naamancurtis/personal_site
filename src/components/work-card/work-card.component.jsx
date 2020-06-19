@@ -43,7 +43,9 @@ const WorkCard = ({ project }) => {
           <CardRole> {project.role}</CardRole>
         </CardTitleWrapper>
         <CardLine />
-        <CardDescription>{project.description}</CardDescription>
+        {project.description.map((desc, i) => (
+          <CardDescription key={i}> {desc} </CardDescription>
+        ))}
         <CardLine />
         <StackTitle>Tech Stack </StackTitle>
         <CardStack>
