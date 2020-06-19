@@ -1,5 +1,6 @@
 import React, { useRef, useEffect } from 'react';
 import { TimelineLite, TweenLite } from 'gsap';
+import { useSwipeable } from 'react-swipeable';
 
 import IMG_URL from '../../constants/img-urls';
 
@@ -7,6 +8,8 @@ import {
   ProjectWrapper,
   NextButton,
   CardStackWrapper,
+  CardIndicatorWrapper,
+  PageWrapper,
 } from './projects.styles';
 
 import WorkCard from '../../components/work-card/work-card.component';
@@ -72,6 +75,12 @@ const ProjectPage = () => {
   const [currentCardPointer, setCurrentCard] = useState(0);
   const [timeline, setTimeline] = useState(new TimelineLite());
 
+  const handlers = useSwipeable({
+    onSwipedLeft: () => movePointer(-1),
+    onSwipedRight: () => movePointer(1),
+    delta: 25,
+  });
+
   const currentCard = useRef(null);
 
   const movePointer = (movement) => {
@@ -118,17 +127,28 @@ const ProjectPage = () => {
   }, [currentCardPointer]);
 
   return (
-    <ProjectWrapper>
-      <NextButton onClick={() => movePointer(-1)}>
-        <FontAwesomeIcon icon={['fas', 'chevron-left']} />
-      </NextButton>
-      <CardStackWrapper>
-        <WorkCard ref={currentCard} project={PROJECTS[currentCardPointer]} />
-      </CardStackWrapper>
-      <NextButton onClick={() => movePointer(1)}>
-        <FontAwesomeIcon icon={['fas', 'chevron-right']} />
-      </NextButton>
-    </ProjectWrapper>
+    <PageWrapper>
+      <ProjectWrapper>
+        <NextButton onClick={() => movePointer(-1)}>
+          <FontAwesomeIcon icon={['fas', 'chevron-left']} />
+        </NextButton>
+        <CardStackWrapper {...handlers}>
+          <WorkCard ref={currentCard} project={PROJECTS[currentCardPointer]} />
+        </CardStackWrapper>
+        <NextButton onClick={() => movePointer(1)}>
+          <FontAwesomeIcon icon={['fas', 'chevron-right']} />
+        </NextButton>
+      </ProjectWrapper>
+      <CardIndicatorWrapper>
+        {[...Array(PROJECTS.length).keys()].map((i) =>
+          i === currentCardPointer ? (
+            <FontAwesomeIcon key={i} icon={['fas', 'circle']} />
+          ) : (
+            <FontAwesomeIcon key={i} icon={['far', 'circle']} />
+          )
+        )}
+      </CardIndicatorWrapper>
+    </PageWrapper>
   );
 };
 

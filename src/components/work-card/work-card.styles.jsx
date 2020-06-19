@@ -1,6 +1,5 @@
 import styled, { css } from 'styled-components';
 import ReactTooltip from 'react-tooltip';
-import media from '../../styles/media';
 
 import { defaultBoxShadowCss } from '../../styles/neumorphic';
 import { Line } from '../../styles/components';
@@ -8,7 +7,6 @@ import { Line } from '../../styles/components';
 export const WorkCardWrapper = styled.div`
   height: 600px;
   width: 100%;
-  min-width: 325px;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
@@ -26,10 +24,6 @@ export const WorkCardWrapper = styled.div`
   &.dummy {
     position: absolute;
   }
-
-  ${media.desktop`
-    max-width: 400px;
-  `};
 `;
 
 export const CardBodyWrapper = styled.div`

@@ -31,9 +31,14 @@ import {
   faDesktop,
   faChevronLeft,
   faChevronRight,
+  faCircle as filledCircle,
   faLightbulb as solidLightbulb,
 } from '@fortawesome/free-solid-svg-icons';
-import { faLightbulb, faNewspaper } from '@fortawesome/free-regular-svg-icons';
+import {
+  faLightbulb,
+  faNewspaper,
+  faCircle as emptyCircle,
+} from '@fortawesome/free-regular-svg-icons';
 import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import { useGreeting } from './storage/greeting';
 
@@ -55,7 +60,9 @@ library.add(
   faChevronRight,
   faChevronLeft,
   solidLightbulb,
-  faNewspaper
+  faNewspaper,
+  filledCircle,
+  emptyCircle
 );
 
 // React Modal Setup
