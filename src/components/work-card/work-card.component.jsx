@@ -47,13 +47,13 @@ const WorkCard = ({ project }) => {
         <CardLine />
         <StackTitle>Tech Stack </StackTitle>
         <CardStack>
-          {project.stack.map(({ src, srcFn }, index) => {
+          {project.stack.map(({ src, srcFn, alt }, index) => {
             let url = src;
             if (srcFn) {
               url = srcFn(theme);
             }
 
-            return <StackImg src={url} key={index} />;
+            return <StackImg src={url} key={index} alt={alt} />;
           })}
         </CardStack>
         <CardLine />

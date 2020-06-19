@@ -1,17 +1,24 @@
 import styled, { css } from 'styled-components';
+import media from '../../styles/media';
 import { defaultBoxShadowCss } from '../../styles/neumorphic';
 import { Line } from '../../styles/components';
 
 export const WorkCardWrapper = styled.div`
   height: 600px;
   width: 90%;
+  min-width: 325px;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
   align-text: left;
   padding: 1rem;
+  margin: 0 1.5rem;
 
   ${defaultBoxShadowCss};
+
+  ${media.desktop`
+    max-width: 400px;
+  `};
 `;
 
 export const CardBodyWrapper = styled.div`
@@ -35,7 +42,7 @@ export const CardImage = styled.img`
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
+  height: auto;
   opacity: 0.8;
   margin-bottom: 1em;
   object-fit: cover;
@@ -75,6 +82,7 @@ const flexRowCSS = css`
 export const StackImg = styled.img`
   height: 30px;
   margin-right: 1rem;
+  background-color: transparent;
 `;
 
 export const StackTitle = styled.p`
@@ -111,4 +119,5 @@ export const NDAOverlay = styled.div`
   top: 0;
   left: 0;
   z-index: 5;
+  color: ${({ theme }) => theme.contrastText};
 `;

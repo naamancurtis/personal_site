@@ -31,6 +31,7 @@ lightTheme = {
   success: '#188D4F',
 
   contrastBody: darkTheme.body,
+  contrastText: darkTheme.text,
 };
 
 darkTheme = {
