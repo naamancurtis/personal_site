@@ -7,6 +7,7 @@ export const NavWrapper = styled.div`
   white-space: nowrap;
   width: 100%;
   font-size: 1em;
+  flex: 1 0 auto;
 
   ${media.tablet`
     max-width: 70%;
