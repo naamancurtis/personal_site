@@ -4,7 +4,6 @@ import {
   defaultBoxShadowCss,
   clickedBoxShadowCss,
 } from '../../styles/neumorphic';
-import { Theme } from '../../styles/theme';
 
 export const ToggleSwitchWrapper = styled.div`
   position: relative;
@@ -13,7 +12,7 @@ export const ToggleSwitchWrapper = styled.div`
   border-radius: 4px;
 `;
 
-export const ToggleSwitchLabel = styled('label')<{ theme: Theme }>`
+export const ToggleSwitchLabel = styled.label`
   position: absolute;
   top: 0;
   left: 0;
@@ -35,7 +34,7 @@ export const ToggleSwitchLabel = styled('label')<{ theme: Theme }>`
   }
 `;
 
-export const IconWrapper = styled('span')<{ theme: Theme }>`
+export const IconWrapper = styled.span`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -55,7 +54,7 @@ export const IconWrapper = styled('span')<{ theme: Theme }>`
   }
 `;
 
-export const Switch = styled('input')<{ theme: Theme }>`
+export const Switch = styled.input`
   opacity: 0;
   z-index: 1;
   border-radius: 15px;

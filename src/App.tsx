@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { lazy, Suspense } from 'react';
 import { ThemeProvider } from 'styled-components';
 import { useMedia } from 'react-media';
 import Modal from 'react-modal';
@@ -7,12 +7,6 @@ import GlobalStyles from './styles/global';
 import { darkTheme, lightTheme } from './styles/theme';
 import { GLOBAL_MEDIA_QUERIES } from './styles/media';
 import { useDarkMode } from './styles/use-theme';
-
-import Header from './organisms/header/header.component';
-import Footer from './molecules/footer/footer.component';
-import Greeting from './organisms/greeting/greeting.component';
-import Main from './templates/main/main.component';
-import SocialBar from './molecules/social-bar/social-bar.component';
 
 import './App.css';
 
@@ -42,6 +36,7 @@ import {
 } from '@fortawesome/free-regular-svg-icons';
 import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import { useGreeting } from './storage/use-greeting';
+import Loading from './atoms/loading/loading.component';
 
 library.add(
   faLongArrowAltRight,
@@ -66,6 +61,14 @@ library.add(
   emptyCircle
 );
 
+const Greeting = lazy(() => import('./organisms/greeting/greeting.component'));
+const Header = lazy(() => import('./organisms/header/header.component'));
+const Footer = lazy(() => import('./molecules/footer/footer.component'));
+const Main = lazy(() => import('./templates/main/main.component'));
+const SocialBar = lazy(() =>
+  import('./molecules/social-bar/social-bar.component')
+);
+
 // React Modal Setup
 
 Modal.setAppElement('#root');
@@ -88,15 +91,19 @@ const App = () => {
 
   return (
     <ThemeProvider theme={themeMode}>
-      <GlobalStyles />
-      <Header toggleTheme={toggleTheme} />
-      {isMobile ? null : <SocialBar isHidden={false} setIsHidden={() => {}} />}
-      {shouldShowGreeting === true ? (
-        <Greeting setGreetingShown={greetingHasBeenShown} />
-      ) : (
-        <Main />
-      )}
-      <Footer />
+      <Suspense fallback={<Loading />}>
+        <GlobalStyles />
+        <Header toggleTheme={toggleTheme} />
+        {isMobile ? null : (
+          <SocialBar isHidden={false} setIsHidden={() => {}} />
+        )}
+        {shouldShowGreeting === true ? (
+          <Greeting setGreetingShown={greetingHasBeenShown} />
+        ) : (
+          <Main />
+        )}
+        <Footer />
+      </Suspense>
     </ThemeProvider>
   );
 };

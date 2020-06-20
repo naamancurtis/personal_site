@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useMedia } from 'react-media';
-import PropTypes from 'prop-types';
 
 import {
   StyledHeader,
@@ -71,10 +70,6 @@ const Header = ({ toggleTheme }: HeaderProps) => {
       </StyledHeader>
     </>
   );
-};
-
-Header.propTypes = {
-  toggleTheme: PropTypes.func.isRequired,
 };
 
 export default Header;
