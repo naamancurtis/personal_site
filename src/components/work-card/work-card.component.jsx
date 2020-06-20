@@ -16,7 +16,7 @@ import {
   NDAOverlay,
   ImageWrapper,
 } from './work-card.styles';
-import StyledTooltip from '../styled-tooltip/styled-tooltip.component'
+import StyledTooltip from '../styled-tooltip/styled-tooltip.component';
 import { useContext } from 'react';
 import { ThemeContext } from 'styled-components';
 import {
@@ -29,11 +29,13 @@ const NDAPanel = () => {
   return <NDAOverlay>Project was under a confidentiality agreement</NDAOverlay>;
 };
 
-const WorkCard = forwardRef(({ project, dummy }, ref) => {
+const WorkCard = forwardRef(({ project }, ref) => {
   const theme = useContext(ThemeContext);
 
+  if (!project) return <div />;
+
   return (
-    <WorkCardWrapper ref={ref} className={dummy ? 'dummy' : ''}>
+    <WorkCardWrapper ref={ref}>
       <ImageWrapper>
         {project.nda ? <NDAPanel /> : null}
         <CardImage src={project.img} />

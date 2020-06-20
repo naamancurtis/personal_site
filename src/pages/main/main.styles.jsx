@@ -7,6 +7,7 @@ const MainWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   flex: 1 0 auto;
+  opacity: 0;
 `;
 
 export default MainWrapper;

@@ -68,6 +68,7 @@ export const CardIndicatorWrapper = styled.div`
 export const StyledCircle = styled(FontAwesomeIcon)`
   ${defaultBoxShadowCss};
   border-radius: 50%;
+  cursor: pointer;
 `;
 
 export const StyledArrow = styled(FontAwesomeIcon)`

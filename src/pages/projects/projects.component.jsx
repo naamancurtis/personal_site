@@ -83,13 +83,29 @@ const ProjectPage = () => {
 
   const currentCard = useRef(null);
 
-  const movePointer = (movement) => {
+  const movePointer = (movement, directMove) => {
+    let direction = movement === 1 ? 'right' : 'left';
+
     const idx = currentCardPointer + movement;
-    const nextCard =
+
+    let nextCard =
       ((idx % PROJECTS.length) + PROJECTS.length) % PROJECTS.length;
 
-    const newCardStartPosition = movement === 1 ? '-10rem' : '12rem';
-    const oldCardMovement = movement === 1 ? '12rem' : '-10rem';
+    // If we're moving straight to a specific card, then overwrite
+    if (directMove !== null && directMove !== undefined) {
+      if (
+        directMove === currentCardPointer ||
+        directMove < 0 ||
+        directMove >= PROJECTS.length
+      )
+        return;
+
+      direction = directMove > currentCardPointer ? 'right' : 'left';
+      nextCard = directMove;
+    }
+
+    const newCardStartPosition = direction === 'right' ? '-10rem' : '12rem';
+    const oldCardMovement = direction === 'right' ? '12rem' : '-10rem';
 
     if (!timeline) {
       setTimeline(new TimelineLite());
@@ -144,7 +160,11 @@ const ProjectPage = () => {
           i === currentCardPointer ? (
             <StyledCircle key={i} icon={['fas', 'circle']} />
           ) : (
-            <StyledCircle key={i} icon={['far', 'circle']} />
+            <StyledCircle
+              key={i}
+              icon={['far', 'circle']}
+              onClick={() => movePointer(null, i)}
+            />
           )
         )}
       </CardIndicatorWrapper>
