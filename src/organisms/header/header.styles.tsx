@@ -36,7 +36,7 @@ export const HeaderIconsWrapper = styled.div`
   min-width: 200px;
 
   ${media.tablet`
-    justify-content: end;
+    justify-content: flex-end;
   `}
 `;
 

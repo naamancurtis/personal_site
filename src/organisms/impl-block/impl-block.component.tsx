@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, lazy } from 'react';
 import fitty from 'fitty';
 import { TweenLite } from 'gsap';
 import {
@@ -15,11 +15,16 @@ import {
   Trait,
 } from '../../atoms/function-types/function-types.styles';
 import Function from '../function/function.component';
-import AboutMe from '../../pages/about-me/about-me.component';
-import ProjectPage from '../../pages/projects/projects.component';
-import SkillsPage from '../../pages/skills/skills.component';
-import ContactDetailsPage from '../../pages/contact-details/contact-details.component';
 import { Route } from '../../models/route';
+
+const AboutMe = lazy(() => import('../../pages/about-me/about-me.component'));
+const ProjectPage = lazy(() =>
+  import('../../pages/projects/projects.component')
+);
+const SkillsPage = lazy(() => import('../../pages/skills/skills.component'));
+const ContactDetailsPage = lazy(() =>
+  import('../../pages/contact-details/contact-details.component')
+);
 
 const ROUTES: Route[] = [
   {
