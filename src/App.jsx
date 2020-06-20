@@ -8,11 +8,11 @@ import { darkTheme, lightTheme } from './styles/theme';
 import { GLOBAL_MEDIA_QUERIES } from './styles/media';
 import { useDarkMode } from './styles/use-theme';
 
-import Header from './components/header/header.component';
-import Footer from './components/footer/footer.component';
-import IntroAnimation from './components/greeting/greeting.component';
-import Main from './pages/main/main.component';
-import SocialBar from './components/social-bar/social-bar.component';
+import Header from './organisms/header/header.component';
+import Footer from './molecules/footer/footer.component';
+import IntroAnimation from './organisms/greeting/greeting.component';
+import Main from './templates/main/main.component';
+import SocialBar from './molecules/social-bar/social-bar.component';
 
 import './App.css';
 

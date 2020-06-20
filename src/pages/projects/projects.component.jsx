@@ -14,7 +14,7 @@ import {
   StyledArrow,
 } from './projects.styles';
 
-import WorkCard from '../../components/work-card/work-card.component';
+import Card from '../../organisms/card/card.component';
 
 const PROJECTS = [
   {
@@ -149,7 +149,7 @@ const ProjectPage = () => {
           <StyledArrow icon={['fas', 'chevron-left']} />
         </NextButton>
         <CardStackWrapper {...handlers}>
-          <WorkCard ref={currentCard} project={PROJECTS[currentCardPointer]} />
+          <Card ref={currentCard} project={PROJECTS[currentCardPointer]} />
         </CardStackWrapper>
         <NextButton onClick={() => movePointer(1)}>
           <StyledArrow icon={['fas', 'chevron-right']} />

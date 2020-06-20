@@ -8,11 +8,11 @@ import {
 import {
   GitHubIcon,
   LinkedInIcon,
-} from '../../components/social-icons/social-icon-button.component';
-import { SocialIconsWrapper } from '../../components/social-icons/social-icon-button.styles';
-import ContactMeForm from '../../components/contact-me-form/contact-me-form.component';
+} from '../../atoms/social-icons/social-icon-button.component';
+import { SocialIconsWrapper } from '../../atoms/social-icons/social-icon-button.styles';
+import ContactMeForm from '../../organisms/contact-me-form/contact-me-form.component';
 
-const ContactDetailsPage = ({ isOpen, showIcons }) => {
+const ContactDetailsPage = ({ showIcons }) => {
   return (
     <FormWrapper>
       {showIcons ? (

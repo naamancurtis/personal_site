@@ -20,6 +20,9 @@ const AboutMe = ({ isOpen }) => {
       duration: 0.75,
       delay: 2.5,
     });
+    return () => {
+      timeline.kill();
+    }
   }, [timeline]);
 
   useEffect(() => {

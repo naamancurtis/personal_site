@@ -24,7 +24,6 @@ export const Underline = styled.span`
   background-repeat: no-repeat;
   background-size: 100% 0.2em;
   background-position: 0 105%;
-  transition: background-size 0.25 ease-in;
   font-style: normal;
   padding: 0 2px;
 

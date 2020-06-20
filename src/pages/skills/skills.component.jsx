@@ -3,7 +3,7 @@ import { TimelineLite } from 'gsap';
 
 import IMG_URL from '../../constants/img-urls';
 
-import SkillCard from '../../components/skill-card/skill-card.component';
+import TechnologyIcon from '../../atoms/technology-icon/technology-icon.component';
 import {
   SkillsWrapper,
   SmallText,
@@ -137,7 +137,7 @@ const SkillsPage = ({ isOpen }) => {
             if (skill.imgFn) {
               skill.imgSrc = skill.imgFn(theme);
             }
-            return <SkillCard key={skill.name} {...skill} />;
+            return <TechnologyIcon key={skill.name} {...skill} />;
           })}
         </SkillCardsWrapper>
       </SkillBlockWrapper>
