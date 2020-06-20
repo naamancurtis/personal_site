@@ -1,5 +1,4 @@
 import styled, { css } from 'styled-components';
-import ReactTooltip from 'react-tooltip';
 
 import { defaultBoxShadowCss } from '../../styles/neumorphic';
 import { Line } from '../../styles/components';
@@ -129,17 +128,4 @@ export const NDAOverlay = styled.div`
   top: 0;
   left: 0;
   z-index: 5;
-`;
-
-export const StyledTooltip = styled(ReactTooltip)`
-  &.type-dark.place-top {
-    background-color: ${({ theme }) => theme.body};
-    ${defaultBoxShadowCss};
-    color: ${({ theme }) => theme.text};
-    font-family: ${({ theme }) => theme.fonts.code};
-
-    &:after {
-      border-top-color: ${({ theme }) => theme.body};
-    }
-  }
 `;

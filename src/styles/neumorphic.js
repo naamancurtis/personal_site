@@ -57,6 +57,34 @@ export const indentBoxShadowCss = css`
   }};
 `;
 
+export const clickedBoxShadowCss = css`
+  box-shadow: ${({ theme }) => {
+    // Dark Mode
+    if (theme.theme === 'dark') {
+      const primaryRgb = convertRgbStrToObject(pSBC(-0.4, theme.body, 'c'));
+      const secondaryRgb = convertRgbStrToObject(
+        pSBC(0.1, theme.contrastBody, 'c')
+      );
+
+      return `
+        inset -6px -6px 8px 0 rgba(${secondaryRgb.r}, ${secondaryRgb.g}, ${secondaryRgb.b}, 0.07),
+        inset 3px 3px 2px 0 rgba(${primaryRgb.r}, ${primaryRgb.g}, ${primaryRgb.b}, 0.8);
+        `;
+    }
+
+    // Light Mode
+    const primaryRgb = convertRgbStrToObject(pSBC(0.6, theme.body, 'c'));
+    const secondaryRgb = convertRgbStrToObject(
+      pSBC(0.3, theme.contrastBody, 'c')
+    );
+
+    return `
+        inset -6px -6px 6px 0 rgba(${primaryRgb.r}, ${primaryRgb.g}, ${primaryRgb.b}, 1),
+        inset 3px 3px 2px 1px rgba(${secondaryRgb.r}, ${secondaryRgb.g}, ${secondaryRgb.b}, 0.3);
+        `;
+  }};
+`;
+
 export const underlineHighlightBoxShadow = css`
   box-shadow: ${({ theme }) => {
     const reducedOpacityStart = convertRgbStrToObject(

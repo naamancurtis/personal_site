@@ -10,6 +10,8 @@ import {
   CardStackWrapper,
   CardIndicatorWrapper,
   PageWrapper,
+  StyledCircle,
+  StyledArrow,
 } from './projects.styles';
 
 import WorkCard from '../../components/work-card/work-card.component';
@@ -130,21 +132,21 @@ const ProjectPage = () => {
     <PageWrapper>
       <ProjectWrapper>
         <NextButton onClick={() => movePointer(-1)}>
-          <FontAwesomeIcon icon={['fas', 'chevron-left']} />
+          <StyledArrow icon={['fas', 'chevron-left']} />
         </NextButton>
         <CardStackWrapper {...handlers}>
           <WorkCard ref={currentCard} project={PROJECTS[currentCardPointer]} />
         </CardStackWrapper>
         <NextButton onClick={() => movePointer(1)}>
-          <FontAwesomeIcon icon={['fas', 'chevron-right']} />
+          <StyledArrow icon={['fas', 'chevron-right']} />
         </NextButton>
       </ProjectWrapper>
       <CardIndicatorWrapper>
         {[...Array(PROJECTS.length).keys()].map((i) =>
           i === currentCardPointer ? (
-            <FontAwesomeIcon key={i} icon={['fas', 'circle']} />
+            <StyledCircle key={i} icon={['fas', 'circle']} />
           ) : (
-            <FontAwesomeIcon key={i} icon={['far', 'circle']} />
+            <StyledCircle key={i} icon={['far', 'circle']} />
           )
         )}
       </CardIndicatorWrapper>

@@ -9,6 +9,7 @@ import { GLOBAL_MEDIA_QUERIES } from './styles/media';
 import { useDarkMode } from './styles/use-theme';
 
 import Header from './components/header/header.component';
+import Footer from './components/footer/footer.component';
 import IntroAnimation from './components/greeting/greeting.component';
 import Main from './pages/main/main.component';
 import SocialBar from './components/social-bar/social-bar.component';
@@ -95,6 +96,7 @@ const App = () => {
       ) : (
         <Main />
       )}
+      <Footer />
     </ThemeProvider>
   );
 };

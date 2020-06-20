@@ -1,48 +1,31 @@
 import React from 'react';
 import { GITHUB_URL, LINKEDIN_URL } from '../../constants/constants';
 import {
-  GitHubIconWrapper,
-  LinkedInIconWrapper,
-  MailIconWrapper,
+  IconWrapper,
   SocialWrapperWithLabel,
-  SocialLabel,
 } from './social-icon-button.styles';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-export const GitHubIcon = ({ showText }) => (
+const BaseIcon = ({ url, icon }) => (
   <SocialWrapperWithLabel className="clickable">
-    <GitHubIconWrapper href={GITHUB_URL} target="_blank" className="clickable">
-      <FontAwesomeIcon className="clickable" icon={['fab', 'github']} />
-    </GitHubIconWrapper>
-    {showText ? <SocialLabel className="clickable">GitHub</SocialLabel> : null}
+    <IconWrapper href={url} target="_blank" className="clickable">
+      <FontAwesomeIcon className="clickable" icon={icon} />
+    </IconWrapper>
   </SocialWrapperWithLabel>
 );
 
-export const LinkedInIcon = ({ showText }) => (
-  <SocialWrapperWithLabel className="clickable">
-    <LinkedInIconWrapper
-      className="clickable"
-      href={LINKEDIN_URL}
-      target="_blank"
-    >
-      <FontAwesomeIcon className="clickable" icon={['fab', 'linkedin']} />
-    </LinkedInIconWrapper>
-    {showText ? (
-      <SocialLabel className="clickable">LinkedIn</SocialLabel>
-    ) : null}
-  </SocialWrapperWithLabel>
+export const GitHubIcon = () => (
+  <BaseIcon url={GITHUB_URL} icon={['fab', 'github']} name="GitHub" />
 );
 
-export const MailIcon = ({ showText, openModal }) => (
-  <SocialWrapperWithLabel className="clickable">
-    <MailIconWrapper className="clickable" onClick={openModal}>
+export const LinkedInIcon = () => (
+  <BaseIcon url={LINKEDIN_URL} icon={['fab', 'linkedin']} name="LinkedIn" />
+);
+
+export const MailIcon = ({ openModal }) => (
+  <SocialWrapperWithLabel className="clickable" onClick={openModal}>
+    <IconWrapper className="clickable">
       <FontAwesomeIcon className="clickable" icon={['fas', 'envelope']} />
-    </MailIconWrapper>
-    {showText ? (
-      <SocialLabel className="clickable">
-        Contact
-        <br /> Me
-      </SocialLabel>
-    ) : null}
+    </IconWrapper>
   </SocialWrapperWithLabel>
 );

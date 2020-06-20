@@ -12,7 +12,7 @@ export default createGlobalStyle`
     color: ${({ theme }) => theme.text};
     font-size: 16px;
     width: calc(100% - 2rem);
-    height: 100%;
+    height: 100vh;
     margin: 0 1rem;
 
     h1,h2,h3,h4,h5,h6 {

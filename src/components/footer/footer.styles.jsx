@@ -6,5 +6,7 @@ export const StyledFooter = styled.footer`
   font-family: ${({ theme }) => theme.fonts.code};
   font-size: 0.9em;
   padding: 1rem;
-  flex-shrink: 0;
+  opacity: 0.6;
+  align-self: flex-end;
+  z-index: 150;
 `;

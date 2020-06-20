@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import {
   defaultBoxShadowCss,
   indentBoxShadowCss,
+  clickedBoxShadowCss,
   underlineHighlightBoxShadow,
   underlineHighlightTextShadow,
 } from '../../styles/neumorphic';
@@ -31,7 +32,7 @@ export const SubmitButton = styled.button`
 
   &:active {
     text-shadow: none;
-    ${defaultBoxShadowCss};
+    ${clickedBoxShadowCss};
   }
 `;
 

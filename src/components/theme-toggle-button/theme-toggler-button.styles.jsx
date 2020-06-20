@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 import {
   defaultBoxShadowCss,
-  indentBoxShadowCss,
+  clickedBoxShadowCss,
 } from '../../styles/neumorphic';
 
 export const ToggleSwitchWrapper = styled.div`
@@ -19,7 +19,7 @@ export const ToggleSwitchLabel = styled.label`
   width: 60px;
   height: 34px;
   border-radius: 4px;
-  ${indentBoxShadowCss} 
+  ${clickedBoxShadowCss} 
 
   background-color: ${(props) => props.theme.body};
   cursor: pointer;

@@ -2,6 +2,7 @@ import styled, { css } from 'styled-components';
 import {
   defaultBoxShadowCss,
   indentBoxShadowCss,
+  clickedBoxShadowCss,
 } from '../../styles/neumorphic';
 
 export const SocialButton = css`
@@ -22,27 +23,18 @@ export const SocialButton = css`
   &:hover {
     ${indentBoxShadowCss};
   }
+
+  &:active {
+    ${clickedBoxShadowCss};
+  }
 `;
 
-export const GitHubIconWrapper = styled.a`
+export const IconWrapper = styled.a`
   ${SocialButton};
   color: ${({ theme }) => theme.text};
 
   &:hover {
   }
-`;
-
-export const LinkedInIconWrapper = styled.a`
-  ${SocialButton};
-  color: ${({ theme }) => theme.text};
-
-  &:hover {
-  }
-`;
-
-export const MailIconWrapper = styled.a`
-  ${SocialButton};
-  color: ${({ theme }) => theme.text};
 `;
 
 export const SocialIconsWrapper = styled.div`

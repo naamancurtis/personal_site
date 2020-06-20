@@ -15,8 +15,8 @@ import {
   CardLine,
   NDAOverlay,
   ImageWrapper,
-  StyledTooltip,
 } from './work-card.styles';
+import StyledTooltip from '../styled-tooltip/styled-tooltip.component'
 import { useContext } from 'react';
 import { ThemeContext } from 'styled-components';
 import {

@@ -17,7 +17,7 @@ export const StyledHeader = styled.div`
   left: 0;
   padding: 0 2em 0 1em;
   background-color: ${({ theme }) => theme.body};
-  z-index: 100;
+  z-index: 150;
   transition: box-shadow 0.3s;
 
   &.scrolled {

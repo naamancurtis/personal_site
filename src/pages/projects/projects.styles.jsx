@@ -1,5 +1,8 @@
 import styled from 'styled-components';
 import media from '../../styles/media';
+import { defaultBoxShadowCss } from '../../styles/neumorphic';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { pSBC, convertRgbStrToObject } from '../../styles/utility.functions';
 
 export const PageWrapper = styled.div`
   display: flex;
@@ -60,4 +63,31 @@ export const CardIndicatorWrapper = styled.div`
   width: 50%;
   height: max-content;
   margin-top: 2rem;
+`;
+
+export const StyledCircle = styled(FontAwesomeIcon)`
+  ${defaultBoxShadowCss};
+  border-radius: 50%;
+`;
+
+export const StyledArrow = styled(FontAwesomeIcon)`
+  ${({ theme }) => {
+    // Dark Mode
+    if (theme.theme === 'dark') {
+      const primaryRgb = convertRgbStrToObject(pSBC(-0.3, theme.body, 'c'));
+
+      return `
+  filter: drop-shadow(3px 3px 1px rgba(${primaryRgb.r}, ${primaryRgb.g}, ${primaryRgb.b}, 1));
+        `;
+    }
+
+    // Light Mode
+    const secondaryRgb = convertRgbStrToObject(
+      pSBC(0.1, theme.contrastBody, 'c')
+    );
+
+    return `
+  filter: drop-shadow(3px 3px 1px rgba(${secondaryRgb.r}, ${secondaryRgb.g}, ${secondaryRgb.b}, 0.3));
+        `;
+  }};
 `;
