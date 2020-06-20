@@ -3,84 +3,112 @@ import { pSBC, convertRgbStrToObject } from './utility.functions';
 
 export const defaultBoxShadowCss = css`
   box-shadow: ${({ theme }) => {
-    // Dark Mode
-    if (theme.theme === 'dark') {
-      const primaryRgb = convertRgbStrToObject(pSBC(-0.3, theme.body, 'c'));
-      const secondaryRgb = convertRgbStrToObject(
-        pSBC(0, theme.contrastBody, 'c')
-      );
+    let topLeft;
+    let topRight;
+    let topOpacity;
+    let bottomOpacity;
 
-      return `
-        -3px -3px 8px 0 rgba(${secondaryRgb.r}, ${secondaryRgb.g}, ${secondaryRgb.b}, 0.1),
-        6px 6px 10px 0 rgba(${primaryRgb.r}, ${primaryRgb.g}, ${primaryRgb.b}, 0.9);
-        `;
+    if (theme.theme === 'dark') {
+      // Dark Mode
+      topRight = convertRgbStrToObject(pSBC(-0.3, theme.body, 'c'));
+      topLeft = convertRgbStrToObject(pSBC(0, theme.contrastBody, 'c'));
+      topOpacity = 0.1;
+      bottomOpacity = 0.9;
+    } else {
+      // Light Mode
+      topLeft = convertRgbStrToObject(pSBC(0.5, theme.body, 'c'));
+      topRight = convertRgbStrToObject(pSBC(0.1, theme.contrastBody, 'c'));
+      topOpacity = 1;
+      bottomOpacity = 0.15;
     }
 
-    // Light Mode
-    const primaryRgb = convertRgbStrToObject(pSBC(0.5, theme.body, 'c'));
-    const secondaryRgb = convertRgbStrToObject(
-      pSBC(0.1, theme.contrastBody, 'c')
-    );
+    return `
+        -3px -3px 8px 0 rgba(${topLeft.r}, ${topLeft.g}, ${topLeft.b}, ${topOpacity}),
+        6px 6px 10px 0 rgba(${topRight.r}, ${topRight.g}, ${topRight.b}, ${bottomOpacity});
+        `;
+  }};
+`;
+
+export const emphasisedBoxShadowCss = css`
+  box-shadow: ${({ theme }) => {
+    let topLeft;
+    let topRight;
+    let topOpacity;
+    let bottomOpacity;
+
+    if (theme.theme === 'dark') {
+      // Dark Mode
+      topRight = convertRgbStrToObject(pSBC(-0.3, theme.body, 'c'));
+      topLeft = convertRgbStrToObject(pSBC(0, theme.contrastBody, 'c'));
+      topOpacity = 0.1;
+      bottomOpacity = 0.7;
+    } else {
+      // Light Mode
+      topLeft = convertRgbStrToObject(pSBC(0.5, theme.body, 'c'));
+      topRight = convertRgbStrToObject(pSBC(0.1, theme.contrastBody, 'c'));
+      topOpacity = 1;
+      bottomOpacity = 0.15;
+    }
 
     return `
-        -3px -3px 8px 0 rgba(${primaryRgb.r}, ${primaryRgb.g}, ${primaryRgb.b}, 1),
-        6px 6px 10px 0 rgba(${secondaryRgb.r}, ${secondaryRgb.g}, ${secondaryRgb.b}, 0.15);
+        -3px -3px 3px 0 rgba(${topLeft.r}, ${topLeft.g}, ${topLeft.b}, ${topOpacity}),
+        6px 6px 2px 0 rgba(${topRight.r}, ${topRight.g}, ${topRight.b}, ${bottomOpacity});
         `;
   }};
 `;
 
 export const indentBoxShadowCss = css`
   box-shadow: ${({ theme }) => {
-    // Dark Mode
-    if (theme.theme === 'dark') {
-      const primaryRgb = convertRgbStrToObject(pSBC(-0.3, theme.body, 'c'));
-      const secondaryRgb = convertRgbStrToObject(
-        pSBC(0, theme.contrastBody, 'c')
-      );
+    let topLeft;
+    let topRight;
+    let topOpacity;
+    let bottomOpacity;
 
-      return `
-        inset -6px -6px 8px 0 rgba(${secondaryRgb.r}, ${secondaryRgb.g}, ${secondaryRgb.b}, 0.07),
-        inset 3px 3px 10px 0 rgba(${primaryRgb.r}, ${primaryRgb.g}, ${primaryRgb.b}, 0.8);
-        `;
+    if (theme.theme === 'dark') {
+      // Dark Mode
+      topRight = convertRgbStrToObject(pSBC(-0.3, theme.body, 'c'));
+      topLeft = convertRgbStrToObject(pSBC(0, theme.contrastBody, 'c'));
+      topOpacity = 0.07;
+      bottomOpacity = 0.8;
+    } else {
+      // Light Mode
+      topLeft = convertRgbStrToObject(pSBC(0.5, theme.body, 'c'));
+      topRight = convertRgbStrToObject(pSBC(0.1, theme.contrastBody, 'c'));
+      topOpacity = 1;
+      bottomOpacity = 0.15;
     }
 
-    // Light Mode
-    const primaryRgb = convertRgbStrToObject(pSBC(0.5, theme.body, 'c'));
-    const secondaryRgb = convertRgbStrToObject(
-      pSBC(0.1, theme.contrastBody, 'c')
-    );
-
     return `
-        inset -6px -6px 8px 0 rgba(${primaryRgb.r}, ${primaryRgb.g}, ${primaryRgb.b}, 1),
-        inset 3px 3px 10px 0 rgba(${secondaryRgb.r}, ${secondaryRgb.g}, ${secondaryRgb.b}, 0.15);
+        inset -6px -6px 8px 0 rgba(${topLeft.r}, ${topLeft.g}, ${topLeft.b}, ${topOpacity}),
+        inset 3px 3px 10px 0 rgba(${topRight.r}, ${topRight.g}, ${topRight.b}, ${bottomOpacity});
         `;
   }};
 `;
 
 export const clickedBoxShadowCss = css`
   box-shadow: ${({ theme }) => {
-    // Dark Mode
-    if (theme.theme === 'dark') {
-      const primaryRgb = convertRgbStrToObject(pSBC(-0.4, theme.body, 'c'));
-      const secondaryRgb = convertRgbStrToObject(
-        pSBC(0.1, theme.contrastBody, 'c')
-      );
+    let topLeft;
+    let topRight;
+    let topOpacity;
+    let bottomOpacity;
 
-      return `
-        inset -6px -6px 8px 0 rgba(${secondaryRgb.r}, ${secondaryRgb.g}, ${secondaryRgb.b}, 0.07),
-        inset 3px 3px 2px 0 rgba(${primaryRgb.r}, ${primaryRgb.g}, ${primaryRgb.b}, 0.8);
-        `;
+    if (theme.theme === 'dark') {
+      // Dark Mode
+      topRight = convertRgbStrToObject(pSBC(-0.4, theme.body, 'c'));
+      topLeft = convertRgbStrToObject(pSBC(0.1, theme.contrastBody, 'c'));
+      topOpacity = 0.07;
+      bottomOpacity = 0.8;
+    } else {
+      // Light Mode
+      topLeft = convertRgbStrToObject(pSBC(0.6, theme.body, 'c'));
+      topRight = convertRgbStrToObject(pSBC(0.3, theme.contrastBody, 'c'));
+      topOpacity = 1;
+      bottomOpacity = 0.3;
     }
 
-    // Light Mode
-    const primaryRgb = convertRgbStrToObject(pSBC(0.6, theme.body, 'c'));
-    const secondaryRgb = convertRgbStrToObject(
-      pSBC(0.3, theme.contrastBody, 'c')
-    );
-
     return `
-        inset -6px -6px 6px 0 rgba(${primaryRgb.r}, ${primaryRgb.g}, ${primaryRgb.b}, 1),
-        inset 3px 3px 2px 1px rgba(${secondaryRgb.r}, ${secondaryRgb.g}, ${secondaryRgb.b}, 0.3);
+        inset -6px -6px 6px 0 rgba(${topLeft.r}, ${topLeft.g}, ${topLeft.b}, ${topOpacity}),
+        inset 3px 3px 2px 1px rgba(${topRight.r}, ${topRight.g}, ${topRight.b}, ${bottomOpacity});
         `;
   }};
 `;

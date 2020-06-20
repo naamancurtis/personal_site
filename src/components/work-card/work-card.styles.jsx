@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 
-import { defaultBoxShadowCss } from '../../styles/neumorphic';
+import { emphasisedBoxShadowCss } from '../../styles/neumorphic';
 import { Line } from '../../styles/components';
 
 export const WorkCardWrapper = styled.div`
@@ -18,7 +18,7 @@ export const WorkCardWrapper = styled.div`
   z-index: 3;
   background-color: ${({ theme }) => theme.body};
 
-  ${defaultBoxShadowCss};
+  ${emphasisedBoxShadowCss};
 
   &.dummy {
     position: absolute;

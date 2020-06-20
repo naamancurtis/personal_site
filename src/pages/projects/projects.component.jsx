@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import { TimelineLite, TweenLite } from 'gsap';
 import { useSwipeable } from 'react-swipeable';
 
@@ -15,8 +15,6 @@ import {
 } from './projects.styles';
 
 import WorkCard from '../../components/work-card/work-card.component';
-import { useState } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const PROJECTS = [
   {
