@@ -19,4 +19,3 @@ export const SocialWrapper = styled.div`
   width: 70%;
   margin: 0 2rem;
 `;
-

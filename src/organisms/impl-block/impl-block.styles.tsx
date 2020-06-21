@@ -32,7 +32,7 @@ export const ImplBlockLineItem = styled.div`
 export const ImplBlockHeader = styled.h2`
   display: inline-block;
   white-space: nowrap;
-  font-size: 1em;
+  font-size: 3em;
   opacity: 1;
   align-self: start;
   width: max-content;

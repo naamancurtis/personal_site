@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, forwardRef } from 'react';
 import { SocialBarWrapper } from './social-bar.styles';
 import {
   GitHubIcon,
   LinkedInIcon,
   MailIcon,
 } from '../../atoms/social-icons/social-icon-button.component';
-import { forwardRef } from 'react';
+
 import ContactMeModal from '../../organisms/contact-me-modal/contact-me-modal.component';
 
 type SocialBarProps = {

@@ -1,6 +1,6 @@
 import React from 'react';
-import { LoadingWrapper, LoadingText } from './loading.styles';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { LoadingWrapper, LoadingText } from './loading.styles';
 
 const Loading = () => {
   return (

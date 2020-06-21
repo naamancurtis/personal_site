@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { TimelineLite } from 'gsap';
 
+import { ThemeContext } from 'styled-components';
 import SKILLS from '../../data/skills';
 
 import TechnologyIcon from '../../atoms/technology-icon/technology-icon.component';
@@ -10,7 +11,6 @@ import {
   SkillBlockWrapper,
   SkillCardsWrapper,
 } from './skills.styles';
-import { ThemeContext } from 'styled-components';
 import { Line, Underline } from '../../styles/components';
 
 type SkillsPageProps = {
@@ -42,10 +42,8 @@ const SkillsPage = ({ isOpen }: SkillsPageProps) => {
 
     if (isOpen) {
       timeline.seek(0).play();
-    } else {
-      if (timeline.progress() !== 0) {
-        timeline.reverse();
-      }
+    } else if (timeline.progress() !== 0) {
+      timeline.reverse();
     }
   }, [timeline, isOpen]);
 

@@ -34,10 +34,8 @@ const AboutMe = ({ isOpen }: AboutMeProps) => {
 
     if (isOpen) {
       timeline.seek(0).play();
-    } else {
-      if (timeline.progress() !== 0) {
-        timeline.reverse();
-      }
+    } else if (timeline.progress() !== 0) {
+      timeline.reverse();
     }
   }, [timeline, isOpen]);
 

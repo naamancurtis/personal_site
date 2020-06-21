@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<TechnologyIcon /> expect to render component 1`] = `
+<styled.div>
+  <styled.img
+    alt="test"
+    src="test"
+  />
+  <styled.div>
+    test
+  </styled.div>
+</styled.div>
+`;

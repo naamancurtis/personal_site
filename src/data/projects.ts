@@ -1,5 +1,5 @@
 import IMG_URL from '../constants/img-urls';
-import { DefaultTheme } from 'styled-components';
+import { Theme } from '../styles/theme';
 
 export default [
   {
@@ -43,7 +43,7 @@ export default [
         alt: 'Firebase',
       },
       {
-        srcFn: (theme: DefaultTheme) =>
+        srcFn: (theme: Theme) =>
           theme.theme === 'dark' ? IMG_URL.NODE_DARK : IMG_URL.NODE_LIGHT,
         alt: 'Node.js & Express.js',
       },

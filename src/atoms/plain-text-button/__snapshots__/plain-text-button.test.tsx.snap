@@ -1,0 +1,40 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<CodeButton /> expect to render component 1`] = `
+<BaseButton
+  icon={
+    Array [
+      "fas",
+      "code",
+    ]
+  }
+  text="Code"
+  url="test"
+/>
+`;
+
+exports[`<LiveButton /> expect to render component 1`] = `
+<BaseButton
+  icon={
+    Array [
+      "fas",
+      "desktop",
+    ]
+  }
+  text="Live"
+  url="test"
+/>
+`;
+
+exports[`<PressButton /> expect to render component 1`] = `
+<BaseButton
+  icon={
+    Array [
+      "far",
+      "newspaper",
+    ]
+  }
+  text="Article"
+  url="test"
+/>
+`;

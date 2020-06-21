@@ -1,19 +1,19 @@
 import React, { useContext } from 'react';
+import { ThemeContext } from 'styled-components';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   ToggleSwitchLabel,
   ToggleSwitchWrapper,
   Switch,
   IconWrapper,
 } from './theme-toggler-button.styles';
-import { ThemeContext, DefaultTheme } from 'styled-components';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 type ThemeTogglerButtonProps = {
   toggleTheme: () => void;
 };
 
 const ThemeToggleButton = ({ toggleTheme }: ThemeTogglerButtonProps) => {
-  const { theme } = useContext<DefaultTheme>(ThemeContext);
+  const { theme } = useContext(ThemeContext);
 
   return (
     <div>
@@ -37,7 +37,5 @@ const ThemeToggleButton = ({ toggleTheme }: ThemeTogglerButtonProps) => {
     </div>
   );
 };
-
-// value={theme === 'dark'} was on switch
 
 export default ThemeToggleButton;

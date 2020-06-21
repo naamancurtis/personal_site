@@ -24,4 +24,3 @@ export default createGlobalStyle`
       font-weight: 500;
     }
 }`;
-

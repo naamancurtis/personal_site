@@ -18,7 +18,7 @@ export const Name = styled.span`
 `;
 
 export const CurlyBracket = styled.span`
-  font-family: ${({theme}) => theme.fonts.code};
+  font-family: ${({ theme }) => theme.fonts.code};
   font-weight: 300;
   font-size: 18px;
 

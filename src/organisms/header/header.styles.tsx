@@ -3,7 +3,7 @@ import media from '../../styles/media';
 import {
   indentBoxShadowCss,
   defaultBoxShadowCss,
-} from '../../styles/neumorphic.js';
+} from '../../styles/neumorphic';
 
 export const StyledHeader = styled.div`
   width: 100%;

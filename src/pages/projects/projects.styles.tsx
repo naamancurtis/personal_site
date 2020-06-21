@@ -1,7 +1,7 @@
 import styled from 'styled-components';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import media from '../../styles/media';
 import { defaultBoxShadowCss } from '../../styles/neumorphic';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { pSBC, convertRgbStrToObject } from '../../styles/utility.functions';
 
 export const PageWrapper = styled.div`

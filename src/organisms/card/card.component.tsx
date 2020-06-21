@@ -1,5 +1,6 @@
-import React, { forwardRef } from 'react';
+import React, { forwardRef, useContext } from 'react';
 
+import { ThemeContext } from 'styled-components';
 import {
   CardWrapper,
   CardImage,
@@ -17,8 +18,7 @@ import {
   ImageWrapper,
 } from './card.styles';
 import StyledTooltip from '../../atoms/styled-tooltip/styled-tooltip.component';
-import { useContext } from 'react';
-import { ThemeContext } from 'styled-components';
+
 import {
   LiveButton,
   CodeButton,

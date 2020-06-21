@@ -1,0 +1,61 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<GitHubIcon /> expect to render component 1`] = `
+<BaseIcon
+  icon={
+    Array [
+      "fab",
+      "github",
+    ]
+  }
+  url="https://github.com/naamancurtis"
+/>
+`;
+
+exports[`<LinkedInIcon /> expect to render component 1`] = `
+<BaseIcon
+  icon={
+    Array [
+      "fab",
+      "linkedin",
+    ]
+  }
+  url="https://www.linkedin.com/in/naamancurtis/"
+/>
+`;
+
+exports[`<MailIcon /> expect to render component 1`] = `
+<styled.div
+  className="clickable"
+  onClick={[Function]}
+>
+  <styled.a
+    className="clickable"
+  >
+    <FontAwesomeIcon
+      border={false}
+      className="clickable"
+      fixedWidth={false}
+      flip={null}
+      icon={
+        Array [
+          "fas",
+          "envelope",
+        ]
+      }
+      inverse={false}
+      listItem={false}
+      mask={null}
+      pull={null}
+      pulse={false}
+      rotation={null}
+      size={null}
+      spin={false}
+      swapOpacity={false}
+      symbol={false}
+      title=""
+      transform={null}
+    />
+  </styled.a>
+</styled.div>
+`;

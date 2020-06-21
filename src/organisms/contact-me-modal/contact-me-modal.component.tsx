@@ -1,5 +1,7 @@
-import React from 'react';
+import React, { useContext } from 'react';
 
+import { ThemeContext } from 'styled-components';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import ContactMeForm from '../contact-me-form/contact-me-form.component';
 import {
   ModalTitle,
@@ -7,9 +9,7 @@ import {
   ModalWrapper,
   StyledCloseIcon,
 } from './contact-me-modal.styles';
-import { useTheme } from 'styled-components';
 import { hexToRgb } from '../../styles/utility.functions';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 type ContactMeModalProps = {
   showModal: boolean;
@@ -17,7 +17,7 @@ type ContactMeModalProps = {
 };
 
 const ContactMeModal = ({ showModal, closeModal }: ContactMeModalProps) => {
-  const theme = useTheme();
+  const theme = useContext(ThemeContext);
 
   const opaqueTheme = () => {
     const rgb = hexToRgb(theme.body);

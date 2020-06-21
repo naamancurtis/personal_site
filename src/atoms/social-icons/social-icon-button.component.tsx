@@ -1,11 +1,11 @@
 import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { IconProp } from '@fortawesome/fontawesome-svg-core';
 import { GITHUB_URL, LINKEDIN_URL } from '../../constants/constants';
 import {
   IconWrapper,
   SocialWrapperWithLabel,
 } from './social-icon-button.styles';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { IconProp } from '@fortawesome/fontawesome-svg-core';
 
 type BaseIconProps = {
   url: string;

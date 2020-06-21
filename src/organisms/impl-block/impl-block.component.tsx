@@ -79,6 +79,9 @@ const ImplBlock = () => {
     // @ts-ignore
     wrapperRef!.addEventListener('fit', resizeClosingCurly);
 
+    // Force a fit as there was some unexpected behaviour
+    fitText.fit();
+
     TweenLite.from('.route', {
       opacity: 0,
       duration: 0.75,
@@ -106,7 +109,7 @@ const ImplBlock = () => {
           {ROUTES.map((route) => (
             <ImplBlockLineItem key={route.name} className="route">
               <br />
-              <Function route={route} children={route.component}></Function>
+              <Function route={route} children={route.component} />
             </ImplBlockLineItem>
           ))}
         </FnDefWrapper>

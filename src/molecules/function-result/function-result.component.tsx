@@ -6,6 +6,7 @@ import React, {
   MouseEvent,
 } from 'react';
 import { TimelineLite } from 'gsap';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   FnResult,
   FnContent,
@@ -15,7 +16,6 @@ import {
 } from '../../organisms/function/function.styles';
 import { FunctionResultStyle } from '../../atoms/function-types/function-types.styles';
 import SvgEllipsis from '../../atoms/ellipsis/elipisis-component.component';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 type FunctionResultProps = {
   showAnimation: boolean;
@@ -154,10 +154,8 @@ const FunctionResult = ({
 
     if (isOpen) {
       hiddenTimeline.seek(0).play();
-    } else {
-      if (hiddenTimeline.progress() !== 0) {
-        hiddenTimeline.reverse();
-      }
+    } else if (hiddenTimeline.progress() !== 0) {
+      hiddenTimeline.reverse();
     }
   }, [isOpen, hiddenTimeline]);
 

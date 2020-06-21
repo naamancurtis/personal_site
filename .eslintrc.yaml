@@ -1,5 +1,5 @@
 extends:
-  - airbnb-prettier
+  - airbnb-typescript-prettier
 
 globals:
   window: true
@@ -9,3 +9,5 @@ ignorePatterns: ['**/serviceWorker.js', '**/*.ttf']
 
 rules:
   eslint import/no-extraneous-dependencies: off
+  '@typescript-eslint/ban-ts-ignore': off
+  '@typescript-eslint/no-non-null-assertion': off

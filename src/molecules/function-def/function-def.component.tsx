@@ -50,10 +50,10 @@ const FunctionDef = ({
   return (
     <FnDef ref={self}>
       <OpaqueFnText>pub fn </OpaqueFnText> <FunctionName>{fnName}</FunctionName>
-      <OpaqueFnText>{'('}</OpaqueFnText>
+      <OpaqueFnText>(</OpaqueFnText>
       {self ? (
         <>
-          <Params>{paramPrefix + 'self'}</Params>
+          <Params>{`${paramPrefix}self`}</Params>
         </>
       ) : null}
       <OpaqueFnText>{') '}</OpaqueFnText>

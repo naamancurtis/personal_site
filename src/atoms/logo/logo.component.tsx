@@ -51,7 +51,7 @@ const Logo = () => {
 
     return () => {
       timeline.kill();
-    }
+    };
   }, [timeline]);
 
   return (

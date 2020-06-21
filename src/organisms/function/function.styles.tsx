@@ -63,7 +63,7 @@ export const FnContent = styled.div`
   opacity: 0;
   cursor: default;
   overflow: hidden;
-  
+
   margin: -2.5rem -2rem -4.5rem -2rem;
   padding: 2.5rem 3rem 4.5rem 3rem;
 

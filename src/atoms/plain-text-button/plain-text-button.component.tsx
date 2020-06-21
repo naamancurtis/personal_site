@@ -1,10 +1,10 @@
 import React from 'react';
+import { IconProp } from '@fortawesome/fontawesome-svg-core';
 import {
   StyledButton,
   StyledIcon,
   ButtonText,
 } from './plain-text-button.styles';
-import { IconProp } from '@fortawesome/fontawesome-svg-core';
 
 type BaseButtonProps = {
   url: string;

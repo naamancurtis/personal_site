@@ -28,8 +28,8 @@ export const StyledModal = styled(Modal)`
   ${media.tablet`
     top: 20px;
     width: 50%;
-  left: 25%;
-  height: 70%;
+    left: 25%;
+    height: 70%;
   `}
 `;
 

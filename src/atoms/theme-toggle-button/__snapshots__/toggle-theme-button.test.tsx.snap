@@ -1,0 +1,46 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ThemeToggleButton /> expect to render component 1`] = `
+<div>
+  <styled.div>
+    <styled.input
+      checked={false}
+      id="toggle-theme"
+      onChange={[Function]}
+      type="checkbox"
+    />
+    <styled.label
+      htmlFor="toggle-theme"
+    >
+      <styled.span
+        className=""
+      >
+        <FontAwesomeIcon
+          border={false}
+          className=""
+          fixedWidth={false}
+          flip={null}
+          icon={
+            Array [
+              "far",
+              "lightbulb",
+            ]
+          }
+          inverse={false}
+          listItem={false}
+          mask={null}
+          pull={null}
+          pulse={false}
+          rotation={null}
+          size={null}
+          spin={false}
+          swapOpacity={false}
+          symbol={false}
+          title=""
+          transform={null}
+        />
+      </styled.span>
+    </styled.label>
+  </styled.div>
+</div>
+`;
