@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-export const useGreeting = () => {
+export default () => {
   const [showGreeting, setGreeting] = useState<boolean | null>(null);
   const [mountedComponent, setMountedComponent] = useState<boolean>(false);
 

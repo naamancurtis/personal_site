@@ -5,9 +5,17 @@ globals:
   window: true
   document: true
 
-ignorePatterns: ['**/serviceWorker.js', '**/*.ttf']
+ignorePatterns: ['**/serviceWorker.js', '**/*.ttf', '*.png', '**/*.test.tsx']
+
+env:
+  jest: true
 
 rules:
-  eslint import/no-extraneous-dependencies: off
   '@typescript-eslint/ban-ts-ignore': off
   '@typescript-eslint/no-non-null-assertion': off
+  import/no-extraneous-dependencies: ['error', { 'devDependencies': true }]
+  consistent-return: 0
+  react/no-array-index-key: off
+  no-underscore-dangle: 0
+  react/jsx-props-no-spreading: 1
+  react/no-unescaped-entities: 0

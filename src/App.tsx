@@ -6,7 +6,7 @@ import Modal from 'react-modal';
 import GlobalStyles from './styles/global';
 import { darkTheme, lightTheme } from './styles/theme';
 import { GLOBAL_MEDIA_QUERIES } from './styles/media';
-import { useDarkMode } from './styles/use-theme';
+import useDarkMode from './styles/use-theme';
 
 import './App.css';
 
@@ -35,7 +35,7 @@ import {
   faCircle as emptyCircle,
 } from '@fortawesome/free-regular-svg-icons';
 import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
-import { useGreeting } from './storage/use-greeting';
+import useGreeting from './storage/use-greeting';
 import Loading from './atoms/loading/loading.component';
 
 library.add(

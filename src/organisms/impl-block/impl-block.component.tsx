@@ -109,7 +109,7 @@ const ImplBlock = () => {
           {ROUTES.map((route) => (
             <ImplBlockLineItem key={route.name} className="route">
               <br />
-              <Function route={route} children={route.component} />
+              <Function route={route}>{route.component}</Function>
             </ImplBlockLineItem>
           ))}
         </FnDefWrapper>

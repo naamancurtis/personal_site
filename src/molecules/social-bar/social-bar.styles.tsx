@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import media from '../../styles/media';
 import { pSBC } from '../../styles/utility.functions';
 
-export const SocialBarWrapper = styled.div`
+export default styled.div`
   display: flex;
   flex-direction: column;
   justify-content: start;

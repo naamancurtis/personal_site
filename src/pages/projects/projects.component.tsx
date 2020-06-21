@@ -20,12 +20,6 @@ const ProjectPage = () => {
   const [currentCardPointer, setCurrentCard] = useState(0);
   const [timeline, setTimeline] = useState(new TimelineLite());
 
-  const handlers = useSwipeable({
-    onSwipedLeft: () => movePointer(-1),
-    onSwipedRight: () => movePointer(1),
-    delta: 25,
-  });
-
   const currentCard = useRef(null);
 
   const movePointer = (movement: number | null, directMove?: number) => {
@@ -77,6 +71,12 @@ const ProjectPage = () => {
         '>'
       );
   };
+
+  const handlers = useSwipeable({
+    onSwipedLeft: () => movePointer(-1),
+    onSwipedRight: () => movePointer(1),
+    delta: 25,
+  });
 
   useEffect(() => {
     if (!currentCard.current) return;

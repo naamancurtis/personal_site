@@ -9,7 +9,6 @@ export const CardWrapper = styled.div`
   border-radius: 10px;
   display: flex;
   flex-direction: column;
-  align-text: left;
   padding: 1rem;
   opacity: 0;
   position: absolute;

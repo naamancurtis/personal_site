@@ -76,10 +76,19 @@ const SkillsPage = ({ isOpen }: SkillsPageProps) => {
       <SkillBlockWrapper className="skills-item">
         <SkillCardsWrapper>
           {SKILLS.map((skill) => {
+            let { imgSrc } = skill;
             if (skill.imgFn) {
-              skill.imgSrc = skill.imgFn(theme);
+              imgSrc = skill.imgFn(theme);
             }
-            return <TechnologyIcon key={skill.name} {...skill} />;
+            const { name, description, alt } = skill;
+            return (
+              <TechnologyIcon
+                key={name}
+                description={description}
+                imgSrc={imgSrc}
+                alt={alt}
+              />
+            );
           })}
         </SkillCardsWrapper>
       </SkillBlockWrapper>

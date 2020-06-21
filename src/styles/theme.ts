@@ -29,21 +29,18 @@ export type Theme = {
   contrastText: string;
 };
 
-export var lightTheme: Theme = ({} as any) as Theme;
-export var darkTheme: Theme = ({} as any) as Theme;
-
 const _dark_theme = {
   body: '#393A47',
   text: '#DEDBE2',
 };
 
-const fonts = {
+const fonts: ThemeFonts = {
   code: `Ubuntu,'Fira Code', source-code-pro, 'Operator Mono', monospace`,
   heading: 'Raleway, Ubuntu, Fira Sans Extra Condensed, Fira Sans',
   body: 'Raleway, Ubuntu, Fira Sans Extra Condensed, Fira Sans',
 };
 
-lightTheme = {
+export const lightTheme: Theme = {
   fonts: { ...fonts },
   theme: 'light',
   body: '#EDECEE',
@@ -67,7 +64,7 @@ lightTheme = {
   contrastText: _dark_theme.text,
 };
 
-darkTheme = {
+export const darkTheme = {
   ...lightTheme,
   theme: 'dark',
   body: _dark_theme.body,

@@ -28,9 +28,6 @@ export const Fn = styled.div`
 
   &.is-open {
     ${indentBoxShadowCss}
-
-    &:hover {
-    }
   }
 `;
 

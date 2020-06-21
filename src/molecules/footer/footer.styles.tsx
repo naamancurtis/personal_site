@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const StyledFooter = styled.footer`
+export default styled.footer`
   color: ${({ theme }) => theme.text};
   font-weight: 300;
   font-family: ${({ theme }) => theme.fonts.code};

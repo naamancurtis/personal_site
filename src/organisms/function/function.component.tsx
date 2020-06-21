@@ -34,8 +34,9 @@ const Function = ({ route, children }: FunctionProps) => {
         showAnimation={isHover}
         result={route.result}
         isOpen={isOpen}
-        children={children}
-      />
+      >
+        {children}
+      </FunctionResult>
     </Fn>
   );
 };

@@ -1,5 +1,5 @@
 import React, { useState, forwardRef } from 'react';
-import { SocialBarWrapper } from './social-bar.styles';
+import SocialBarWrapper from './social-bar.styles';
 import {
   GitHubIcon,
   LinkedInIcon,

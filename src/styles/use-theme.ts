@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-export const useDarkMode = () => {
+export default () => {
   const [theme, setTheme] = useState('dark');
   const [mountedComponent, setMountedComponent] = useState(false);
 
@@ -10,7 +10,11 @@ export const useDarkMode = () => {
   };
 
   const themeToggler = (): void => {
-    theme === 'dark' ? setMode('light') : setMode('dark');
+    if (theme === 'dark') {
+      setMode('light');
+      return;
+    }
+    setMode('dark');
   };
 
   useEffect(() => {

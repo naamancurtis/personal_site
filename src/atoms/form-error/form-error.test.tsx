@@ -4,7 +4,7 @@ import FormError from './form-error.component';
 
 describe('<FormError />', () => {
   it('expect to render component', () => {
-    const wrapper = shallow(<FormError message={'test'} />);
+    const wrapper = shallow(<FormError message="test" />);
     expect(wrapper).toMatchSnapshot();
   });
 });
