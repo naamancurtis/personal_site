@@ -91,9 +91,19 @@ const ImplBlock = () => {
       stagger: 0.2,
     });
 
+    // Handle an issue where the text resize outpaces the render
     setTimeout(() => {
       resizeHandler();
     }, 25);
+
+    // Handle the issue where gsap doesn't correctly fade everything in
+    setTimeout(() => {
+      TweenLite.to('.route', {
+        left: 0,
+        opacity: 1,
+      });
+    }, 1400);
+
     return () => {
       window.removeEventListener('resize', debouncedHandler);
     };

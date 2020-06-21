@@ -22,7 +22,7 @@ export const ProjectWrapper = styled.div`
 `;
 
 export const NextButton = styled.button`
-  font-size: 50px;
+  font-size: 35px;
   color: ${({ theme }) => theme.text};
   background-color: transparent;
   border: none;
@@ -30,9 +30,14 @@ export const NextButton = styled.button`
   cursor: pointer;
   overflow: visible;
   z-index: 50;
+
   &:focus {
     outline: none;
   }
+
+  ${media.tablet`
+    font-size: 50px;
+  `}
 `;
 
 export const CardStackWrapper = styled.div`
@@ -43,18 +48,19 @@ export const CardStackWrapper = styled.div`
   max-width: 400px;
   display: flex;
   justify-content: center;
-  margin: 0 1rem;
+  margin: 0 0.25rem;
 
   ${media.tablet`
-  max-width: 470px;
-  width: 50%;
-  min-width: 400px;
+    max-width: 470px;
+    width: 50%;
+    min-width: 400px;
+    margin: 0 1rem;
   `}
 
   ${media.desktop`
-  max-width: 550px;
-  min-width: 450px;
-`}
+    max-width: 550px;
+    min-width: 450px;
+  `}
 `;
 
 export const CardIndicatorWrapper = styled.div`

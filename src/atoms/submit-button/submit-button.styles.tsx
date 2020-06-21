@@ -6,11 +6,12 @@ import {
   underlineHighlightBoxShadow,
   underlineHighlightTextShadow,
 } from '../../styles/neumorphic';
+import media from '../../styles/media';
 
 export const SubmitButton = styled.button`
   font-size: 1em;
   font-weight: 700;
-  width: 45%;
+  width: 80%;
   height: 3rem;
   color: ${({ theme }) => theme.text};
   background-color: ${({ theme }) => theme.body};
@@ -24,6 +25,10 @@ export const SubmitButton = styled.button`
   justify-content: space-around;
   align-items: center;
   ${defaultBoxShadowCss};
+
+  ${media.tablet`
+    width: 50%;
+  `}
 
   &:hover {
     ${underlineHighlightBoxShadow};

@@ -1,6 +1,35 @@
 import { css } from 'styled-components';
 import { pSBC, convertRgbStrToObject } from './utility.functions';
 
+export const slightRiseBoxShadowCss = css`
+  background-color: ${({ theme }) => pSBC(0.0005, theme.body)};
+  box-shadow: ${({ theme }) => {
+    let topLeft;
+    let bottomRight;
+    let topOpacity;
+    let bottomOpacity;
+
+    if (theme.theme === 'dark') {
+      // Dark Mode
+      bottomRight = convertRgbStrToObject(pSBC(-0.3, theme.body, 'c'));
+      topLeft = convertRgbStrToObject(pSBC(0, theme.contrastBody, 'c'));
+      topOpacity = 0.02;
+      bottomOpacity = 0.03;
+    } else {
+      // Light Mode
+      topLeft = convertRgbStrToObject(pSBC(0.5, theme.body, 'c'));
+      bottomRight = convertRgbStrToObject(pSBC(0.1, theme.contrastBody, 'c'));
+      topOpacity = 0.8;
+      bottomOpacity = 0.03;
+    }
+
+    return `
+        -1px -1px 6px 0 rgba(${topLeft.r}, ${topLeft.g}, ${topLeft.b}, ${topOpacity}),
+        6px 6px 6px 0 rgba(${bottomRight.r}, ${bottomRight.g}, ${bottomRight.b}, ${bottomOpacity});
+        `;
+  }};
+`;
+
 export const defaultBoxShadowCss = css`
   box-shadow: ${({ theme }) => {
     let topLeft;
@@ -58,6 +87,7 @@ export const emphasisedBoxShadowCss = css`
 `;
 
 export const indentBoxShadowCss = css`
+  background-color: ${({ theme }) => pSBC(-0.05, theme.body)};
   box-shadow: ${({ theme }) => {
     let topLeft;
     let bottomRight;
@@ -86,6 +116,7 @@ export const indentBoxShadowCss = css`
 `;
 
 export const clickedBoxShadowCss = css`
+  background-color: ${({ theme }) => pSBC(-0.15, theme.body)};
   box-shadow: ${({ theme }) => {
     let topLeft;
     let bottomRight;

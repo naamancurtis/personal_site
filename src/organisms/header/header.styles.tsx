@@ -6,13 +6,13 @@ import {
 } from '../../styles/neumorphic';
 
 export const StyledHeader = styled.div`
+  position: absolute;
   width: 100%;
   height: 80px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   cursor: default;
-  position: fixed;
   top: 0;
   left: 0;
   padding: 0 2em 0 1em;
@@ -26,6 +26,8 @@ export const StyledHeader = styled.div`
 
   ${media.tablet`
     padding: 0 1em;
+    position: fixed;
+    margin: 0;
   `}
 `;
 
@@ -46,7 +48,7 @@ export const HeaderIconWrapper = styled.div`
   cursor: pointer;
   font-size: 1rem;
   border-radius: 5px;
-  margin-right: 2rem;
+  margin-right: 1rem;
 
   &.is-open {
     ${indentBoxShadowCss}

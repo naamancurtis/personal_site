@@ -60,6 +60,7 @@ export const FormInput = styled.input`
   color: ${({ theme }) => theme.text};
   width: 100%;
   padding: 0.5em 0.75em;
+  -webkit-appearance: none;
 
   ${defaultBoxShadowCss}
 
@@ -78,6 +79,7 @@ export const FormTextArea = styled.textarea`
   font-family: ${({ theme }) => theme.fonts.body};
   color: ${({ theme }) => theme.text};
   padding: 0.5em 0.75em;
+  -webkit-appearance: none;
 
   ${defaultBoxShadowCss}
 

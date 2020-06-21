@@ -1,12 +1,21 @@
+// @ts-nocheck
+/*
+ * Annoyingly, have to disable type checking for this file.
+ * There's an issue: https://github.com/microsoft/TypeScript/issues/34796
+ * within typescript about recursive string interpolations, so the
+ * only way to get it to work is to disable it
+ */
+
 import styled from 'styled-components';
 import media from '../../styles/media';
 import {
   defaultBoxShadowCss,
   indentBoxShadowCss,
+  slightRiseBoxShadowCss,
 } from '../../styles/neumorphic';
 import { Line } from '../../styles/components';
 
-export const Fn = styled.div`
+export const Fn = styled('div')`
   font-family: ${({ theme }) => theme.fonts.code};
   color: ${({ theme }) => theme.text};
   cursor: pointer;
@@ -17,14 +26,15 @@ export const Fn = styled.div`
   height: 100%;
   position: sticky;
   top: 85px;
+  ${slightRiseBoxShadowCss};
 
   ${media.tablet`
     padding: 1em 1.1em 0.7em 1.3em;
-  `};
 
-  &:hover {
-    ${defaultBoxShadowCss}
-  }
+    &:hover {
+      ${defaultBoxShadowCss}
+    }
+  `};
 
   &.is-open {
     ${indentBoxShadowCss}

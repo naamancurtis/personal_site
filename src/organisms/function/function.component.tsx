@@ -4,6 +4,8 @@ import FunctionDef from '../../molecules/function-def/function-def.component';
 import FunctionResult from '../../molecules/function-result/function-result.component';
 import { Route } from '../../models/route';
 import ReactGA, { EventArgs } from 'react-ga';
+import { useMedia } from 'react-media';
+import { GLOBAL_MEDIA_QUERIES } from '../../styles/media';
 
 type FunctionProps = {
   route: Route;
@@ -11,7 +13,8 @@ type FunctionProps = {
 };
 
 const Function = ({ route, children }: FunctionProps) => {
-  const [isHover, setHover] = useState<boolean>(false);
+  const isMobile = useMedia({ query: GLOBAL_MEDIA_QUERIES.mobile });
+  const [isHover, setHover] = useState<boolean>(isMobile);
   const [isOpen, toggleOpen] = useState<boolean>(false);
   const [timeOpened, setTimeOpened] = useState<Date | null>(null);
 
@@ -33,6 +36,17 @@ const Function = ({ route, children }: FunctionProps) => {
     ReactGA.event(gaVars);
   };
 
+  const handleHoverState = (state: boolean): boolean => {
+    if (isMobile && isHover !== true) {
+      setHover(true);
+      return true;
+    }
+    setHover(state);
+    return false;
+  };
+
+  const opaqueFnDef = () => isHover || isOpen;
+
   // If the user navigates off the site, correctly close out the timer
   useEffect(() => {
     return () => {
@@ -47,10 +61,10 @@ const Function = ({ route, children }: FunctionProps) => {
   return (
     <Fn
       onMouseEnter={() => {
-        setHover(true);
+        handleHoverState(true);
       }}
       onMouseLeave={() => {
-        setHover(false);
+        handleHoverState(false);
       }}
       onClick={() => {
         submitGA();
@@ -66,7 +80,7 @@ const Function = ({ route, children }: FunctionProps) => {
       aria-label={`View ${route.name.split('_').join(' ')} section`}
     >
       <FunctionDef
-        isShown={isHover || isOpen}
+        isShown={opaqueFnDef()}
         fnName={route.name}
         paramPrefix={route.paramPrefix}
         hideCompletely={false}
