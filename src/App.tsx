@@ -10,56 +10,11 @@ import useDarkMode from './styles/use-theme';
 
 import './App.css';
 
-// Font Awesome Setup
-import { library } from '@fortawesome/fontawesome-svg-core';
-import {
-  faLongArrowAltRight,
-  faEnvelope,
-  faEnvelopeOpen,
-  faUserPlus,
-  faExclamationCircle,
-  faSpinner,
-  faCheckCircle,
-  faTimesCircle,
-  faTimes,
-  faCode,
-  faDesktop,
-  faChevronLeft,
-  faChevronRight,
-  faCircle as filledCircle,
-  faLightbulb as solidLightbulb,
-} from '@fortawesome/free-solid-svg-icons';
-import {
-  faLightbulb,
-  faNewspaper,
-  faCircle as emptyCircle,
-} from '@fortawesome/free-regular-svg-icons';
-import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import useGreeting from './storage/use-greeting';
 import Loading from './atoms/loading/loading.component';
+import setupFontAwesome from './setupFontAwesome';
 
-library.add(
-  faLongArrowAltRight,
-  faEnvelopeOpen,
-  faGithub,
-  faEnvelope,
-  faLinkedin,
-  faUserPlus,
-  faLightbulb,
-  faExclamationCircle,
-  faSpinner,
-  faCheckCircle,
-  faTimesCircle,
-  faTimes,
-  faCode,
-  faDesktop,
-  faChevronRight,
-  faChevronLeft,
-  solidLightbulb,
-  faNewspaper,
-  filledCircle,
-  emptyCircle
-);
+setupFontAwesome();
 
 const Greeting = lazy(() => import('./organisms/greeting/greeting.component'));
 const Header = lazy(() => import('./organisms/header/header.component'));
@@ -95,13 +50,13 @@ const App = () => {
         <GlobalStyles />
         <Header toggleTheme={toggleTheme} />
         {isMobile ? null : (
-          <SocialBar isHidden={false} setIsHidden={() => {}} />
+          <SocialBar isHidden={false} setIsHidden={() => { }} />
         )}
         {shouldShowGreeting === true ? (
           <Greeting setGreetingShown={greetingHasBeenShown} />
         ) : (
-          <Main />
-        )}
+            <Main />
+          )}
         <Footer />
       </Suspense>
     </ThemeProvider>
