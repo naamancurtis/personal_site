@@ -62,6 +62,8 @@ const Function = ({ route, children }: FunctionProps) => {
         }
       }}
       className={isOpen ? 'is-open' : ''}
+      role="button"
+      aria-label={`View ${route.name.split('_').join(' ')} section`}
     >
       <FunctionDef
         isShown={isHover || isOpen}

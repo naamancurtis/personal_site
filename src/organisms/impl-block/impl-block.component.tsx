@@ -16,6 +16,8 @@ import {
 import Function from '../function/function.component';
 import { Route } from '../../models/route';
 
+import debounce from 'lodash.debounce';
+
 const AboutMe = lazy(() => import('../../pages/about-me/about-me.component'));
 const ProjectPage = lazy(() =>
   import('../../pages/projects/projects.component')
@@ -65,11 +67,22 @@ const ImplBlock = () => {
     const resizeHandler = () => {
       const width = wrapperRef!.getBoundingClientRect().width;
       const fontSize = width / 21.8; // Seems to be the golden number
-      headingWrapper.current!.style.fontSize = `${fontSize}px`;
-      closingCurly.current!.style.fontSize = `${fontSize}px`;
+      if (fontSize >= 1) {
+        headingWrapper.current!.style.fontSize = `${fontSize}px`;
+        closingCurly.current!.style.fontSize = `${fontSize}px`;
+      } else {
+        // Annoying, but sometimes the function can run before the render
+        // has finished, resulting in a 0 font size
+        // in this case, recursively call the function on a timeout
+        setTimeout(() => {
+          resizeHandler();
+        }, 50);
+      }
     };
 
-    window.addEventListener('resize', resizeHandler, { passive: true });
+    const debouncedHandler = debounce(resizeHandler, 50);
+
+    window.addEventListener('resize', debouncedHandler, { passive: true });
 
     TweenLite.from('.route', {
       opacity: 0,
@@ -82,11 +95,9 @@ const ImplBlock = () => {
       resizeHandler();
     }, 25);
     return () => {
-      window.removeEventListener('resize', resizeHandler);
+      window.removeEventListener('resize', debouncedHandler);
     };
   });
-
-  useEffect(() => {});
 
   return (
     <ImplBlockWrapper ref={wrapper}>

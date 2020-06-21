@@ -17,9 +17,11 @@ type BaseIconProps = {
 const BaseIcon = ({ url, icon, name }: BaseIconProps) => (
   <SocialWrapperWithLabel className="clickable">
     <IconWrapper
+      role="button"
       href={url}
       target="_blank"
       className="clickable"
+      aria-label={`Link to ${name}`}
       onClick={() => {
         ReactGA.event({
           category: 'Investigate',
@@ -52,7 +54,11 @@ export const MailIcon = ({ openModal }: MailIconProps) => (
       ReactGA.modalview('/contact-me');
     }}
   >
-    <IconWrapper className="clickable">
+    <IconWrapper
+      className="clickable"
+      role="button"
+      aria-label="Open Contact Me Modal"
+    >
       <FontAwesomeIcon className="clickable" icon={['fas', 'envelope']} />
     </IconWrapper>
   </SocialWrapperWithLabel>

@@ -11,6 +11,7 @@ import ThemeToggleButton from '../../atoms/theme-toggle-button/theme-toggler-but
 import Logo from '../../atoms/logo/logo.component';
 import { GLOBAL_MEDIA_QUERIES } from '../../styles/media';
 import SocialBar from '../../molecules/social-bar/social-bar.component';
+import debounce from 'lodash.debounce';
 
 type HeaderProps = { toggleTheme: () => void };
 
@@ -36,12 +37,15 @@ const Header = ({ toggleTheme }: HeaderProps) => {
     }
   };
 
+  const debouncedHandler = debounce(handleScroll, 50);
+
   // Set up listener
   useEffect(() => {
-    window.addEventListener('scroll', handleScroll, { passive: true });
+    window.addEventListener('scroll', debouncedHandler, { passive: true });
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('scroll', debouncedHandler);
     };
+    // eslint-disable-next-line
   }, []);
 
   return (
@@ -53,7 +57,7 @@ const Header = ({ toggleTheme }: HeaderProps) => {
           setIsHidden={setSocialDraw}
         />
       ) : null}
-      <StyledHeader ref={self}>
+      <StyledHeader ref={self} role="banner">
         <Logo />
         <HeaderIconsWrapper>
           {isMobile ? (

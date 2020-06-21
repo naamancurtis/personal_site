@@ -17,7 +17,7 @@ const Main = () => {
   }, [self]);
 
   return (
-    <MainWrapper ref={self}>
+    <MainWrapper ref={self} role="main">
       <ImplBlock />
     </MainWrapper>
   );

@@ -30,6 +30,9 @@ export const NextButton = styled.button`
   cursor: pointer;
   overflow: visible;
   z-index: 50;
+  &:focus {
+    outline: none;
+  }
 `;
 
 export const CardStackWrapper = styled.div`

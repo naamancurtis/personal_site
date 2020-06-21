@@ -90,13 +90,21 @@ const ProjectPage = () => {
   return (
     <PageWrapper>
       <ProjectWrapper>
-        <NextButton onClick={() => movePointer(-1)}>
+        <NextButton
+          onClick={() => movePointer(-1)}
+          role="button"
+          aria-label="Move to previous project"
+        >
           <StyledArrow icon={['fas', 'chevron-left']} />
         </NextButton>
         <CardStackWrapper {...handlers}>
           <Card ref={currentCard} project={PROJECTS[currentCardPointer]} />
         </CardStackWrapper>
-        <NextButton onClick={() => movePointer(1)}>
+        <NextButton
+          onClick={() => movePointer(1)}
+          role="button"
+          aria-label="Move to next project"
+        >
           <StyledArrow icon={['fas', 'chevron-right']} />
         </NextButton>
       </ProjectWrapper>
@@ -108,6 +116,8 @@ const ProjectPage = () => {
             <StyledCircle
               key={i}
               icon={['far', 'circle']}
+              role="button"
+              aria-label={`Move to project ${i + 1}`}
               onClick={() => movePointer(null, i)}
             />
           )

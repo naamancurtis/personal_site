@@ -23,7 +23,7 @@ const ThemeToggleButton = ({ toggleTheme }: ThemeTogglerButtonProps) => {
           type="checkbox"
           checked={theme === 'dark'}
           onChange={() => toggleTheme()}
-          aria-label="toggle color theme"
+          aria-label="toggle website color theme"
         />
         <ToggleSwitchLabel htmlFor="toggle-theme">
           <IconWrapper className={`${theme === 'dark' ? 'dark' : ''}`}>

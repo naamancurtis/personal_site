@@ -17,6 +17,7 @@ const Button = ({ text, icon, buttonClicked }: ButtonProps) => {
         buttonClicked();
       }}
       className="clickable"
+      role="button"
     >
       <ButtonIcon>
         <FontAwesomeIcon
