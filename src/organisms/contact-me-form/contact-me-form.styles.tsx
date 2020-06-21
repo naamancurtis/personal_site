@@ -6,11 +6,11 @@ import {
 } from '../../styles/neumorphic';
 
 export const Form = styled.form`
-  height: 100%;
+  height: max-content;
   width: 90%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: start;
   align-items: center;
 `;
 
@@ -64,7 +64,8 @@ export const FormInput = styled.input`
   ${defaultBoxShadowCss}
 
   &:focus {
-    ${indentBoxShadowCss}
+    ${indentBoxShadowCss};
+    outline: none;
   }
 `;
 
@@ -81,7 +82,8 @@ export const FormTextArea = styled.textarea`
   ${defaultBoxShadowCss}
 
   &:focus {
-    ${indentBoxShadowCss}
+    ${indentBoxShadowCss};
+    outline: none;
   }
 `;
 

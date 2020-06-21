@@ -27,7 +27,7 @@ export type ContactMeFormMessage = {
 };
 
 const ContactMeForm = () => {
-  const { register, watch, handleSubmit, errors } = useForm<
+  const { register, watch, handleSubmit, errors, reset } = useForm<
     ContactMeFormMessage
   >();
 
@@ -42,19 +42,33 @@ const ContactMeForm = () => {
       ...data,
     });
 
-    if (response.status === 200) {
-      setState(FormStatus.SUCCESS);
-      ReactGA.event({
-        category: 'API',
-        action: 'Contact Me Success',
-      });
-    } else {
+    const failSubmission = () => {
       setState(FormStatus.FAILED);
 
       ReactGA.event({
         category: 'API',
         action: 'Contact Me Failure',
       });
+    };
+
+    const timer = setTimeout(() => {
+      failSubmission();
+    }, 7000);
+
+    if (response.status === 200) {
+      clearTimeout(timer);
+      setState(FormStatus.SUCCESS);
+      ReactGA.event({
+        category: 'API',
+        action: 'Contact Me Success',
+      });
+      setTimeout(() => {
+        reset();
+        setState(FormStatus.IN_PROGRESS);
+      }, 4000);
+    } else {
+      clearTimeout(timer);
+      failSubmission();
     }
   };
 

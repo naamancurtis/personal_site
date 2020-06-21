@@ -29,7 +29,7 @@ export const StyledModal = styled(Modal)`
     top: 20px;
     width: 50%;
     left: 25%;
-    height: 70%;
+    height: max-content;
   `}
 `;
 

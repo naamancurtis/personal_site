@@ -2,25 +2,21 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { IconProp } from '@fortawesome/fontawesome-svg-core';
 import { SubmitButton, ButtonText, ButtonIcon } from './submit-button.styles';
-import ReactGA from 'react-ga';
 
-type ButtonProps = {
+interface ButtonProps {
   text: string;
   icon: IconProp;
   buttonClicked: () => void;
-};
+}
 
 const Button = ({ text, icon, buttonClicked }: ButtonProps) => {
   return (
     <SubmitButton
-      onClick={() => {
+      onClick={(e) => {
+        e.preventDefault();
         buttonClicked();
-        ReactGA.event({
-          category: 'User',
-          action: 'Clicked to Contact Me',
-          label: 'Form Submission was Attempted',
-        });
       }}
+      className="clickable"
     >
       <ButtonIcon>
         <FontAwesomeIcon
