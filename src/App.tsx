@@ -14,7 +14,17 @@ import useGreeting from './storage/use-greeting';
 import Loading from './atoms/loading/loading.component';
 import setupFontAwesome from './setupFontAwesome';
 
+import { gsap } from 'gsap';
+import { CSSPlugin } from 'gsap/CSSPlugin';
+
+// Set up Font Awesome
+
 setupFontAwesome();
+
+// Set up Gsap (Need to stop the tree shaking from removing it)
+gsap.registerPlugin(CSSPlugin);
+
+// Lazy Load Components
 
 const Greeting = lazy(() => import('./organisms/greeting/greeting.component'));
 const Header = lazy(() => import('./organisms/header/header.component'));
@@ -50,13 +60,13 @@ const App = () => {
         <GlobalStyles />
         <Header toggleTheme={toggleTheme} />
         {isMobile ? null : (
-          <SocialBar isHidden={false} setIsHidden={() => { }} />
+          <SocialBar isHidden={false} setIsHidden={() => {}} />
         )}
         {shouldShowGreeting === true ? (
           <Greeting setGreetingShown={greetingHasBeenShown} />
         ) : (
-            <Main />
-          )}
+          <Main />
+        )}
         <Footer />
       </Suspense>
     </ThemeProvider>

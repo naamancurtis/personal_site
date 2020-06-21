@@ -31,11 +31,11 @@ export const ImplBlockLineItem = styled.div`
 
 export const ImplBlockHeader = styled.h2`
   display: inline-block;
+  width: 100%;
   white-space: nowrap;
-  font-size: 3em;
+  font-size: 100%;
   opacity: 1;
   align-self: start;
-  width: max-content;
   margin-bottom: 0.5rem;
 `;
 

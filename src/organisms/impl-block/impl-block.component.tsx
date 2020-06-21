@@ -1,5 +1,4 @@
 import React, { useRef, useEffect, lazy } from 'react';
-import fitty from 'fitty';
 import { TweenLite } from 'gsap';
 import {
   ImplBlockWrapper,
@@ -53,34 +52,24 @@ const ROUTES: Route[] = [
   },
 ];
 
-interface FittyEvent {
-  detail: {
-    newValue: number;
-  };
-}
-
 const ImplBlock = () => {
-  const wrapper = useRef<HTMLHeadingElement | null>(null);
+  const wrapper = useRef<HTMLDivElement | null>(null);
+  const headingWrapper = useRef<HTMLHeadingElement | null>(null);
   const closingCurly = useRef<HTMLSpanElement | null>(null);
 
   useEffect(() => {
-    if (!wrapper || !closingCurly) return;
+    if (!wrapper || !headingWrapper || !closingCurly) return;
 
     const wrapperRef = wrapper!.current;
 
-    const fitText = fitty(wrapperRef!);
-
-    const resizeClosingCurly = (e: FittyEvent) => {
-      const size = e.detail.newValue;
-      closingCurly!.current!.style.fontSize = `${size}px`;
+    const resizeHandler = () => {
+      const width = wrapperRef!.getBoundingClientRect().width;
+      const fontSize = width / 21.8; // Seems to be the golden number
+      headingWrapper.current!.style.fontSize = `${fontSize}px`;
+      closingCurly.current!.style.fontSize = `${fontSize}px`;
     };
 
-    // Not able to find any typings for fitty.js
-    // @ts-ignore
-    wrapperRef!.addEventListener('fit', resizeClosingCurly);
-
-    // Force a fit as there was some unexpected behaviour
-    fitText.fit();
+    window.addEventListener('resize', resizeHandler, { passive: true });
 
     TweenLite.from('.route', {
       opacity: 0,
@@ -89,16 +78,19 @@ const ImplBlock = () => {
       stagger: 0.2,
     });
 
+    setTimeout(() => {
+      resizeHandler();
+    }, 25);
     return () => {
-      fitText.unsubscribe();
-      // @ts-ignore
-      wrapperRef.removeEventListener('fit', resizeClosingCurly);
+      window.removeEventListener('resize', resizeHandler);
     };
   });
 
+  useEffect(() => {});
+
   return (
-    <ImplBlockWrapper>
-      <ImplBlockHeader ref={wrapper}>
+    <ImplBlockWrapper ref={wrapper}>
+      <ImplBlockHeader ref={headingWrapper}>
         <Keyword>impl &nbsp;</Keyword>
         <Trait>SoftwareEngineer &nbsp;</Trait>
         <Keyword>for &nbsp;</Keyword>
