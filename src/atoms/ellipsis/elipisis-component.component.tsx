@@ -104,7 +104,7 @@ const SvgEllipsis = ({ hideComponent }: EllipsisProps) => {
       ref={self}
     >
       <defs>
-        <clipPath id="elipisis_svg__a">
+        <clipPath>
           <path d="M660 355.664h21.784v5H660z" />
         </clipPath>
       </defs>

@@ -47,9 +47,9 @@ export const lightTheme: Theme = {
   text: '#4C5D75',
 
   // Text Highlighting
-  type: '#5698F5',
+  type: '#294975',
   keyword: '#2d3436',
-  trait: '#294975',
+  trait: '#22AAA1',
   fnDef: '#F57D6E',
   params: '#4478C2',
   return: '#4478C2',
@@ -57,7 +57,7 @@ export const lightTheme: Theme = {
   underlineStart: '#ECA677',
   underlineEnd: '#6D62DF',
 
-  error: '#E63A57',
+  error: '#ED6A5A',
   success: '#188D4F',
 
   contrastBody: _dark_theme.body,

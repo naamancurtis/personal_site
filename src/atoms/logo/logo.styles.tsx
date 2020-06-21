@@ -3,6 +3,7 @@ import styled from 'styled-components';
 export const LogoWrapper = styled.div`
   display: flex;
   align-items: center;
+  margin-bottom: 4px;
 `;
 
 export const Name = styled.span`

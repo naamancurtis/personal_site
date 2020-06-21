@@ -31,9 +31,6 @@ export const StyledHeader = styled.div`
 
 export const HeaderIconsWrapper = styled.div`
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  min-width: 200px;
 
   ${media.tablet`
     justify-content: flex-end;
@@ -49,6 +46,7 @@ export const HeaderIconWrapper = styled.div`
   cursor: pointer;
   font-size: 1rem;
   border-radius: 5px;
+  margin-right: 2rem;
 
   &.is-open {
     ${indentBoxShadowCss}
