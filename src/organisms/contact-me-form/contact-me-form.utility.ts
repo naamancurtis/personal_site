@@ -43,16 +43,13 @@ const _UPDATE_BUTTON_MESSAGE = (status: FormStatus): ButtonMessage => {
   }
 };
 
-const _UPDATE_MESSAGE = (
-  status: FormStatus,
-  message?: string
-): string | null | undefined => {
+const _UPDATE_MESSAGE = (status: FormStatus): string | null | undefined => {
   if (status !== FormStatus.FAILED && status !== FormStatus.SUCCESS)
     return null;
   if (status === FormStatus.FAILED) {
     return 'There appears to have been an error in sending the message, please try again. \n\n If the error persists please try and contact me on one of my social accounts.';
   }
-  return message;
+  return `Thanks for your message, I'll endeavor to respond within 48 hours.`;
 };
 
 export type FormState = {
@@ -62,13 +59,10 @@ export type FormState = {
   buttonMessage: ButtonMessage;
 };
 
-export const UPDATE_STATE = (
-  status: FormStatus,
-  newMessage?: string
-): FormState => {
+export const UPDATE_STATE = (status: FormStatus): FormState => {
   const button = _UPDATE_BUTTON(status);
   const buttonMessage = _UPDATE_BUTTON_MESSAGE(status);
-  const message = _UPDATE_MESSAGE(status, newMessage);
+  const message = _UPDATE_MESSAGE(status);
   return {
     status,
     button,

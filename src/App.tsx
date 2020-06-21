@@ -17,12 +17,23 @@ import setupFontAwesome from './setupFontAwesome';
 import { gsap } from 'gsap';
 import { CSSPlugin } from 'gsap/CSSPlugin';
 
+import ReactGA from 'react-ga';
+
 // Set up Font Awesome
 
 setupFontAwesome();
 
 // Set up Gsap (Need to stop the tree shaking from removing it)
 gsap.registerPlugin(CSSPlugin);
+
+// Google Analytics
+
+ReactGA.initialize('UA-170181531-1', {
+  gaOptions: {
+    siteSpeedSampleRate: 100,
+  },
+});
+ReactGA.pageview('/');
 
 // Lazy Load Components
 

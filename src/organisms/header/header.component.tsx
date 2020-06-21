@@ -39,7 +39,9 @@ const Header = ({ toggleTheme }: HeaderProps) => {
   // Set up listener
   useEffect(() => {
     window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
   }, []);
 
   return (

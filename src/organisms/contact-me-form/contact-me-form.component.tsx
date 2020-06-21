@@ -18,6 +18,7 @@ import {
   UPDATE_STATE,
 } from './contact-me-form.utility';
 import FormError from '../../atoms/form-error/form-error.component';
+import ReactGA from 'react-ga';
 
 export type ContactMeFormMessage = {
   name: string;
@@ -32,8 +33,7 @@ const ContactMeForm = () => {
 
   const [state, updateState] = useState(UPDATE_STATE(FormStatus.IN_PROGRESS));
 
-  const setState = (status: FormStatus, message?: string) =>
-    updateState(UPDATE_STATE(status, message));
+  const setState = (status: FormStatus) => updateState(UPDATE_STATE(status));
 
   const onSubmit = async (data: ContactMeFormMessage) => {
     setState(FormStatus.SUBMITTED);
@@ -43,9 +43,18 @@ const ContactMeForm = () => {
     });
 
     if (response.status === 200) {
-      setState(FormStatus.SUCCESS, response.data);
+      setState(FormStatus.SUCCESS);
+      ReactGA.event({
+        category: 'API',
+        action: 'Contact Me Success',
+      });
     } else {
       setState(FormStatus.FAILED);
+
+      ReactGA.event({
+        category: 'API',
+        action: 'Contact Me Failure',
+      });
     }
   };
 
