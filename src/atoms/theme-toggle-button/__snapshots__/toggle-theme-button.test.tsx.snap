@@ -4,6 +4,7 @@ exports[`<ThemeToggleButton /> expect to render component 1`] = `
 <div>
   <styled.div>
     <styled.input
+      aria-label="toggle website color theme"
       checked={false}
       id="toggle-theme"
       onChange={[Function]}

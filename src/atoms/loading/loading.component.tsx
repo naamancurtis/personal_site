@@ -2,7 +2,7 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { LoadingWrapper, LoadingText } from './loading.styles';
 
-const Loading = () => {
+export const Loading = () => {
   return (
     <LoadingWrapper>
       <FontAwesomeIcon icon={['fas', 'spinner']} className="fa-pulse" />
@@ -11,4 +11,12 @@ const Loading = () => {
   );
 };
 
-export default Loading;
+export const LoadingFailure = () => {
+  return (
+    <LoadingWrapper>
+      <FontAwesomeIcon icon={['fas', 'robot']} />
+      <LoadingText>Loading has failed, please reload.</LoadingText>
+    </LoadingWrapper>
+  );
+};
+

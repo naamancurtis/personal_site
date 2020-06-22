@@ -8,6 +8,7 @@ exports[`<GitHubIcon /> expect to render component 1`] = `
       "github",
     ]
   }
+  name="GitHub"
   url="https://github.com/naamancurtis"
 />
 `;
@@ -20,6 +21,7 @@ exports[`<LinkedInIcon /> expect to render component 1`] = `
       "linkedin",
     ]
   }
+  name="LinkedIn"
   url="https://www.linkedin.com/in/naamancurtis/"
 />
 `;
@@ -30,7 +32,9 @@ exports[`<MailIcon /> expect to render component 1`] = `
   onClick={[Function]}
 >
   <styled.a
+    aria-label="Open Contact Me Modal"
     className="clickable"
+    role="button"
   >
     <FontAwesomeIcon
       border={false}

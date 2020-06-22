@@ -14,6 +14,7 @@ import {
   faDesktop,
   faChevronLeft,
   faChevronRight,
+  faRobot,
   faCircle as filledCircle,
   faLightbulb as solidLightbulb,
 } from '@fortawesome/free-solid-svg-icons';
@@ -25,26 +26,28 @@ import {
 import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 
 export default function setupFontAwesome() {
-    library.add(
-        faLongArrowAltRight,
-        faEnvelopeOpen,
-        faGithub,
-        faEnvelope,
-        faLinkedin,
-        faUserPlus,
-        faLightbulb,
-        faExclamationCircle,
-        faSpinner,
-        faCheckCircle,
-        faTimesCircle,
-        faTimes,
-        faCode,
-        faDesktop,
-        faChevronRight,
-        faChevronLeft,
-        solidLightbulb,
-        faNewspaper,
-        filledCircle,
-        emptyCircle
-      );
+  library.add(
+    faLongArrowAltRight,
+    faEnvelopeOpen,
+    faGithub,
+    faRobot,
+    faEnvelope,
+    faLinkedin,
+    faUserPlus,
+    faLightbulb,
+    faExclamationCircle,
+    faSpinner,
+    faCheckCircle,
+    faTimesCircle,
+    faTimes,
+    faCode,
+    faDesktop,
+    faChevronRight,
+    faChevronLeft,
+    solidLightbulb,
+    faNewspaper,
+    filledCircle,
+    emptyCircle
+  );
 }
+

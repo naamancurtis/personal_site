@@ -11,13 +11,14 @@ import useDarkMode from './styles/use-theme';
 import './App.css';
 
 import useGreeting from './storage/use-greeting';
-import Loading from './atoms/loading/loading.component';
+import { Loading } from './atoms/loading/loading.component';
 import setupFontAwesome from './setupFontAwesome';
 
 import { gsap } from 'gsap';
 import { CSSPlugin } from 'gsap/CSSPlugin';
 
 import ReactGA from 'react-ga';
+import ErrorBoundary from './atoms/error-boundary.component';
 
 // Set up Font Awesome
 
@@ -67,19 +68,21 @@ const App = () => {
 
   return (
     <ThemeProvider theme={themeMode}>
-      <Suspense fallback={<Loading />}>
-        <GlobalStyles />
-        <Header toggleTheme={toggleTheme} />
-        {isMobile ? null : (
-          <SocialBar isHidden={false} setIsHidden={() => {}} />
-        )}
-        {shouldShowGreeting === true ? (
-          <Greeting setGreetingShown={greetingHasBeenShown} />
-        ) : (
-          <Main />
-        )}
-        <Footer />
-      </Suspense>
+      <GlobalStyles />
+      <Header toggleTheme={toggleTheme} />
+      <ErrorBoundary>
+        <Suspense fallback={<Loading />}>
+          {isMobile ? null : (
+            <SocialBar isHidden={false} setIsHidden={() => {}} />
+          )}
+          {shouldShowGreeting === true ? (
+            <Greeting setGreetingShown={greetingHasBeenShown} />
+          ) : (
+            <Main />
+          )}
+        </Suspense>
+      </ErrorBoundary>
+      <Footer />
     </ThemeProvider>
   );
 };

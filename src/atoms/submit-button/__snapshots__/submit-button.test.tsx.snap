@@ -2,7 +2,9 @@
 
 exports[`<SubmitButton /> expect to render component 1`] = `
 <styled.button
+  className="clickable"
   onClick={[Function]}
+  role="button"
 >
   <styled.span>
     <FontAwesomeIcon
