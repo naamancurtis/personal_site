@@ -1,0 +1,3 @@
+[submodule "mail-client"]
+	path = mail-client
+	url = git@github.com:naamancurtis/personal_site_email_client.git
