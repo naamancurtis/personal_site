@@ -6,11 +6,11 @@ import Modal from 'react-modal';
 import GlobalStyles from './styles/global';
 import { darkTheme, lightTheme } from './styles/theme';
 import { GLOBAL_MEDIA_QUERIES } from './styles/media';
-import useDarkMode from './styles/use-theme';
+import useDarkMode from './hooks/use-theme.hook';
 
 import './App.css';
 
-import useGreeting from './storage/use-greeting';
+import useGreeting from './hooks/use-greeting.hook';
 import { Loading } from './atoms/loading/loading.component';
 import setupFontAwesome from './setupFontAwesome';
 
@@ -18,7 +18,11 @@ import { gsap } from 'gsap';
 import { CSSPlugin } from 'gsap/CSSPlugin';
 
 import ReactGA from 'react-ga';
-import ErrorBoundary from './atoms/error-boundary.component';
+import ErrorBoundary from './atoms/error-boundary/error-boundary.component';
+
+import Header from './organisms/header/header.component';
+import Footer from './molecules/footer/footer.component';
+import ServiceWorkerWrapper from './molecules/service-worker-wrapper/service-worker-wrapper.component';
 
 // Set up Font Awesome
 
@@ -39,8 +43,6 @@ ReactGA.pageview('/');
 // Lazy Load Components
 
 const Greeting = lazy(() => import('./organisms/greeting/greeting.component'));
-const Header = lazy(() => import('./organisms/header/header.component'));
-const Footer = lazy(() => import('./molecules/footer/footer.component'));
 const Main = lazy(() => import('./templates/main/main.component'));
 const SocialBar = lazy(() =>
   import('./molecules/social-bar/social-bar.component')
@@ -50,28 +52,37 @@ const SocialBar = lazy(() =>
 
 Modal.setAppElement('#root');
 
+// Error Handling
+
+const renderLoader = () => <Loading />;
+
 // App Starts Here
 
 const App = () => {
+  // App Theming
   const [theme, toggleTheme, mountedComponent] = useDarkMode();
   const themeMode = theme === 'dark' ? darkTheme : lightTheme;
 
+  // Initial Greeting Animation
   const [
     shouldShowGreeting,
     greetingHasBeenShown,
     readyToMount,
   ] = useGreeting();
 
+  // Adaptive Design for Mobile
   const isMobile = useMedia({ query: GLOBAL_MEDIA_QUERIES.mobile });
 
+  // If we're not ready to render, just render an empty div
   if (!mountedComponent || !readyToMount) return <div />;
 
   return (
     <ThemeProvider theme={themeMode}>
       <GlobalStyles />
       <Header toggleTheme={toggleTheme} />
+      <ServiceWorkerWrapper />
       <ErrorBoundary>
-        <Suspense fallback={<Loading />}>
+        <Suspense fallback={renderLoader()}>
           {isMobile ? null : (
             <SocialBar isHidden={false} setIsHidden={() => {}} />
           )}
@@ -88,3 +99,4 @@ const App = () => {
 };
 
 export default App;
+
