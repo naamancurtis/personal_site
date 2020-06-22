@@ -48,7 +48,7 @@ const AboutMe = ({ isOpen }: AboutMeProps) => {
       </AboutMeParagraph>
       <br />
       <AboutMeParagraph className="about-me-text">
-        Both passionate and enthuastic, I enjoy taking on challenges and
+        Both passionate and enthusiastic, I enjoy taking on challenges and
         finding&nbsp;
         <Underline>innovative solutions</Underline>, always keeping sight of the
         longer term vision and ambition of the project.

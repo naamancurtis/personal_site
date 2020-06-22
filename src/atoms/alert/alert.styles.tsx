@@ -11,7 +11,7 @@ export const StyledBanner = styled.div`
   top: 85px;
   position: relative;
   width: 100%;
-  height: 40px;
+  height: max-content;
   color: ${({ theme }) => theme.text};
   display: flex;
   justify-content: space-between;
@@ -31,6 +31,7 @@ export const StyledBanner = styled.div`
 export const Message = styled.p`
   font-size: 1.1em;
   margin-left: 2rem;
+  padding: 0.5rem;
 `;
 
 export const AlertButton = styled.button`
@@ -45,6 +46,7 @@ export const AlertButton = styled.button`
   border: none;
   outline: none;
   border-radius: 0 10px 10px 0;
+  padding: 0.5rem;
 
   ${defaultBoxShadowCss};
 

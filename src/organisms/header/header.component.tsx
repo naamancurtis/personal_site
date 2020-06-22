@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useMedia } from 'react-media';
 
+import debounce from 'lodash.debounce';
 import {
   StyledHeader,
   HeaderIconWrapper,
@@ -11,7 +12,6 @@ import ThemeToggleButton from '../../atoms/theme-toggle-button/theme-toggler-but
 import Logo from '../../atoms/logo/logo.component';
 import { GLOBAL_MEDIA_QUERIES } from '../../styles/media';
 import SocialBar from '../../molecules/social-bar/social-bar.component';
-import debounce from 'lodash.debounce';
 
 type HeaderProps = { toggleTheme: () => void };
 

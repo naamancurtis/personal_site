@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import axios from 'axios';
 
+import ReactGA from 'react-ga';
 import {
   Form,
   FormInput,
@@ -18,7 +19,6 @@ import {
   UPDATE_STATE,
 } from './contact-me-form.utility';
 import FormError from '../../atoms/form-error/form-error.component';
-import ReactGA from 'react-ga';
 
 export type ContactMeFormMessage = {
   name: string;
@@ -57,11 +57,13 @@ const ContactMeForm = () => {
 
     if (response.status === 200) {
       clearTimeout(timer);
+
       setState(FormStatus.SUCCESS);
       ReactGA.event({
         category: 'API',
         action: 'Contact Me Success',
       });
+
       setTimeout(() => {
         reset();
         setState(FormStatus.IN_PROGRESS);

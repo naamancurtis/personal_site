@@ -1,10 +1,10 @@
 import React, { useState, ReactElement, useEffect } from 'react';
+import ReactGA, { EventArgs } from 'react-ga';
+import { useMedia } from 'react-media';
 import { Fn } from './function.styles';
 import FunctionDef from '../../molecules/function-def/function-def.component';
 import FunctionResult from '../../molecules/function-result/function-result.component';
 import { Route } from '../../models/route';
-import ReactGA, { EventArgs } from 'react-ga';
-import { useMedia } from 'react-media';
 import { GLOBAL_MEDIA_QUERIES } from '../../styles/media';
 
 type FunctionProps = {

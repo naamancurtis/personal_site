@@ -1,5 +1,6 @@
 import React, { useRef, useEffect, lazy } from 'react';
 import { TweenLite } from 'gsap';
+import debounce from 'lodash.debounce';
 import {
   ImplBlockWrapper,
   ImplBlockHeader,
@@ -15,8 +16,6 @@ import {
 } from '../../atoms/function-types/function-types.styles';
 import Function from '../function/function.component';
 import { Route } from '../../models/route';
-
-import debounce from 'lodash.debounce';
 
 const AboutMe = lazy(() => import('../../pages/about-me/about-me.component'));
 const ProjectPage = lazy(() =>
@@ -65,7 +64,7 @@ const ImplBlock = () => {
     const wrapperRef = wrapper!.current;
 
     const resizeHandler = () => {
-      const width = wrapperRef!.getBoundingClientRect().width;
+      const { width } = wrapperRef!.getBoundingClientRect();
       const fontSize = width / 21.8; // Seems to be the golden number
       if (fontSize >= 1) {
         headingWrapper.current!.style.fontSize = `${fontSize}px`;
